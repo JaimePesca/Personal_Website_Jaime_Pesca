@@ -25,7 +25,7 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 
 ## Convenciones de contenido
 
-- Tercera persona siempre (nunca "yo"/"me"). Evitar pronombres de género: repetir "Jaime" o reformular.
+- Lo que habla de Jaime va en **primera persona** ("soy", "trabajé", "escríbeme"). El nombre completo solo aparece en títulos, `<title>` y meta descripciones.
 - Growth y Formación: tono vendedor, con CTA de botón. Investigación, Datos y el hub: tono informativo, humilde pero mostrando el valor.
 - Sin rayas largas ni medias (em dash, en dash) en el contenido; usar comas, dos puntos o "·".
 - Acento por página con clase en `<body>`: `p-research` (azul), `p-growth` (ámbar), `p-data` (verde), `p-teach` (violeta). Nuevos colores se agregan como tokens, nunca en línea.

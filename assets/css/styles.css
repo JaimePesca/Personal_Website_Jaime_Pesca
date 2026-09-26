@@ -1,5 +1,5 @@
 /* ============================================================
-   Jaime Pesca — sitio personal
+   Jaime Pesca · sitio personal
    Sistema de diseño: tokens en :root, modo oscuro automático.
    Cada página de perfil define su acento con una clase en <body>:
    .p-research | .p-growth | .p-data | .p-teach
@@ -14,10 +14,13 @@
   --line: #d9ded9;
 
   /* Acentos por perfil */
-  --c-research: #1f5673; /* azul petróleo — investigación & docencia */
-  --c-growth: #bf5a1c;   /* ámbar quemado — growth & media buying */
-  --c-data: #21705e;     /* viridiana — data science & consultoría */
-  --c-teach: #6a4fa5;    /* violeta — formación empresarial */
+  --c-research: #1f5673; /* azul petróleo: investigación & docencia */
+  --c-growth: #bf5a1c;   /* ámbar quemado: growth & media buying */
+  --c-data: #21705e;     /* viridiana: data science */
+  --c-teach: #6a4fa5;    /* violeta: formación empresarial */
+
+  /* Texto sobre un fondo de acento (botones) */
+  --on-accent: #ffffff;
 
   /* Acento activo (el hub usa el azul por defecto) */
   --accent: var(--c-research);
@@ -47,6 +50,7 @@
     --c-teach: #a992d6;
     --flag-bg: #3d3517;
     --flag-ink: #e3cd7b;
+    --on-accent: #141816;
   }
 }
 
@@ -63,6 +67,7 @@
   --c-teach: #a992d6;
   --flag-bg: #3d3517;
   --flag-ink: #e3cd7b;
+  --on-accent: #141816;
 }
 
 /* Acento por página */
@@ -73,6 +78,20 @@ body.p-teach    { --accent: var(--c-teach); }
 
 /* ---------- Base ---------- */
 * { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+/* Mientras carga la traducción (ver assets/js/i18n.js) */
+.i18n-pending body { visibility: hidden; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 
 html { height: 100%; }
 
@@ -170,6 +189,7 @@ button:focus-visible {
   display: flex;
   gap: 1.4rem;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 
 .nav-menu a {
@@ -189,10 +209,46 @@ button:focus-visible {
   border-bottom: 2px solid var(--accent);
 }
 
+/* Selector de idioma */
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+}
+
+.lang-switch svg { width: 16px; height: 16px; flex: none; }
+
+.lang-switch select {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.lang-switch select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 @media (max-width: 640px) {
   .nav-toggle { display: block; }
+  .nav-tools { margin-left: auto; }
   .nav-menu {
     display: none;
+    order: 3;
+    margin-left: 0;
     width: 100%;
     flex-direction: column;
     gap: 0.6rem;
@@ -226,6 +282,68 @@ button:focus-visible {
   color: var(--muted);
 }
 
+.hero .btn { margin-top: 2rem; }
+
+.hero .chip-row { margin-top: 1.8rem; }
+
+/* Héroe con foto (hub) */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* La foto va en images/; si no carga, se ven las iniciales */
+.portrait {
+  position: relative;
+  width: clamp(170px, 24vw, 250px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+}
+
+.portrait .initials {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: var(--accent);
+}
+
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  .hero-split { grid-template-columns: 1fr; gap: 1.8rem; }
+  .portrait { order: -1; width: 150px; }
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.3rem;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--on-accent);
+  transition: filter 0.15s ease;
+}
+
+.btn:hover { filter: brightness(0.92); }
+
 /* ---------- Secciones ---------- */
 .section { padding-block: 3.5rem; }
 
@@ -251,7 +369,8 @@ button:focus-visible {
 /* ---------- Tarjetas de perfil (hub) ---------- */
 .profile-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  /* 2 x 2 en escritorio, 1 columna en móvil */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 1.2rem;
 }
 
@@ -307,6 +426,11 @@ button:focus-visible {
   gap: 1.6rem 2.2rem;
 }
 
+/* Para 4 elementos: 2 x 2 en escritorio */
+.service-grid.pairs {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+}
+
 .service {
   border-top: 2px solid var(--line);
   padding-top: 1rem;
@@ -344,6 +468,47 @@ button:focus-visible {
 }
 
 .highlight-list span { color: var(--muted); font-size: 0.97rem; }
+
+/* Estado de una publicación (publicada, en revisión, en preparación) */
+.status {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 0.05rem 0.45rem;
+}
+
+.highlight-list .meta { font-size: 0.9rem; }
+
+/* ---------- Cifras destacadas ---------- */
+.stat-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1.2rem 2rem;
+}
+
+.stat-row li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-row strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.stat-row span { font-size: 0.95rem; color: var(--muted); max-width: 30ch; }
 
 /* ---------- Datos rápidos / stack ---------- */
 .chip-row {
@@ -384,11 +549,72 @@ button:focus-visible {
   word-break: break-all;
 }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.6rem;
+}
+
+/* En el bloque oscuro, el botón invierte colores */
+.cta .btn {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 /* ---------- Pie ---------- */
 .site-foot {
   border-top: 1px solid var(--line);
-  padding-block: 1.6rem 2.2rem;
+  padding-block: 2.2rem 2.2rem;
 }
+
+.foot-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.4rem 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+}
+
+.foot-id {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.foot-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* Redes sociales */
+.social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: 0.3rem;
+}
+
+.social a:hover { color: var(--accent); }
+
+.social svg { width: 18px; height: 18px; flex: none; }
 
 .foot-row {
   display: flex;
@@ -406,6 +632,6 @@ button:focus-visible {
 .foot-row a:hover { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
-  .profile-card { transition: none; }
+  .profile-card, .btn { transition: none; }
   .profile-card:hover { transform: none; }
 }

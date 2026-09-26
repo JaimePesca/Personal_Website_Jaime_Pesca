@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jaime Pesca Santos</title>
-  <meta name="description" content="Jaime Enrique Pesca Santos — investigador y docente, growth &amp; media buyer, data scientist y formador empresarial. Decisiones mejores con datos, de la academia al mercado.">
+  <meta name="description" content="Jaime Enrique Pesca Santos: industrial engineer and M.S. in Applied Analytics working across optimization research, growth and media buying, data science and corporate training." data-i18n-attr="content:home.meta.desc">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body class="p-home">
@@ -16,79 +17,153 @@
   <header class="site-head">
     <div class="wrap nav-row">
       <a class="brand" href="index.html">Jaime Pesca Santos</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menú</button>
-      <nav id="nav-menu" class="nav-menu" aria-label="Principal">
-        <a href="investigacion.html">Investigación</a>
-        <a href="growth.html">Growth</a>
-        <a href="datos.html">Datos</a>
-        <a href="formacion.html">Formación</a>
+      <nav id="nav-menu" class="nav-menu" aria-label="Main" data-i18n-attr="aria-label:nav.main">
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="growth.html" data-i18n="nav.growth">Growth</a>
+        <a href="data.html" data-i18n="nav.data">Data</a>
+        <a href="training.html" data-i18n="nav.training">Training</a>
       </nav>
+      <div class="nav-tools">
+        <label class="lang-switch" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+          <span class="visually-hidden" data-i18n="nav.language">Language</span>
+          <select data-lang-select></select>
+        </label>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" data-i18n="nav.menu">Menu</button>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">Investigación · Growth · Datos · Formación</span>
-        <h1>Jaime Enrique Pesca Santos</h1>
-        <p class="lede">Investigo, optimizo y enseño: de la investigación de operaciones a las campañas de medios, un mismo método para decidir con evidencia.</p>
+      <div class="wrap hero-split">
+        <div>
+          <span class="eyebrow" data-i18n="home.eyebrow">Research · Growth · Data · Training</span>
+          <h1>Jaime Enrique Pesca Santos</h1>
+          <p class="lede" data-i18n="home.lede">Optimization, data science and digital growth, connected by one habit: turning ambiguous problems into decisions backed by evidence.</p>
+          <div class="chip-row">
+            <span class="chip" data-i18n="home.fact.ms">M.S. Applied Analytics</span>
+            <span class="chip" data-i18n="home.fact.mit">MIT · Supply Chain Management</span>
+            <span class="chip" data-i18n="home.fact.lecturer">Lecturer · Universidad Externado</span>
+          </div>
+        </div>
+        <div class="portrait">
+          <span class="initials" aria-hidden="true">JP</span>
+          <img src="images/jaime-pesca.jpg" alt="Jaime Enrique Pesca Santos" width="800" height="800" onerror="this.hidden = true">
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Perfiles">
+    <section class="section" aria-label="Profiles" data-i18n-attr="aria-label:home.profiles">
       <div class="wrap">
         <div class="profile-grid">
-          <a class="profile-card card-research" href="investigacion.html">
-            <span class="eyebrow">Academia</span>
-            <h3>Investigación &amp; Docencia</h3>
-            <p>Investigación de operaciones aplicada a la gestión de incendios forestales y docencia universitaria en analítica y optimización.</p>
-            <span class="go">Ver perfil →</span>
+          <a class="profile-card card-research" href="research.html">
+            <span class="eyebrow" data-i18n="home.card.research.eyebrow">Academia</span>
+            <h3 data-i18n="home.card.research.title">Research &amp; Teaching</h3>
+            <p data-i18n="home.card.research.text">Optimization models for wildfire response, urban food access and air cargo, plus university teaching in analytics and optimization.</p>
+            <span class="go" data-i18n="home.card.go">View profile →</span>
           </a>
           <a class="profile-card card-growth" href="growth.html">
-            <span class="eyebrow">Marketing</span>
-            <h3>Growth &amp; Media Buying</h3>
-            <p>Estrategia de adquisición y compra de medios: campañas medibles que convierten presupuesto en crecimiento.</p>
-            <span class="go">Ver perfil →</span>
+            <span class="eyebrow" data-i18n="home.card.growth.eyebrow">Marketing</span>
+            <h3 data-i18n="home.card.growth.title">Growth &amp; Media Buying</h3>
+            <p data-i18n="home.card.growth.text">Paid media on Meta and Google run with a data scientist's rigor: measurable acquisition, built to scale.</p>
+            <span class="go" data-i18n="home.card.go">View profile →</span>
           </a>
-          <a class="profile-card card-data" href="datos.html">
-            <span class="eyebrow">Consultoría</span>
-            <h3>Data Science &amp; Consultoría</h3>
-            <p>Modelos, analítica y ciencia de datos aplicada a problemas reales de negocio, de la exploración al despliegue.</p>
-            <span class="go">Ver perfil →</span>
+          <a class="profile-card card-data" href="data.html">
+            <span class="eyebrow" data-i18n="home.card.data.eyebrow">Analytics</span>
+            <h3 data-i18n="home.card.data.title">Data Science</h3>
+            <p data-i18n="home.card.data.text">Machine learning, dashboards and large-scale optimization for banking, consumer goods, telecom and tech.</p>
+            <span class="go" data-i18n="home.card.go">View profile →</span>
           </a>
-          <a class="profile-card card-teach" href="formacion.html">
-            <span class="eyebrow">In-company</span>
-            <h3>Formación Empresarial</h3>
-            <p>Talleres y programas para equipos: datos, decisiones, marketing digital e inteligencia artificial aplicada al negocio.</p>
-            <span class="go">Ver perfil →</span>
+          <a class="profile-card card-teach" href="training.html">
+            <span class="eyebrow" data-i18n="home.card.training.eyebrow">In-company</span>
+            <h3 data-i18n="home.card.training.title">Corporate Training</h3>
+            <p data-i18n="home.card.training.text">Applied courses on analytics, experimentation and optimization for business teams and their leaders.</p>
+            <span class="go" data-i18n="home.card.go">View profile →</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Sobre mí">
+    <section class="section">
       <div class="wrap">
-        <h2>Un método, cuatro frentes</h2>
-        <p>Soy profesor e investigador en la Universidad de La Sabana y trabajo de forma independiente en growth marketing, ciencia de datos y formación para empresas. Lo que une los cuatro frentes es el mismo hábito: convertir un problema difuso en una decisión concreta, respaldada por datos. <span class="edit-tag">Editar bio</span></p>
+        <h2 data-i18n="home.about.title">About</h2>
+        <p data-i18n="home.about.p1">Jaime Enrique Pesca Santos is an industrial engineer from Universidad de La Sabana, where Jaime also earned an M.S. in Applied Analytics with distinction under a full research fellowship, and holds a Graduate Certificate in Logistics and Supply Chain Management from MIT. Jaime currently lectures on business analytics and optimization at Universidad Externado de Colombia.</p>
+        <p style="margin-top:1rem" data-i18n="home.about.p2">In more than four years of practice, Jaime has run paid media and growth analytics for companies in the United States, led data science consulting projects for organizations such as BBVA, Banco Santander, Alicorp and Claro, and built optimization models for Coca-Cola FEMSA. On the research side, that work has produced a peer-reviewed Springer publication and several working papers on location and logistics problems.</p>
+        <p style="margin-top:1rem" data-i18n="home.about.p3">Across every front, the same approach: listen carefully, measure honestly and keep learning from each result.</p>
       </div>
     </section>
 
-    <section class="cta" id="contacto">
+    <section class="section">
       <div class="wrap">
-        <h2>Hablemos</h2>
-        <p>¿Un proyecto de investigación, una campaña, un modelo o un taller para tu equipo? Escríbeme.</p>
-        <span class="mail">jaime.e.pesca.s@gmail.com</span>
+        <h2 data-i18n="home.edu.title">Education &amp; recognition</h2>
+        <ul class="highlight-list">
+          <li>
+            <strong data-i18n="home.edu.ms.title">M.S. in Applied Analytics · Universidad de La Sabana</strong>
+            <span data-i18n="home.edu.ms.text">2023 to 2026. Distinction-level grade average and a full merit research fellowship.</span>
+          </li>
+          <li>
+            <strong data-i18n="home.edu.mit.title">Graduate Certificate in Logistics and Supply Chain Management · MIT</strong>
+            <span data-i18n="home.edu.mit.text">2025 to 2026. Awarded a 50% merit scholarship.</span>
+          </li>
+          <li>
+            <strong data-i18n="home.edu.xpro.title">Professional Certificate in Data Science and Analytics · MIT xPRO</strong>
+            <span>2023</span>
+          </li>
+          <li>
+            <strong data-i18n="home.edu.bs.title">B.S. in Industrial Engineering · Universidad de La Sabana</strong>
+            <span data-i18n="home.edu.bs.text">2018 to 2022. Top national Saber Pro scores in Industrial Engineering.</span>
+          </li>
+          <li>
+            <strong data-i18n="home.edu.awards.title">Awards</strong>
+            <span data-i18n="home.edu.awards.text">Best Practitioner Award, Universidad de La Sabana (2023) · First place, Noel x Universidad de La Sabana Innovation Challenge (2023) · First place, ASME Impromptu Vehicle Design Competition (2021) · Third place in Latin America, ASME Management Skills Competition (2021).</span>
+          </li>
+          <li>
+            <strong data-i18n="home.edu.lang.title">Languages</strong>
+            <span data-i18n="home.edu.lang.text">Spanish (native) · English (C1, IELTS 7.0).</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <h2 data-i18n="home.cta.title">Get in touch</h2>
+        <p data-i18n="home.cta.text">For research collaborations, campaigns, data projects or team training, Jaime is available by email.</p>
+        <a class="mail" href="mailto:jaime.e.pesca.s@gmail.com">jaime.e.pesca.s@gmail.com</a>
       </div>
     </section>
   </main>
 
   <footer class="site-foot">
+    <div class="wrap foot-top">
+      <div class="foot-id">
+        <a class="brand" href="index.html">Jaime Pesca Santos</a>
+        <span class="foot-tag" data-i18n="foot.tagline">Research · Growth · Data · Training</span>
+      </div>
+      <ul class="social" aria-label="Social networks" data-i18n-attr="aria-label:foot.social">
+        <li>
+          <a href="https://www.linkedin.com/in/jaime-pesca" rel="me">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/JaimePesca" rel="me">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:jaime.e.pesca.s@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span data-i18n="foot.email">Email</span>
+          </a>
+        </li>
+      </ul>
+    </div>
     <div class="wrap foot-row">
       <span>© 2026 Jaime Enrique Pesca Santos</span>
-      <span>
-        <a href="https://github.com/JaimePesca">GitHub</a> ·
-        <a href="#contacto">LinkedIn <span class="edit-tag">Editar enlace</span></a>
-      </span>
     </div>
   </footer>
 

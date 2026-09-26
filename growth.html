@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Growth y Media Buying — Jaime Pesca Santos</title>
-  <meta name="description" content="Jaime Enrique Pesca Santos, growth marketer y media buyer: estrategia de adquisición, compra de medios y campañas medibles orientadas a resultados.">
+  <title data-i18n="growth.meta.title">Growth &amp; Media Buying · Jaime Pesca Santos</title>
+  <meta name="description" content="Jaime Enrique Pesca Santos, senior growth and media buyer: paid media on Meta and Google, measurement with GA4 and GTM, and campaigns built to scale." data-i18n-attr="content:growth.meta.desc">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body class="p-growth">
@@ -16,44 +17,62 @@
   <header class="site-head">
     <div class="wrap nav-row">
       <a class="brand" href="index.html">Jaime Pesca Santos</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menú</button>
-      <nav id="nav-menu" class="nav-menu" aria-label="Principal">
-        <a href="investigacion.html">Investigación</a>
-        <a href="growth.html" aria-current="page">Growth</a>
-        <a href="datos.html">Datos</a>
-        <a href="formacion.html">Formación</a>
+      <nav id="nav-menu" class="nav-menu" aria-label="Main" data-i18n-attr="aria-label:nav.main">
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="growth.html" aria-current="page" data-i18n="nav.growth">Growth</a>
+        <a href="data.html" data-i18n="nav.data">Data</a>
+        <a href="training.html" data-i18n="nav.training">Training</a>
       </nav>
+      <div class="nav-tools">
+        <label class="lang-switch" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+          <span class="visually-hidden" data-i18n="nav.language">Language</span>
+          <select data-lang-select></select>
+        </label>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" data-i18n="nav.menu">Menu</button>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero tinted">
       <div class="wrap">
-        <span class="eyebrow">Growth &amp; Media Buying</span>
-        <h1>Cada peso de pauta, una decisión medible.</h1>
-        <p class="lede">Estrategia de adquisición y compra de medios con el rigor de un analista: hipótesis, experimento, medición y escala.</p>
+        <span class="eyebrow" data-i18n="growth.eyebrow">Growth &amp; Media Buying</span>
+        <h1 data-i18n="growth.h1">Every ad dollar, a measurable decision.</h1>
+        <p class="lede" data-i18n="growth.lede">Media buying on Meta and Google, run by a data scientist: hypothesis, experiment, measurement and scale.</p>
+        <a class="btn" href="#contact" data-i18n="growth.cta.button">Request a growth plan</a>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <h2>Servicios</h2>
-        <div class="service-grid">
+        <ul class="stat-row">
+          <li><strong>4+</strong><span data-i18n="growth.stat.1">years in paid media, growth and data</span></li>
+          <li><strong data-i18n="growth.stat.2.value">U.S. + Intl.</strong><span data-i18n="growth.stat.2">markets served, including regulated industries</span></li>
+          <li><strong>Meta + Google</strong><span data-i18n="growth.stat.3">full-funnel campaigns, measured with GA4 and GTM</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 data-i18n="growth.services.title">Services</h2>
+        <div class="service-grid pairs">
           <div class="service">
-            <h3>Paid media</h3>
-            <p>Planeación, montaje y optimización de campañas en Meta, Google y TikTok Ads, orientadas a conversión y retorno.</p>
+            <h3 data-i18n="growth.services.1.title">Paid media</h3>
+            <p data-i18n="growth.services.1.text">Full-funnel campaigns on Meta (Facebook and Instagram) and Google: prospecting, retargeting, creative testing and ROAS-driven scaling.</p>
           </div>
           <div class="service">
-            <h3>Estrategia de adquisición</h3>
-            <p>Diseño del funnel completo: audiencias, oferta, creativos y presupuesto asignado donde los datos muestran retorno.</p>
+            <h3 data-i18n="growth.services.2.title">Measurement &amp; attribution</h3>
+            <p data-i18n="growth.services.2.text">GA4 and Google Tag Manager set up properly: conversion events, UTM governance and reliable attribution for orders and leads.</p>
           </div>
           <div class="service">
-            <h3>Medición y atribución</h3>
-            <p>Tracking limpio, tableros de campaña y experimentos A/B para decidir con evidencia y no con impresiones.</p>
+            <h3 data-i18n="growth.services.3.title">Growth analytics</h3>
+            <p data-i18n="growth.services.3.text">Geo, daypart, cohort and product analyses that show where to move budget, plus automated dashboards for revenue, ROAS and CAC.</p>
           </div>
           <div class="service">
-            <h3>Optimización de conversión</h3>
-            <p>Auditoría de landings y del recorrido de compra para que el tráfico pagado no se pierda al llegar.</p>
+            <h3 data-i18n="growth.services.4.title">Conversion optimization</h3>
+            <p data-i18n="growth.services.4.text">A/B tests, site speed and checkout improvements with your web team, so paid traffic turns into customers instead of leaking on arrival.</p>
           </div>
         </div>
       </div>
@@ -61,41 +80,97 @@
 
     <section class="section">
       <div class="wrap">
-        <h2>Resultados</h2>
+        <h2 data-i18n="growth.method.title">How the work is done</h2>
+        <div class="service-grid">
+          <div class="service">
+            <span class="eyebrow">01</span>
+            <h3 data-i18n="growth.method.1.title">Diagnose</h3>
+            <p data-i18n="growth.method.1.text">An audit of accounts, tracking and funnel to find where the budget is already working and where it is being lost.</p>
+          </div>
+          <div class="service">
+            <span class="eyebrow">02</span>
+            <h3 data-i18n="growth.method.2.title">Test</h3>
+            <p data-i18n="growth.method.2.text">Clear hypotheses on audiences, creatives and offers, tested with controlled budgets and success metrics agreed in advance.</p>
+          </div>
+          <div class="service">
+            <span class="eyebrow">03</span>
+            <h3 data-i18n="growth.method.3.title">Scale</h3>
+            <p data-i18n="growth.method.3.text">Investment moves to what proves return, with regular reporting in plain language on what worked and what comes next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 data-i18n="growth.track.title">Track record</h2>
         <ul class="highlight-list">
           <li>
-            <strong>Cliente / proyecto 1 <span class="edit-tag">Editar</span></strong>
-            <span>Sector, objetivo y resultado con cifras: p. ej. “−38&nbsp;% en costo por adquisición en 3 meses con presupuesto de X”.</span>
+            <strong data-i18n="growth.track.1.title">U.S. retail in a regulated industry · XAQ10</strong>
+            <span data-i18n="growth.track.1.text">2025 to 2026. Led media buying on Meta and Google for a portfolio of U.S. retail brands: audience targeting, creative testing and bid optimization, while meeting the platform policies that regulated advertising requires.</span>
           </li>
           <li>
-            <strong>Cliente / proyecto 2 <span class="edit-tag">Editar</span></strong>
-            <span>Sector, objetivo y resultado con cifras: ROAS, CPA, volumen de leads o ventas.</span>
+            <strong data-i18n="growth.track.2.title">International financial services · Tradeview Markets</strong>
+            <span data-i18n="growth.track.2.text">2023 to 2024. Search and display campaigns for financial products across international markets, with attribution, UTM governance and dashboards for spend, CPL and conversion by channel.</span>
+          </li>
+          <li>
+            <strong data-i18n="growth.track.3.title">Retention for a tech company · Dataico</strong>
+            <span data-i18n="growth.track.3.text">2025. Machine learning churn prediction to identify at-risk segments, with automated Python pipelines and growth dashboards in Metabase.</span>
           </li>
         </ul>
         <div class="chip-row" style="margin-top:1.8rem">
           <span class="chip">Meta Ads</span>
           <span class="chip">Google Ads</span>
-          <span class="chip">TikTok Ads</span>
           <span class="chip">GA4</span>
-          <span class="chip">Tag Manager</span>
+          <span class="chip">Google Tag Manager</span>
           <span class="chip">Looker Studio</span>
+          <span class="chip">Metabase</span>
+          <span class="chip">Python</span>
         </div>
       </div>
     </section>
 
-    <section class="cta" id="contacto">
+    <section class="cta" id="contact">
       <div class="wrap">
-        <h2>Escala tu adquisición</h2>
-        <p>Cuéntame qué vendes y cuánto inviertes hoy en pauta; te propongo un plan de crecimiento medible.</p>
-        <span class="mail">jaime.e.pesca.s@gmail.com</span>
+        <h2 data-i18n="growth.cta.title">Ready to scale your acquisition?</h2>
+        <p data-i18n="growth.cta.text">Share what you sell and how much you invest in media today. Jaime will reply with a first read of the opportunities and a proposal for a measurable growth plan.</p>
+        <div class="cta-actions">
+          <a class="btn" href="mailto:jaime.e.pesca.s@gmail.com" data-i18n="growth.cta.button">Request a growth plan</a>
+          <a class="mail" href="mailto:jaime.e.pesca.s@gmail.com">jaime.e.pesca.s@gmail.com</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-foot">
+    <div class="wrap foot-top">
+      <div class="foot-id">
+        <a class="brand" href="index.html">Jaime Pesca Santos</a>
+        <span class="foot-tag" data-i18n="foot.tagline">Research · Growth · Data · Training</span>
+      </div>
+      <ul class="social" aria-label="Social networks" data-i18n-attr="aria-label:foot.social">
+        <li>
+          <a href="https://www.linkedin.com/in/jaime-pesca" rel="me">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/JaimePesca" rel="me">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57l-.02-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></svg>
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:jaime.e.pesca.s@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span data-i18n="foot.email">Email</span>
+          </a>
+        </li>
+      </ul>
+    </div>
     <div class="wrap foot-row">
       <span>© 2026 Jaime Enrique Pesca Santos</span>
-      <span><a href="index.html">Inicio</a> · <a href="https://github.com/JaimePesca">GitHub</a></span>
     </div>
   </footer>
 

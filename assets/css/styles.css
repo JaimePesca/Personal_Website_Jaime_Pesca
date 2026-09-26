@@ -284,6 +284,8 @@ button:focus-visible {
 
 .hero .btn { margin-top: 2rem; }
 
+.hero .chip-row { margin-top: 1.8rem; }
+
 /* Héroe con foto (hub) */
 .hero-split {
   display: grid;
@@ -296,7 +298,8 @@ button:focus-visible {
 .portrait {
   position: relative;
   width: clamp(170px, 24vw, 250px);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -423,6 +426,11 @@ button:focus-visible {
   gap: 1.6rem 2.2rem;
 }
 
+/* Para 4 elementos: 2 x 2 en escritorio */
+.service-grid.pairs {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+}
+
 .service {
   border-top: 2px solid var(--line);
   padding-top: 1rem;
@@ -460,6 +468,47 @@ button:focus-visible {
 }
 
 .highlight-list span { color: var(--muted); font-size: 0.97rem; }
+
+/* Estado de una publicación (publicada, en revisión, en preparación) */
+.status {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 0.05rem 0.45rem;
+}
+
+.highlight-list .meta { font-size: 0.9rem; }
+
+/* ---------- Cifras destacadas ---------- */
+.stat-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1.2rem 2rem;
+}
+
+.stat-row li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-row strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.stat-row span { font-size: 0.95rem; color: var(--muted); max-width: 30ch; }
 
 /* ---------- Datos rápidos / stack ---------- */
 .chip-row {

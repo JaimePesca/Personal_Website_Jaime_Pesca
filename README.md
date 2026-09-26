@@ -19,9 +19,10 @@ Sitio estático (HTML + CSS + JS, sin frameworks ni build) con cuatro perfiles p
 
 ## Imágenes y hojas de vida
 
-- `images/jaime-pesca.jpg`: foto del hub (formato vertical 4:5 recomendado). Si no existe, se muestran las iniciales.
+- `images/jaime-pesca.jpg`: foto del hub (cuadrada, se muestra en círculo). Si no existe, se muestran las iniciales.
 - `images/`: aquí van las imágenes futuras de cada sección.
-- `files/`: hojas de vida.
+- `files/`: hojas de vida; `files/manuscripts/`: manuscritos de investigación.
+- Ojo: GitHub Pages publica todo el repositorio, así que cualquier PDF aquí se puede descargar desde la web.
 
 ## Cómo publicarlo con GitHub Pages
 

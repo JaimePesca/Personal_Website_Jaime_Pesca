@@ -10,8 +10,10 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - `assets/js/i18n.js`: motor de idiomas y selector (se carga en `<head>` sin `defer`).
 - `assets/i18n/<código>.js`: un diccionario por idioma adicional (`es`, `pt`, `fr`).
 - `assets/js/main.js`: solo el toggle del menú móvil.
-- `images/`: foto (`images/jaime-pesca.jpg`) e imágenes futuras de las secciones.
-- `files/`: hojas de vida de Jaime (fuente de contenido).
+- `images/`: foto (`images/jaime-pesca.jpg`, cuadrada) e imágenes futuras de las secciones.
+- `files/`: hojas de vida de Jaime (fuente de contenido): `Jaime_Pesca_CV_EN.pdf` (growth y datos), `Jaime_Pesca_PhD_CV.pdf` (académica), `Jaime_Pesca_Resume_DS.pdf` (data science).
+- `files/manuscripts/`: manuscritos de investigación (fuente para `research.html`).
+- Todo lo que está en el repo queda público en GitHub Pages, incluidos los PDF.
 - `tools/check-i18n.mjs`: verifica que cada idioma tenga todas las claves.
 
 ## Idiomas

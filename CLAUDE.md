@@ -28,8 +28,8 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - Lo que habla de Jaime va en **primera persona** ("soy", "trabajé", "escríbeme"). El nombre completo solo aparece en títulos, `<title>` y meta descripciones.
 - Growth y Formación: tono vendedor, con CTA de botón. Investigación, Datos y el hub: tono informativo, humilde pero mostrando el valor.
 - Sin rayas largas ni medias (em dash, en dash) en el contenido; usar comas, dos puntos o "·".
-- Acento por página con clase en `<body>`: `p-research` (azul), `p-growth` (ámbar), `p-data` (verde), `p-teach` (violeta). Nuevos colores se agregan como tokens, nunca en línea.
-- Tipografías (Google Fonts): Bricolage Grotesque (títulos), Source Serif 4 (texto), Spline Sans Mono (etiquetas/eyebrows).
+- Tono por página con clase en `<body>`: `p-home` (carmesí), `p-research` (azul), `p-growth` (ámbar), `p-data` (verde), `p-teach` (violeta). Cada tono tiene acento `--c-*` y versión profunda `--d-*` (héroe y contacto); las secciones alternan con el tono suave. `--accent-soft`/`--accent-faint` se declaran en `body`, no en `:root`, para que tomen el tono de cada página. Nuevos colores se agregan como tokens, nunca en línea.
+- Tipografía estilo MIT: Neue Haas Grotesk (`neue-haas-grotesk-display` / `-text`, Adobe Fonts) como primera opción; hoy se ve Inter Tight (títulos) e Inter (texto y etiquetas) desde Google Fonts. Para usar la original, agregar el `<link>` del kit de Adobe Fonts en el `<head>` de cada página; los tokens ya la piden primero.
 - Contenido pendiente de que Jaime lo personalice se marca con `<span class="edit-tag">Editar …</span>` (en español, sin traducir). Al poner contenido real, eliminar la etiqueta.
 - Enlaces internos relativos. El sitio se publica en `https://jaimepesca.com` (dominio propio, archivo `CNAME`; no borrarlo) y también responde bajo `jaimepesca.github.io/Personal_Website_Jaime_Pesca/`.
 - Al crear una página nueva, copiar la estructura de una existente para mantener nav y footer (con redes sociales) idénticos, y agregar el enlace en el nav de todas las páginas.

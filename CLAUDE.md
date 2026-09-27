@@ -14,6 +14,7 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - `files/cv/`: hojas de vida de Jaime (fuente de contenido). `files/research/<proyecto>/`: manuscritos, una carpeta por paper. `files/README.md` explica qué es cada archivo y su estado; actualizarlo al agregar archivos.
 - Todo lo que está en el repo queda público en GitHub Pages, incluidos los PDF.
 - `tools/check-i18n.mjs`: verifica que cada idioma tenga todas las claves.
+- Favicon (Σ sobre carmesí): `assets/icons/favicon.svg` es la fuente; `favicon.ico`, `assets/icons/favicon-32.png` y `assets/icons/apple-touch-icon.png` se generan desde ese SVG. Los `<link rel="icon">` van en el `<head>` de cada página.
 
 ## Idiomas
 

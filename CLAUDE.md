@@ -31,6 +31,6 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - Acento por página con clase en `<body>`: `p-research` (azul), `p-growth` (ámbar), `p-data` (verde), `p-teach` (violeta). Nuevos colores se agregan como tokens, nunca en línea.
 - Tipografías (Google Fonts): Bricolage Grotesque (títulos), Source Serif 4 (texto), Spline Sans Mono (etiquetas/eyebrows).
 - Contenido pendiente de que Jaime lo personalice se marca con `<span class="edit-tag">Editar …</span>` (en español, sin traducir). Al poner contenido real, eliminar la etiqueta.
-- Enlaces internos relativos (el sitio vive bajo la subruta `/Personal_Website_Jaime_Pesca/`).
+- Enlaces internos relativos. El sitio se publica en `https://jaimepesca.com` (dominio propio, archivo `CNAME`; no borrarlo) y también responde bajo `jaimepesca.github.io/Personal_Website_Jaime_Pesca/`.
 - Al crear una página nueva, copiar la estructura de una existente para mantener nav y footer (con redes sociales) idénticos, y agregar el enlace en el nav de todas las páginas.
 - Redes sociales: lista `.social` del footer, igual en todas las páginas. Para sumar una red, agregar un `<li>` en cada página.

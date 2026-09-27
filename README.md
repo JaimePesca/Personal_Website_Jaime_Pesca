@@ -28,8 +28,8 @@ Sitio estático (HTML + CSS + JS, sin frameworks ni build) con cuatro perfiles p
 
 1. En GitHub: **Settings → Pages**.
 2. En *Source*, elige **Deploy from a branch**, rama `main`, carpeta `/ (root)`.
-3. Guarda. En 1 o 2 minutos el sitio queda en:
-   `https://jaimepesca.github.io/Personal_Website_Jaime_Pesca/`
+3. Guarda. En 1 o 2 minutos el sitio queda en **https://jaimepesca.com** (dominio propio configurado con el archivo `CNAME`; no lo borres).
+4. Los cambios solo se publican cuando llegan a `main`. Si trabajas en otra rama, fusiónala a `main`.
 
 ## Cómo editarlo
 

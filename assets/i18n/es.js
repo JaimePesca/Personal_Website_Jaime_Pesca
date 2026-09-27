@@ -178,5 +178,13 @@ I18N.register("es", {
   "training.formats.3.text": "Sesiones periódicas con acompañamiento entre ellas, como el curso de experimentación y optimización que diseñé para el liderazgo de analítica de Claro Colombia.",
   "training.cta.title": "Forma a tu equipo",
   "training.cta.text": "Cuéntame qué necesita aprender tu equipo y en qué contexto. Diseñaré un programa a la medida, con objetivos claros y un formato que se ajuste a tu calendario.",
-  "training.meta.desc": "Formación empresarial con Jaime Enrique Pesca Santos: cursos in-company de experimentación, optimización, analítica, machine learning y crecimiento digital."
+  "training.meta.desc": "Formación empresarial con Jaime Enrique Pesca Santos: cursos in-company de experimentación, optimización, analítica, machine learning y crecimiento digital.",
+  "foot.learn": "Aprende optimización",
+  "home.learn.eyebrow": "Recurso abierto de aprendizaje",
+  "home.learn.title": "Optimización en Acción",
+  "home.learn.text": "Creé una biblioteca abierta de recursos interactivos de investigación de operaciones, organizada en cinco niveles que van de la programación lineal a métodos más allá de la programación matemática. Muchos usan casos reales de mi investigación en Colombia, y todos funcionan en el navegador: mueves los números y ves cómo responde el óptimo.",
+  "home.learn.fact1": "5 niveles de aprendizaje",
+  "home.learn.fact2": "4 casos reales de investigación",
+  "home.learn.fact3": "Interactivo, en tu navegador",
+  "home.learn.button": "Explora los recursos"
 });

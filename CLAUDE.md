@@ -34,3 +34,4 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - Enlaces internos relativos. El sitio se publica en `https://jaimepesca.com` (dominio propio, archivo `CNAME`; no borrarlo) y también responde bajo `jaimepesca.github.io/Personal_Website_Jaime_Pesca/`.
 - Al crear una página nueva, copiar la estructura de una existente para mantener nav y footer (con redes sociales) idénticos, y agregar el enlace en el nav de todas las páginas.
 - Redes sociales: lista `.social` del footer, igual en todas las páginas. Para sumar una red, agregar un `<li>` en cada página.
+- Optimización en Acción (`https://learn-optimization.jaimepesca.com/`, repo `JaimePesca/Educational_Resources_Optimization`): recuadro `.promo` en el hub y enlace `.foot-learn` como última línea del footer en todas las páginas. Los enlaces a ese sitio llevan `data-keep-lang` para abrirlo en el mismo idioma.

@@ -327,6 +327,28 @@ button:focus-visible {
   .portrait { order: -1; width: 150px; }
 }
 
+/* ---------- Recuadro destacado (Optimización en Acción) ---------- */
+.promo {
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.promo h3 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+}
+
+.promo p { color: var(--ink); }
+
+.promo .chip-row { margin-top: 0.3rem; }
+
+.promo .btn { align-self: flex-start; margin-top: 0.6rem; }
+
 /* ---------- Botones ---------- */
 .btn {
   display: inline-block;
@@ -630,6 +652,13 @@ button:focus-visible {
 .foot-row a { color: var(--muted); }
 
 .foot-row a:hover { color: var(--ink); }
+
+/* Enlace final a learn-optimization, en todas las páginas */
+.foot-row .foot-learn { color: var(--accent); text-decoration: none; }
+
+.foot-row .foot-learn [data-i18n] { text-decoration: underline; text-underline-offset: 3px; }
+
+.foot-row .foot-learn .domain { white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
   .profile-card, .btn { transition: none; }

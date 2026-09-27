@@ -5,6 +5,7 @@
 //   data-i18n-attr="atributo:clave"   → reemplaza atributos (varios, separados por ";")
 // Para agregar un idioma: crear assets/i18n/<código>.js y sumarlo a LANGS.
 // Si falta una clave en un idioma, se muestra el texto en inglés.
+// Enlaces externos con data-keep-lang (p. ej. learn-optimization) también reciben ?lang=.
 (function () {
   const LANGS = [
     { code: "en", name: "English" },
@@ -62,10 +63,11 @@
       parseAttrSpec(el.dataset.i18nAttr).forEach(([attr]) => { values[attr] = el.getAttribute(attr); });
       original.attr.set(el, values);
     });
-    // Enlaces internos: llevan ?lang= para que el idioma se mantenga al navegar.
+    // Enlaces internos (y externos con data-keep-lang): llevan ?lang= para que
+    // el idioma se mantenga al navegar.
     document.querySelectorAll("a[href]").forEach((a) => {
       const href = a.getAttribute("href");
-      if (/^[\w-]+\.html(#.*)?$/.test(href)) original.href.set(a, href);
+      if (/^[\w-]+\.html(#.*)?$/.test(href) || a.hasAttribute("data-keep-lang")) original.href.set(a, href);
     });
   }
 
@@ -81,7 +83,8 @@
     original.href.forEach((href, a) => {
       if (code === BASE) { a.setAttribute("href", href); return; }
       const [path, hash] = href.split("#");
-      a.setAttribute("href", path + "?lang=" + code + (hash ? "#" + hash : ""));
+      const sep = path.includes("?") ? "&" : "?";
+      a.setAttribute("href", path + sep + "lang=" + code + (hash ? "#" + hash : ""));
     });
 
     root.lang = code;

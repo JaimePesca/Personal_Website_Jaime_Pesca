@@ -178,5 +178,13 @@ I18N.register("fr", {
   "training.formats.3.text": "Des séances régulières avec un accompagnement entre chacune, comme la formation en expérimentation et optimisation que j’ai conçue pour la direction analytique de Claro Colombia.",
   "training.cta.title": "Formez votre équipe",
   "training.cta.text": "Dites-moi ce que votre équipe doit apprendre et dans quel contexte. Je concevrai un programme sur mesure, avec des objectifs clairs et un format adapté à votre agenda.",
-  "training.meta.desc": "Formation en entreprise par Jaime Enrique Pesca Santos : formations sur mesure en expérimentation, optimisation, analytique, machine learning et croissance digitale."
+  "training.meta.desc": "Formation en entreprise par Jaime Enrique Pesca Santos : formations sur mesure en expérimentation, optimisation, analytique, machine learning et croissance digitale.",
+  "foot.learn": "Apprenez l’optimisation",
+  "home.learn.eyebrow": "Ressource d’apprentissage ouverte",
+  "home.learn.title": "L’optimisation en action",
+  "home.learn.text": "J’ai créé une bibliothèque ouverte de ressources interactives de recherche opérationnelle, organisée en cinq niveaux, de la programmation linéaire aux méthodes au-delà de la programmation mathématique. Beaucoup s’appuient sur des cas réels de mes recherches en Colombie, et toutes fonctionnent dans le navigateur : vous changez les chiffres et voyez l’optimum réagir.",
+  "home.learn.fact1": "5 niveaux d’apprentissage",
+  "home.learn.fact2": "4 cas de recherche réels",
+  "home.learn.fact3": "Interactif, dans votre navigateur",
+  "home.learn.button": "Découvrir les ressources"
 });

@@ -8,3 +8,12 @@ if (toggle && menu) {
     toggle.setAttribute("aria-expanded", String(open));
   });
 }
+
+// Correo: se arma aquí y no aparece escrito en el HTML, para que los bots
+// que recolectan direcciones no lo encuentren. Los enlaces llevan data-mail;
+// con data-mail-text además muestran la dirección.
+const MAIL = ["jaime.e.pesca.s", "gmail.com"].join("@");
+document.querySelectorAll("[data-mail]").forEach((a) => {
+  a.setAttribute("href", "mailto:" + MAIL);
+  if (a.hasAttribute("data-mail-text")) a.textContent = MAIL;
+});

@@ -9,10 +9,11 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - `assets/css/styles.css`: único stylesheet; todos los colores y fuentes son tokens en `:root`, con modo oscuro vía `prefers-color-scheme`.
 - `assets/js/i18n.js`: motor de idiomas y selector (se carga en `<head>` sin `defer`).
 - `assets/i18n/<código>.js`: un diccionario por idioma adicional (`es`, `pt`, `fr`).
-- `assets/js/main.js`: solo el toggle del menú móvil.
-- `images/jaime-pesca.jpg`: foto del hub (800 × 800); el original está en `images/originals/`. Imágenes futuras por sección en `images/<pagina>/` (p. ej. `images/research/`), optimizadas para web.
-- `files/cv/`: hojas de vida de Jaime (fuente de contenido). `files/research/<proyecto>/`: manuscritos, una carpeta por paper. `files/README.md` explica qué es cada archivo y su estado; actualizarlo al agregar archivos.
-- Todo lo que está en el repo queda público en GitHub Pages, incluidos los PDF.
+- `assets/js/main.js`: toggle del menú móvil y armado del correo (enlaces con `data-mail`; con `data-mail-text` también muestran la dirección). El correo nunca se escribe en el HTML ni en el JSON-LD.
+- `404.html`: página de error con las 4 tarjetas; usa rutas desde la raíz (`/assets/...`, `/growth.html`) y `noindex`.
+- `assets/fonts/`: Inter e Inter Tight (woff2 variables, latin y latin-ext) con sus licencias OFL.
+- `images/jaime-pesca.jpg`: foto del hub (800 × 800), con versiones `jaime-pesca.webp` y `jaime-pesca-500.webp`; el original está en `images/originals/`. `images/social/og-<pagina>.jpg`: imágenes de 1200 × 630 para redes (Open Graph). Imágenes futuras por sección en `images/<pagina>/` (p. ej. `images/research/`), optimizadas para web.
+- Todo lo que está en el repo queda público en GitHub Pages. Las hojas de vida y los manuscritos se retiraron del repositorio y `robots.txt` bloquea `/files/`: no volver a subir documentos privados.
 - `tools/check-i18n.mjs`: verifica que cada idioma tenga todas las claves.
 - Favicon (Σ sobre carmesí): `assets/icons/favicon.svg` es la fuente; `favicon.ico`, `assets/icons/favicon-32.png` y `assets/icons/apple-touch-icon.png` se generan desde ese SVG. Los `<link rel="icon">` van en el `<head>` de cada página.
 
@@ -20,7 +21,8 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 
 - Cada página lleva en `<head>`: la etiqueta de Google Analytics 4 (`G-XW74HS2G7B`) justo después de `<head>` y una sola vez; `canonical` a la URL limpia en inglés (la portada es `https://jaimepesca.com/`); `hreflang` en/es/pt/fr (`?lang=`) y `x-default`; Open Graph, Twitter Card y un bloque JSON-LD (`@graph`) con la `Person` `https://jaimepesca.com/#person`.
 - `i18n.js` cambia el canonical a la URL del idioma activo; no quitar esa parte.
-- Al crear una página: copiar ese bloque del `<head>`, agregar sus 4 URLs a `sitemap.xml` (con sus `xhtml:link` alternos) y actualizar `lastmod`.
+- Al crear una página: copiar ese bloque del `<head>`, crear su imagen `images/social/og-<pagina>.jpg`, agregar sus 4 URLs a `sitemap.xml` (con sus `xhtml:link` alternos) y actualizar `lastmod`.
+- Títulos (`*.meta.title`) y descripciones (`*.meta.desc`) se traducen en los diccionarios. Descripciones de 160 caracteres o menos: servicio primero e invitación al final. Si cambian, actualizar también `og:`, `twitter:` y el JSON-LD de esa página.
 - `robots.txt` apunta al sitemap. `SEO_REPORT.md` resume lo implementado y las recomendaciones pendientes.
 
 ## Idiomas
@@ -34,10 +36,10 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 ## Convenciones de contenido
 
 - Lo que habla de Jaime va en **primera persona** ("soy", "trabajé", "escríbeme"). El nombre completo solo aparece en títulos, `<title>` y meta descripciones.
-- Growth y Formación: tono vendedor, con CTA de botón. Investigación, Datos y el hub: tono informativo, humilde pero mostrando el valor.
+- Growth y Formación: tono vendedor, con CTA de botón y preguntas frecuentes (`.faq` con `<details>`, más `FAQPage` en el JSON-LD con las mismas preguntas). Investigación, Datos y el hub: tono informativo, humilde pero mostrando el valor.
 - Sin rayas largas ni medias (em dash, en dash) en el contenido; usar comas, dos puntos o "·".
 - Tono por página con clase en `<body>`: `p-home` (carmesí), `p-research` (azul), `p-growth` (ámbar), `p-data` (verde), `p-teach` (violeta). Cada tono tiene acento `--c-*` y versión profunda `--d-*` (héroe y contacto); las secciones alternan con el tono suave. `--accent-soft`/`--accent-faint` se declaran en `body`, no en `:root`, para que tomen el tono de cada página. Nuevos colores se agregan como tokens, nunca en línea.
-- Tipografía estilo MIT: Neue Haas Grotesk (`neue-haas-grotesk-display` / `-text`, Adobe Fonts) como primera opción; hoy se ve Inter Tight (títulos) e Inter (texto y etiquetas) desde Google Fonts. Para usar la original, agregar el `<link>` del kit de Adobe Fonts en el `<head>` de cada página; los tokens ya la piden primero.
+- Tipografía estilo MIT: Neue Haas Grotesk (`neue-haas-grotesk-display` / `-text`, Adobe Fonts) como primera opción; hoy se ve Inter Tight (títulos) e Inter (texto y etiquetas), alojadas en `assets/fonts/` con `@font-face` en `styles.css` y `preload` en cada `<head>`. No usar Google Fonts.
 - Contenido pendiente de que Jaime lo personalice se marca con `<span class="edit-tag">Editar …</span>` (en español, sin traducir). Al poner contenido real, eliminar la etiqueta.
 - Enlaces internos relativos. El sitio se publica en `https://jaimepesca.com` (dominio propio, archivo `CNAME`; no borrarlo) y también responde bajo `jaimepesca.github.io/Personal_Website_Jaime_Pesca/`.
 - Al crear una página nueva, copiar la estructura de una existente para mantener nav y footer (con redes sociales) idénticos, y agregar el enlace en el nav de todas las páginas.

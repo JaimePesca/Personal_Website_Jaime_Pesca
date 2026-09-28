@@ -21,8 +21,8 @@ Sitio estático (HTML + CSS + JS, sin frameworks ni build) con cuatro perfiles p
 
 - `images/jaime-pesca.jpg`: foto del hub (800 × 800, se muestra en círculo); el original está en `images/originals/`. Si falta la foto, se muestran las iniciales.
 - `images/<pagina>/`: imágenes futuras de cada sección (por ejemplo `images/research/`).
-- `files/cv/`: hojas de vida. `files/research/<proyecto>/`: manuscritos, una carpeta por paper. Ver `files/README.md`.
-- Ojo: GitHub Pages publica todo el repositorio, así que cualquier PDF aquí se puede descargar desde la web.
+- `images/social/`: imágenes de 1200 × 630 que se muestran al compartir cada página en redes.
+- Las hojas de vida y los manuscritos ya no están en el repositorio (y `robots.txt` bloquea `/files/`). GitHub Pages publica todo el repositorio, así que no subas documentos privados.
 
 ## Cómo publicarlo con GitHub Pages
 
@@ -35,7 +35,7 @@ Sitio estático (HTML + CSS + JS, sin frameworks ni build) con cuatro perfiles p
 
 - El contenido pendiente de personalizar está marcado con la etiqueta amarilla **Editar** (clase `edit-tag`). Al reemplazar el texto real, borra el `<span class="edit-tag">…</span>`.
 - Colores, tipografías y espaciados viven en `assets/css/styles.css` como variables CSS en `:root`.
-- Cada página de perfil define su color de acento con una clase en `<body>`: `p-research`, `p-growth`, `p-data`, `p-teach`.
+- Cada página define su tono con una clase en `<body>`: `p-home`, `p-research`, `p-growth`, `p-data`, `p-teach`.
 
 ## Trabajar con Claude desde la nube
 

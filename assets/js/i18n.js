@@ -43,6 +43,7 @@
     return new Promise((resolve) => {
       const s = document.createElement("script");
       s.src = dictDir + code + ".js";
+      s.fetchPriority = "high";
       s.onload = resolve;
       s.onerror = resolve;
       document.head.appendChild(s);
@@ -67,7 +68,8 @@
     // el idioma se mantenga al navegar.
     document.querySelectorAll("a[href]").forEach((a) => {
       const href = a.getAttribute("href");
-      if (/^[\w-]+\.html(#.*)?$/.test(href) || a.hasAttribute("data-keep-lang")) original.href.set(a, href);
+      // Coincide con "growth.html", "./", "/" y "/growth.html" (la página 404 usa rutas desde la raíz).
+      if (/^(\.?\/|\/?[\w-]+\.html)(#.*)?$/.test(href) || a.hasAttribute("data-keep-lang")) original.href.set(a, href);
     });
   }
 
@@ -131,10 +133,11 @@
   }
 
   const lang = initialLang();
-  // Evita que se vea el inglés un instante antes de traducir.
+  // Evita que se vea el inglés un instante antes de traducir. El diccionario
+  // se pide con prioridad alta; si tarda más de 1,2 s se muestra la página igual.
   if (lang !== BASE) {
     root.classList.add("i18n-pending");
-    setTimeout(() => root.classList.remove("i18n-pending"), 2500);
+    setTimeout(() => root.classList.remove("i18n-pending"), 1200);
   }
   const ready = loadDict(lang);
 

@@ -203,7 +203,32 @@ Cada idioma es la misma URL con `?lang=` (por ejemplo, `https://jaimepesca.com/g
 | R14 | Foto WebP y prioridad | Sí | Hecho |
 | R15 | Página 404 | Sí | Hecho |
 | R16 | Enlaces a `./` | Sí | Hecho |
-| R17 | Eventos de conversión en GA4 | Lo estás trabajando | Los enlaces de correo tienen `data-mail` y los botones tienen las clases `btn` y `mail`, por si te sirven como selectores |
+| R17 | Eventos de conversión en GA4 | Implementar | Hecho (sección 6) |
 | R18 | Correo oculto a bots | Sí, sin formulario | Hecho |
 | R19 | Datos académicos extra | No | No se hizo |
 | R20 | Cuenta de X | No | No se hizo |
+
+---
+
+## 6. Eventos de GA4 (R17)
+
+Los elementos medibles llevan `data-ga-event` en el HTML y `assets/js/main.js` envía el evento con `gtag`. Todos los eventos incluyen `page_language` (en, es, pt, fr) y `link_location`, que indica dónde fue el clic: `hero`, `promo`, `contact`, `footer` o `body`.
+
+| Evento | Se dispara al hacer clic en | Páginas | Parámetros extra |
+|---|---|---|---|
+| `request_growth_plan` | "Request a growth plan" (arriba y en contacto) | `growth.html` | |
+| `request_training_program` | "Design a program" (arriba y en contacto) | `training.html` | |
+| `email_click` | "Write to me", la dirección de correo y "Email" del pie | todas | |
+| `social_click` | LinkedIn o GitHub en el pie | todas | `link_label`: `linkedin` o `github` |
+| `learn_optimization_click` | Botón de Optimización en Acción y enlace del pie | todas | |
+| `language_change` | Cambio en el selector de idioma | todas | `language`: idioma elegido |
+| `faq_open` | Abrir una pregunta frecuente | `growth.html`, `training.html` | `faq_question`: clave de la pregunta, igual en todos los idiomas (por ejemplo `growth.faq.1.q`) |
+
+El botón "Request a growth plan" de arriba lleva a la sección de contacto y el de contacto abre el correo, así que `link_location` distingue la intención (`hero`) del contacto real (`contact`). Lo mismo aplica a "Design a program".
+
+### Lo que tienes que hacer en GA4
+1. **Comprobar que llegan:** en **Administrar → DebugView** (o **Informes → Tiempo real**), abre el sitio y haz clic en los botones. Los eventos aparecen en uno o dos minutos. Los informes estándar tardan hasta 24 a 48 horas.
+2. **Marcar conversiones:** en **Administrar → Eventos**, activa **Marcar como evento clave** en `request_growth_plan`, `request_training_program` y `email_click`. Un evento aparece en esa lista después de dispararse por primera vez.
+3. **Ver los parámetros en informes:** en **Administrar → Definiciones personalizadas → Crear dimensión personalizada** (ámbito: Evento), crea `link_location`, `link_label`, `page_language`, `language` y `faq_question`.
+
+GA4 también registra por su cuenta un evento `click` en los enlaces que salen del sitio (medición mejorada). Los eventos de esta tabla son más específicos y no lo reemplazan.

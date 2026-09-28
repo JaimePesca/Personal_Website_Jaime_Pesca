@@ -16,6 +16,13 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 - `tools/check-i18n.mjs`: verifica que cada idioma tenga todas las claves.
 - Favicon (Σ sobre carmesí): `assets/icons/favicon.svg` es la fuente; `favicon.ico`, `assets/icons/favicon-32.png` y `assets/icons/apple-touch-icon.png` se generan desde ese SVG. Los `<link rel="icon">` van en el `<head>` de cada página.
 
+## SEO y analítica
+
+- Cada página lleva en `<head>`: la etiqueta de Google Analytics 4 (`G-XW74HS2G7B`) justo después de `<head>` y una sola vez; `canonical` a la URL limpia en inglés (la portada es `https://jaimepesca.com/`); `hreflang` en/es/pt/fr (`?lang=`) y `x-default`; Open Graph, Twitter Card y un bloque JSON-LD (`@graph`) con la `Person` `https://jaimepesca.com/#person`.
+- `i18n.js` cambia el canonical a la URL del idioma activo; no quitar esa parte.
+- Al crear una página: copiar ese bloque del `<head>`, agregar sus 4 URLs a `sitemap.xml` (con sus `xhtml:link` alternos) y actualizar `lastmod`.
+- `robots.txt` apunta al sitemap. `SEO_REPORT.md` resume lo implementado y las recomendaciones pendientes.
+
 ## Idiomas
 
 - El HTML está en **inglés**, que es el idioma principal. Todo texto visible lleva `data-i18n="pagina.clave"`; atributos traducibles usan `data-i18n-attr="atributo:clave"`.

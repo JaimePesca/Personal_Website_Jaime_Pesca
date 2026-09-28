@@ -97,6 +97,19 @@
       else url.searchParams.set("lang", code);
       history.replaceState(null, "", url);
     } catch (e) { /* p. ej. abierto desde file:// en algunos navegadores */ }
+
+    // SEO: el canonical apunta a la versión del idioma activo (la misma URL que
+    // declaran los hreflang), para que cada idioma se indexe como su propia página.
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      original.canonical = original.canonical || canonical.getAttribute("href");
+      try {
+        const url = new URL(original.canonical);
+        if (code === BASE) url.searchParams.delete("lang");
+        else url.searchParams.set("lang", code);
+        canonical.setAttribute("href", url.href);
+      } catch (e) { /* href inválido: se deja como está */ }
+    }
   }
 
   function buildSwitcher() {

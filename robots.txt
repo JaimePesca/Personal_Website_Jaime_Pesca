@@ -1,0 +1,12 @@
+# robots.txt · https://jaimepesca.com
+User-agent: *
+Allow: /
+
+# Archivos internos del repositorio, sin valor para buscadores
+Disallow: /tools/
+Disallow: /.claude/
+Disallow: /CLAUDE.md
+Disallow: /README.md
+Disallow: /SEO_REPORT.md
+
+Sitemap: https://jaimepesca.com/sitemap.xml

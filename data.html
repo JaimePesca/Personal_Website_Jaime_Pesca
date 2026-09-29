@@ -44,9 +44,9 @@
   <meta name="theme-color" content="#a31f34">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260929a">
+  <script src="assets/js/i18n.js?v=20260929a"></script>
+  <script src="assets/js/main.js?v=20260929a" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -197,6 +197,7 @@
         <span class="eyebrow" data-i18n="data.eyebrow">Data Science &amp; Consulting</span>
         <h1 data-i18n="data.h1">From raw data to informed decisions.</h1>
         <p class="lede" data-i18n="data.lede">Descriptive, predictive and prescriptive analytics: machine learning, executive dashboards and large-scale optimization, turned into concrete business decisions.</p>
+        <a class="btn" href="#contact" data-ga-event="request_data_consultation" data-i18n="data.cta.button">Request a consultation</a>
       </div>
     </section>
 
@@ -224,25 +225,47 @@
       </div>
     </section>
 
+    <section class="section ai-section">
+      <div class="wrap">
+        <span class="eyebrow" data-i18n="ai.badge">AI expert</span>
+        <h2 data-i18n="data.ai.title">Applied artificial intelligence</h2>
+        <p class="section-intro" data-i18n="data.ai.intro">As an AI expert, I use artificial intelligence where it truly adds value to your decisions.</p>
+        <div class="service-grid">
+          <div class="service">
+            <h3 data-i18n="data.ai.1.title">Machine learning in production</h3>
+            <p data-i18n="data.ai.1.text">Predictive and classification models that go beyond the prototype and support everyday decisions.</p>
+          </div>
+          <div class="service">
+            <h3 data-i18n="data.ai.2.title">Generative AI and LLMs</h3>
+            <p data-i18n="data.ai.2.text">Assistants and automations built on large language models to analyze documents, answer questions about your data and speed up repetitive work.</p>
+          </div>
+          <div class="service">
+            <h3 data-i18n="data.ai.3.title">AI plus optimization</h3>
+            <p data-i18n="data.ai.3.text">Predictions that feed optimization models, so you get not just a forecast but the best decision to make with it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap">
         <h2 data-i18n="data.projects.title">Selected experience</h2>
         <ul class="highlight-list">
           <li>
             <strong data-i18n="data.projects.1.title">Senior Data Scientist · Multinational companies</strong>
-            <span data-i18n="data.projects.1.text">2025 to 2026. I directed machine learning and optimization projects end to end for multinational companies in banking, consumer goods, telecommunications and energy, coordinating technical teams and executive stakeholders.</span>
+            <span data-i18n="data.projects.1.text">I directed machine learning and optimization projects end to end for multinational companies in banking, consumer goods, telecommunications and energy, coordinating technical teams and executive stakeholders.</span>
           </li>
           <li>
             <strong data-i18n="data.projects.2.title">Workforce scheduling optimization · Multinational beverage company</strong>
-            <span data-i18n="data.projects.2.text">2022 to 2023. A large-scale mixed integer programming model that integrates production capacity, labor constraints and demand variability, moving planning from heuristic allocation to mathematical optimization.</span>
+            <span data-i18n="data.projects.2.text">A large-scale mixed integer programming model that integrates production capacity, labor constraints and demand variability, moving planning from heuristic allocation to mathematical optimization.</span>
           </li>
           <li>
             <strong data-i18n="data.projects.3.title">Churn prediction · Software startup</strong>
-            <span data-i18n="data.projects.3.text">2025. Machine learning models to flag at-risk customers, with automated Python pipelines and Metabase dashboards.</span>
+            <span data-i18n="data.projects.3.text">Machine learning models to flag at-risk customers, with automated Python pipelines and Metabase dashboards.</span>
           </li>
           <li>
-            <strong data-i18n="data.projects.4.title">Air cargo loading · MIT capstone</strong>
-            <span data-i18n="data.projects.4.text">2025 to 2026. Online 3D bin packing for charter flights, reaching about 90% average volumetric utilization across 16 flights, up to 12 points above the historical baseline.</span>
+            <strong data-i18n="data.projects.4.title">Air cargo loading · One of the largest flower exporters</strong>
+            <span data-i18n="data.projects.4.text">Online 3D bin packing for the charter flights of one of the largest flower exporters in the region, reaching about 90% average volumetric utilization across 16 flights, up to 12 points above the historical baseline.</span>
           </li>
         </ul>
         <div class="chip-row" style="margin-top:1.8rem">
@@ -262,12 +285,18 @@
 
     <section class="cta" id="contact">
       <div class="wrap">
-        <h2 data-i18n="data.cta.title">Contact</h2>
-        <p data-i18n="data.cta.text">If you have a data project in mind or would like to collaborate, write to me.</p>
+        <h2 data-i18n="data.cta.title">Let's put your data to work</h2>
+        <p data-i18n="data.cta.text">Tell me about your business problem. I'll reply with a first read of where data, AI or optimization can make the biggest difference.</p>
         <div class="cta-actions">
-          <a class="btn" href="#contact" data-mail data-ga-event="email_click" data-i18n="cta.write">Write to me</a>
+          <a class="btn" href="#contact" data-mail data-ga-event="request_data_consultation" data-i18n="data.cta.button">Request a consultation</a>
           <a class="mail" href="#contact" data-mail data-mail-text data-ga-event="email_click">jaime.e.pesca.s (at) gmail.com</a>
         </div>
+        <ul class="values-inline">
+          <li data-i18n="values.1.title">Ethics</li>
+          <li data-i18n="values.2.title">Quality</li>
+          <li data-i18n="values.3.title">Rigor</li>
+          <li data-i18n="values.4.title">Guaranteed analytics</li>
+        </ul>
       </div>
     </section>
   </main>

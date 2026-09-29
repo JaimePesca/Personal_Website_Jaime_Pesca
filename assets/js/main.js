@@ -53,3 +53,37 @@ document.addEventListener("toggle", (e) => {
   if (!(d instanceof HTMLDetailsElement) || !d.open || !d.closest(".faq")) return;
   track("faq_open", { faq_question: d.querySelector("summary")?.dataset.i18n || "" });
 }, true);
+
+// Movimiento: los elementos con .reveal aparecen al entrar en pantalla (con
+// --delay opcional para escalonar) y los [data-count] cuentan hasta su valor
+// (data-prefix / data-suffix alrededor del número). Sin JavaScript o con
+// movimiento reducido, todo se muestra quieto y completo.
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function countUp(el) {
+  const end = Number(el.dataset.count);
+  const pre = el.dataset.prefix || "";
+  const suf = el.dataset.suffix || "";
+  const t0 = performance.now();
+  const step = (t) => {
+    const k = Math.min(1, (t - t0) / 1400);
+    el.textContent = pre + Math.round(end * (1 - Math.pow(1 - k, 3))) + suf;
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const moving = document.querySelectorAll(".reveal, [data-count]");
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      if (entry.target.dataset.count) countUp(entry.target);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  moving.forEach((el) => io.observe(el));
+} else {
+  moving.forEach((el) => el.classList.add("is-visible"));
+}

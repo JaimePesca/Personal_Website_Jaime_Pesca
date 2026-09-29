@@ -17,7 +17,12 @@
   const STORAGE_KEY = "lang";
 
   const root = document.documentElement;
+  // Marca que hay JavaScript (las animaciones de entrada solo se preparan con .js).
+  root.classList.add("js");
   const dictDir = document.currentScript.src.replace(/js\/i18n\.js(\?.*)?$/, "i18n/");
+  // Versión del sitio (?v= del propio script): se usa también para los diccionarios,
+  // así el navegador no se queda con traducciones viejas después de publicar.
+  const version = new URL(document.currentScript.src).searchParams.get("v");
   const dicts = {};
 
   window.I18N = {
@@ -42,7 +47,7 @@
     if (code === BASE || dicts[code]) return Promise.resolve();
     return new Promise((resolve) => {
       const s = document.createElement("script");
-      s.src = dictDir + code + ".js";
+      s.src = dictDir + code + ".js" + (version ? "?v=" + version : "");
       s.fetchPriority = "high";
       s.onload = resolve;
       s.onerror = resolve;

@@ -623,6 +623,9 @@ main > .section:nth-child(even of .section) { background: var(--accent-faint); }
 
 .stat-row span { font-size: 0.95rem; color: var(--muted); max-width: 30ch; }
 
+/* Llamado a la acción debajo de las cifras */
+.stat-cta { margin-top: 2rem; }
+
 /* ---------- Preguntas frecuentes ---------- */
 .faq { max-width: 760px; }
 

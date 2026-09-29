@@ -36,6 +36,7 @@ Sitio estático multilingüe, sin frameworks ni paso de build. Se publica con Gi
 
 ## Convenciones de contenido
 
+- **No nombrar empresas** (clientes ni empleadores): hablar de sectores y tipos de empresa ("multinacionales de banca", "empresas de marketing en Brasil", "una startup de software"). Sí se pueden nombrar las universidades (Universidad de La Sabana, Universidad Externado de Colombia, MIT). Cifras aprobadas por Jaime: más de USD 150.000 al mes en pauta, ROAS de más de 10x, más de 40 empresas y microempresas, más de 100 profesionales formados, pauta para cualquier industria (todo público o +18).
 - Lo que habla de Jaime va en **primera persona** ("soy", "trabajé", "escríbeme"). El nombre completo solo aparece en títulos, `<title>` y meta descripciones.
 - Growth y Formación: tono vendedor, con CTA de botón y preguntas frecuentes (`.faq` con `<details>`, más `FAQPage` en el JSON-LD con las mismas preguntas). Investigación, Datos y el hub: tono informativo, humilde pero mostrando el valor.
 - Sin rayas largas ni medias (em dash, en dash) en el contenido; usar comas, dos puntos o "·".

@@ -44,9 +44,10 @@
   <meta name="theme-color" content="#a31f34">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260929a">
-  <script src="assets/js/i18n.js?v=20260929a"></script>
-  <script src="assets/js/main.js?v=20260929a" defer></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=202609291858">
+  <link rel="stylesheet" href="assets/css/pages/research.css?v=202609291858">
+  <script src="assets/js/i18n.js?v=202609291858"></script>
+  <script src="assets/js/main.js?v=202609291858" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -265,26 +266,131 @@
 
   <main>
     <section class="hero tinted">
-      <div class="wrap">
-        <span class="eyebrow" data-i18n="research.eyebrow">Research &amp; Teaching</span>
-        <h1 data-i18n="research.h1">Optimization models, tested on real data.</h1>
-        <p class="lede" data-i18n="research.lede">My research formulates hard optimization problems, from wildfire response to urban food access and air cargo, and designs the algorithms to solve them.</p>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="research.eyebrow">Research &amp; Teaching</span>
+          <h1 data-i18n="research.h1">Optimization models, tested on real data.</h1>
+          <p class="lede" data-i18n="research.lede">My research formulates hard optimization problems, from wildfire response to urban food access and air cargo, and designs the algorithms to solve them.</p>
+        </div>
+        <!-- Mapa de las tres líneas: curvas de nivel; base, punto de agua e incendio con el
+             helicóptero en su ciclo; dos mercados con su demanda; un avión de carga en su ruta -->
+        <div class="hero-art rs-map reveal" style="--delay:.15s" aria-hidden="true">
+          <svg class="art" viewBox="0 0 400 400" focusable="false">
+            <defs><clipPath id="rs-disc"><circle cx="200" cy="200" r="172"/></clipPath></defs>
+            <circle class="a-faint a-dash" cx="200" cy="200" r="190"/>
+            <circle class="a-fill" cx="200" cy="200" r="172"/>
+            <g class="rs-topo" clip-path="url(#rs-disc)">
+              <path d="M285 112C286 114 284 118 283 119C282 121 279 123 277 124C275 125 272 126 270 126C268 126 265 125 263 123C261 122 259 121 258 119C257 117 256 114 256 112C256 110 256 107 257 104C258 102 260 100 262 99C264 98 268 99 270 99C272 100 274 100 276 101C278 102 280 103 282 105C283 107 285 110 285 112ZM308 117C308 123 304 132 300 137C296 142 289 145 284 147C278 150 272 154 266 154C260 154 254 150 249 147C244 144 238 140 235 135C231 130 230 123 229 117C228 111 228 102 231 97C233 91 240 84 246 82C252 80 260 83 266 84C272 86 277 86 283 88C288 91 293 94 297 99C301 104 307 111 308 117ZM331 122C332 132 324 146 317 154C310 162 299 166 290 170C281 175 271 181 262 181C253 181 243 175 234 170C226 165 216 160 210 152C205 144 202 133 201 122C200 111 199 98 204 88C209 79 220 68 229 66C239 63 252 70 262 71C272 73 280 72 289 76C297 79 307 84 314 92C321 100 331 112 331 122ZM356 127C357 141 344 160 334 171C324 181 308 185 295 192C283 198 271 208 258 208C245 208 232 200 220 193C208 187 193 180 185 169C177 158 174 142 172 127C171 112 170 93 177 80C184 67 200 54 214 50C227 47 244 58 258 60C272 62 283 59 295 63C307 67 321 74 332 85C342 95 356 113 356 127ZM382 132C382 150 363 173 349 187C335 200 316 204 300 212C284 220 270 234 254 235C238 236 221 225 205 217C189 209 169 201 159 187C149 173 145 151 143 132C142 113 141 88 150 72C159 56 181 40 199 36C216 33 237 48 254 50C271 52 286 44 302 49C318 53 338 62 351 76C364 90 383 114 382 132ZM409 137C407 160 380 186 362 202C345 217 323 220 304 230C285 241 269 260 250 262C231 264 209 251 190 242C170 232 145 223 132 205C119 188 115 161 114 137C112 113 112 83 124 64C135 45 164 28 185 24C206 20 229 39 250 41C271 43 289 29 310 33C330 38 356 49 372 67C389 84 410 114 409 137Z"/>
+              <path d="M127 318C127 320 124 322 123 324C121 326 120 327 118 329C116 330 114 332 112 332C110 333 107 332 105 330C103 329 100 328 99 325C98 323 98 320 98 318C98 316 98 313 100 311C101 309 103 308 105 307C108 306 110 306 112 306C114 306 117 304 119 305C122 306 124 308 125 310C127 312 128 316 127 318ZM150 316C149 321 143 326 139 330C136 334 134 338 130 341C126 345 120 350 115 351C110 352 103 349 98 346C93 343 87 339 84 334C82 329 82 322 82 316C83 310 84 304 86 300C89 295 95 292 100 290C105 288 109 288 115 287C121 286 128 283 133 284C139 286 144 292 147 297C150 303 151 311 150 316ZM171 314C169 322 159 328 154 335C150 342 147 348 141 354C135 360 126 370 118 372C110 373 99 367 91 362C82 357 74 350 70 342C66 334 67 323 68 314C69 305 69 295 74 289C78 282 87 277 94 273C102 270 109 269 118 267C127 265 139 259 148 262C156 265 165 276 169 285C173 293 174 306 171 314Z"/>
+            </g>
+            <circle class="a-faint" cx="200" cy="200" r="172"/>
+            <path class="a-faint" d="M200 22v12M200 366v12M22 200h12M366 200h12"/>
+            <!-- Sitios candidatos y sus conexiones -->
+            <path class="a-faint a-dash" d="M96 200L132 82L176 138M132 82L282 104L340 180L176 138"/>
+            <circle class="a-bg a-faint" cx="132" cy="82" r="6"/>
+            <circle class="a-bg a-faint" cx="340" cy="180" r="6"/>
+            <!-- Demanda asignada a dos mercados -->
+            <path class="a-faint" d="M274 270L230 240M274 270L238 306M274 270L296 318M274 270L322 250M274 270L300 226M146 300L104 272M146 300L116 338M146 300L182 336M146 300L190 272"/>
+            <g class="a-solid rs-demand">
+              <circle cx="230" cy="240" r="3"/><circle cx="238" cy="306" r="3"/><circle cx="296" cy="318" r="3"/><circle cx="322" cy="250" r="3"/><circle cx="300" cy="226" r="3"/>
+              <circle cx="104" cy="272" r="3"/><circle cx="116" cy="338" r="3"/><circle cx="182" cy="336" r="3"/><circle cx="190" cy="272" r="3"/>
+            </g>
+            <circle class="a-bg a-line" cx="274" cy="270" r="15"/>
+            <path class="a-pop" d="M265 268l2.5-6h13l2.5 6z"/>
+            <path class="a-line" d="M267 268v8M281 268v8M264 276h20"/>
+            <circle class="a-bg a-line" cx="146" cy="300" r="15"/>
+            <path class="a-pop" d="M137 298l2.5-6h13l2.5 6z"/>
+            <path class="a-line" d="M139 298v8M153 298v8M136 306h20"/>
+            <!-- Ruta óptima (base a agua) y ciclo agua e incendio -->
+            <path class="a-pop-line anim-draw" pathLength="1" d="M96 200L176 138" style="--dur:1.2s; --anim-delay:.6s"/>
+            <path class="a-pop-line anim-flow rs-cycle" d="M176 138Q222 90 282 104Q236 136 176 138Z"/>
+            <!-- Base de helicópteros -->
+            <rect class="a-bg a-line" x="82" y="186" width="28" height="28" rx="7"/>
+            <path class="a-line" d="M91 193v14M101 193v14M91 200h10"/>
+            <!-- Punto de agua -->
+            <circle class="a-bg a-line" cx="176" cy="138" r="14"/>
+            <path class="a-pop" d="M176 129.5c3.4 4.3 5.3 7.2 5.3 9.6a5.3 5.3 0 0 1-10.6 0c0-2.4 1.9-5.3 5.3-9.6z"/>
+            <!-- Incendio -->
+            <circle class="rs-fire-ring anim-pulse" cx="282" cy="104" r="24" style="--dur:6s"/>
+            <circle class="rs-fire-ring anim-pulse" cx="282" cy="104" r="34" style="--dur:6s; --anim-delay:-3s"/>
+            <circle class="a-bg" cx="282" cy="104" r="15"/>
+            <path class="rs-fire" d="M281.6 115.5c-5 0-8.1-3.4-8.1-7.7 0-4 2.8-6.2 4.3-9.3.9 1.9 1.9 2.8 3.1 3.4-.3-3.1.9-6.2 3.7-8.7.3 3.7 2.5 5.6 4 8.1.9 1.6 1.6 3.4 1.6 5.3C290.2 111.8 286.8 115.5 281.6 115.5z"/>
+            <path class="rs-fire-core" d="M281.6 115.5c-2.2 0-3.7-1.5-3.7-3.7 0-2.2 1.9-3.4 2.5-5.3 1.9 1.2 5 3.1 5 5.6 0 1.9-1.5 3.4-3.7 3.4z"/>
+            <!-- Helicóptero con balde (vuela entre el agua y el incendio) -->
+            <g class="rs-heli">
+              <path class="a-line rs-thin" d="M0-2v-10"/>
+              <path class="a-bg a-line" d="M-3.5-2h7l-1.2 4.5h-4.6z"/>
+              <ellipse class="a-solid" cx="2" cy="-18" rx="9.5" ry="6"/>
+              <path class="a-bg" d="M6.5-21.5a5 3.6 0 0 1 4.6 3.5H6.5z"/>
+              <path class="a-line" d="M-7-19L-24-22l-2.5-5.5M-6-9.5H10M-2-12.4v2.9M6-12.4v2.9M2-24v-4.5M-15-28.5H19"/>
+              <g class="rs-drops">
+                <circle class="a-pop" cx="-1.5" cy="6" r="1.5"/><circle class="a-pop" cx="1.8" cy="9" r="1.5"/><circle class="a-pop" cx="-.6" cy="12.5" r="1.5"/>
+              </g>
+            </g>
+            <!-- Avión de carga en la ruta aérea -->
+            <g class="anim-orbit" style="--dur:48s">
+              <path class="a-pop-line rs-trail" d="M120 28A190 190 0 0 1 184 10.7"/>
+              <path class="a-solid" d="M214 10C214 8.4 212 7.6 209 7.6H203L195-3H191L196 7.6H189L186 3H183L185 8V12L183 17H186L189 12.4H196L191 23H195L203 12.4H209C212 12.4 214 11.6 214 10Z"/>
+            </g>
+          </svg>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Líneas de investigación: tarjetas con ícono y un croquis del problema de cada línea -->
+    <section class="section has-deco rs-lines">
+      <span class="deco deco-topo at-r s-xl" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl s-lg hide-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="research.lines.title">Research lines</h2>
-        <div class="service-grid">
-          <div class="service">
+        <h2 class="reveal" data-i18n="research.lines.title">Research lines</h2>
+        <div class="service-grid cards">
+          <div class="service reveal">
+            <div class="rs-card-top" aria-hidden="true">
+              <!-- Llama y gota de agua (extinción) -->
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M16.6 41.8c-7.2 0-11.7-4.95-11.7-11.25 0-5.85 4.05-9 6.3-13.5 1.35 2.7 2.7 4.05 4.5 4.95-.45-4.5 1.35-9 5.4-12.6.45 5.4 3.6 8.1 5.85 11.7 1.35 2.25 2.25 4.95 2.25 7.65C29.2 36.4 24.25 41.8 16.6 41.8z"/><path class="i-faint" d="M16.6 41.8c-3.15 0-5.4-2.25-5.4-5.4 0-3.15 2.7-4.95 3.6-7.65 2.7 1.8 7.2 4.5 7.2 8.1 0 2.7-2.25 4.95-5.4 4.95z"/><path d="M37 5c3.6 4.6 5.6 7.6 5.6 10.2a5.6 5.6 0 0 1-11.2 0c0-2.6 2-5.6 5.6-10.2z"/><circle class="i-solid" cx="35" cy="27" r="1.9"/><circle class="i-solid" cx="38.5" cy="33" r="1.5"/></svg></span>
+              <!-- Curvas de nivel, base y ruta hasta el incendio (la misma llama del héroe) -->
+              <svg class="art rs-mini" viewBox="0 0 120 64" focusable="false">
+                <g class="a-faint rs-contour">
+                  <path d="M118.7 32C118.9 35.5 113.1 40 110 42.9C106.8 45.8 103.5 48 99.8 49.5C96.1 51 91.9 51.8 88 51.7C84.1 51.6 80.1 50.4 76.7 48.8C73.2 47.2 69.4 45.1 67.3 42.3C65.2 39.5 65.1 35.9 64.2 32C63.3 28.1 60.1 22.3 61.9 19.1C63.7 15.8 70.4 13.2 74.8 12.4C79.1 11.6 84.1 13.6 88 14.4C91.9 15.2 94.4 16.1 97.9 17.3C101.4 18.5 105.4 19.2 108.8 21.7C112.3 24.1 118.5 28.5 118.7 32Z"/>
+                  <path d="M113 31.5C113.2 34.6 107.6 38.6 104.6 41.1C101.6 43.7 98.4 46.1 94.9 46.9C91.4 47.6 87.1 46.7 83.5 45.8C79.9 44.8 75.7 43.4 73.5 41.1C71.2 38.7 70.6 35.1 70 31.5C69.4 27.9 67.5 22.1 69.7 19.6C71.9 17.1 79.2 16.8 83.3 16.6C87.3 16.4 90.6 17.5 94 18.5C97.4 19.5 100.4 20.4 103.6 22.5C106.7 24.7 112.8 28.4 113 31.5Z"/>
+                  <path d="M105.4 30.5C105.5 33 101.5 36.5 98.9 38.4C96.3 40.2 93 41.5 90 41.5C87 41.5 83.1 40.3 81 38.5C78.9 36.7 77.5 33.4 77.3 30.5C77 27.6 77.2 22.7 79.3 21C81.4 19.4 86.9 20 90 20.4C93.1 20.7 95.6 21.6 98.2 23.3C100.7 25 105.3 28 105.4 30.5Z"/>
+                </g>
+                <rect class="a-bg a-line" x="5" y="43" width="13" height="13" rx="3.5"/>
+                <path class="a-pop-line anim-flow" d="M18 49.5C44 50 52 34 81 34"/>
+                <g transform="translate(90.5 31) scale(.66) translate(-281.9 -103.2)">
+                  <path class="rs-fire" d="M281.6 115.5c-5 0-8.1-3.4-8.1-7.7 0-4 2.8-6.2 4.3-9.3.9 1.9 1.9 2.8 3.1 3.4-.3-3.1.9-6.2 3.7-8.7.3 3.7 2.5 5.6 4 8.1.9 1.6 1.6 3.4 1.6 5.3C290.2 111.8 286.8 115.5 281.6 115.5z"/>
+                  <path class="rs-fire-core" d="M281.6 115.5c-2.2 0-3.7-1.5-3.7-3.7 0-2.2 1.9-3.4 2.5-5.3 1.9 1.2 5 3.1 5 5.6 0 1.9-1.5 3.4-3.7 3.4z"/>
+                </g>
+              </svg>
+            </div>
             <h3 data-i18n="research.lines.1.title">Wildfire and emergency logistics</h3>
             <p data-i18n="research.lines.1.text">Joint location of aerial suppression bases and water refill points under uncertainty, with two-stage stochastic programming, CVaR and matheuristics.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.12s">
+            <div class="rs-card-top" aria-hidden="true">
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M6 19l4-9h28l4 9z"/><path d="M6 19a4.5 4.5 0 0 0 9 0 4.5 4.5 0 0 0 9 0 4.5 4.5 0 0 0 9 0 4.5 4.5 0 0 0 9 0"/><path class="i-faint" d="M9.5 25v16M38.5 25v16"/><path d="M5 41h38"/><path d="M24 39c-3.6-4.2-5.5-6.9-5.5-9.5a5.5 5.5 0 0 1 11 0c0 2.6-1.9 5.3-5.5 9.5z"/><circle class="i-solid" cx="24" cy="29.5" r="2"/></svg></span>
+              <!-- Manzanas de una ciudad, el sitio elegido y su área de atracción -->
+              <svg class="art rs-mini" viewBox="0 0 120 64" focusable="false">
+                <g class="a-fill a-faint"><rect x="10" y="5" width="26" height="21" rx="2"/><rect x="44" y="5" width="26" height="21" rx="2"/><rect x="78" y="5" width="26" height="21" rx="2"/><rect x="10" y="34" width="26" height="23" rx="2"/><rect x="44" y="34" width="26" height="23" rx="2"/><rect x="78" y="34" width="26" height="23" rx="2"/></g>
+                <circle class="a-line anim-flow" cx="74" cy="30" r="23"/>
+                <path class="a-pop" d="M74 32c-4-4.6-6-7.4-6-10a6 6 0 0 1 12 0c0 2.6-2 5.4-6 10z"/>
+                <circle class="a-bg" cx="74" cy="22" r="2.2"/>
+              </svg>
+            </div>
             <h3 data-i18n="research.lines.2.title">Facility location and food access</h3>
             <p data-i18n="research.lines.2.text">Competitive and public location models that combine MINLP, discrete choice modeling and Fuzzy AHP to place markets and stores where communities need them.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.24s">
+            <div class="rs-card-top" aria-hidden="true">
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" transform="rotate(-38 28 18)" d="M43 18c0-1.3-1.5-2-3.6-2H34l-6.3-9h-3.2l3.6 9h-7.7l-2.7-3.9h-2.7l1.8 4.6v2.6l-1.8 4.6h2.7l2.7-3.9h7.7l-3.6 9h3.2l6.3-9h5.4c2.1 0 3.6-.7 3.6-2z"/><path class="i-faint" d="M9 29c3-5 6-8 10-10" stroke-dasharray="2 4"/><rect x="5" y="32" width="10" height="10" rx="1.5"/><rect class="i-tint" x="15" y="32" width="10" height="10" rx="1.5"/><path class="i-faint" d="M10 32v4M20 32v4"/></svg></span>
+              <!-- Ruta de vuelo entre origen y destino -->
+              <svg class="art rs-mini" viewBox="0 0 120 64" focusable="false">
+                <path class="a-faint anim-flow" d="M18 50Q62-2 110 44"/>
+                <g class="a-fill a-line"><rect x="2" y="50" width="11" height="10" rx="1.5"/><rect x="13" y="50" width="11" height="10" rx="1.5"/><rect x="7.5" y="40" width="11" height="10" rx="1.5"/></g>
+                <circle class="a-bg a-line" cx="110" cy="44" r="4"/>
+                <path class="a-solid" transform="translate(63 22.5) rotate(-4) scale(.62)" d="M14 0C14-1.6 12-2.4 9-2.4H3L-5-13H-9L-4-2.4H-11L-14-7H-17L-15-2V2L-17 7H-14L-11 2.4H-4L-9 13H-5L3 2.4H9C12 2.4 14 1.6 14 0Z"/>
+              </svg>
+            </div>
             <h3 data-i18n="research.lines.3.title">Air cargo and supply chains</h3>
             <p data-i18n="research.lines.3.text">Integer programming and online 3D bin packing to load cut flower charter flights more efficiently, in collaboration with MIT's Center for Transportation and Logistics.</p>
           </div>
@@ -292,56 +398,111 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- Publicaciones: tarjetas con el tema de cada artículo, su estado y, al pie, una barra
+         de avance (preparación, revisión, publicado) -->
+    <section class="section has-deco rs-pubs">
+      <span class="deco deco-grid at-tr s-lg" aria-hidden="true"></span>
+      <span class="deco deco-rings at-bl anim-pulse hide-sm" style="--dur:9s" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="research.pubs.title">Publications &amp; working papers</h2>
-        <ul class="highlight-list">
-          <li>
-            <span class="status" data-i18n="research.status.published">Published · 2025</span>
+        <h2 class="reveal" data-i18n="research.pubs.title">Publications &amp; working papers</h2>
+        <ul class="highlight-list rs-pub-list">
+          <li class="reveal">
+            <div class="rs-pub-head">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M7 19h34l-4 20a3 3 0 0 1-3 2.4H14a3 3 0 0 1-3-2.4z"/><path d="M15 19l6-11M33 19l-6-11"/><path class="i-faint" d="M18 26v9M24 26v9M30 26v9"/></svg></span>
+              <span class="status st-pub" data-i18n="research.status.published">Published · 2025</span>
+            </div>
             <strong>A Multi-product Competitive Facility Location Model for Food Purchase: Does the Store Type Matter?</strong>
             <span class="meta">da Silva-Ovando, A. C., Granados-Rivera, D., Pesca Santos, J. E., Mejia, G., &amp; Mejia-Argueta, C. <em>Sustainable Systems in an Internetworked Digital World</em> (Proc. ICPR 2025), Lecture Notes in Production Engineering, Springer. <a href="https://doi.org/10.1007/978-3-032-19656-9">doi.org/10.1007/978-3-032-19656-9</a></span>
             <span data-i18n="research.pubs.icpr">Peer-reviewed, indexed in Scopus and EI Compendex.</span>
+            <span class="rs-stage s3" aria-hidden="true"><i></i><i></i><i></i></span>
           </li>
-          <li>
-            <span class="status" data-i18n="research.status.revision">In revision</span>
+          <li class="reveal" style="--delay:.1s">
+            <div class="rs-pub-head">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M16.6 41.8c-7.2 0-11.7-4.95-11.7-11.25 0-5.85 4.05-9 6.3-13.5 1.35 2.7 2.7 4.05 4.5 4.95-.45-4.5 1.35-9 5.4-12.6.45 5.4 3.6 8.1 5.85 11.7 1.35 2.25 2.25 4.95 2.25 7.65C29.2 36.4 24.25 41.8 16.6 41.8z"/><path d="M37 5c3.6 4.6 5.6 7.6 5.6 10.2a5.6 5.6 0 0 1-11.2 0c0-2.6 2-5.6 5.6-10.2z"/><circle class="i-solid" cx="35" cy="27" r="1.9"/></svg></span>
+              <span class="status st-rev" data-i18n="research.status.revision">In revision</span>
+            </div>
             <strong>The Cycle-Constrained Aerial Suppression Base and Water Point Location Problem: Joint Siting under Uncertainty with an Application to Cundinamarca, Colombia</strong>
             <span class="meta">Pesca Santos, J. E., &amp; Ysa Morla, K. H.</span>
             <span data-i18n="research.pubs.wildfire">The first model to site helicopter bases and water refill points jointly, with an open-data case study built around Colombia's acquisition of its first Firehawk helicopters.</span>
+            <span class="rs-stage s2" aria-hidden="true"><i></i><i></i><i></i></span>
           </li>
-          <li>
-            <span class="status" data-i18n="research.status.revision">In revision</span>
+          <li class="reveal" style="--delay:.2s">
+            <div class="rs-pub-head">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M6 19l4-9h28l4 9z"/><path d="M6 19a4.5 4.5 0 0 0 9 0 4.5 4.5 0 0 0 9 0 4.5 4.5 0 0 0 9 0 4.5 4.5 0 0 0 9 0"/><path class="i-faint" d="M9.5 25v16M38.5 25v16"/><path d="M5 41h38"/><path d="M24 39c-3.6-4.2-5.5-6.9-5.5-9.5a5.5 5.5 0 0 1 11 0c0 2.6-1.9 5.3-5.5 9.5z"/><circle class="i-solid" cx="24" cy="29.5" r="2"/></svg></span>
+              <span class="status st-rev" data-i18n="research.status.revision">In revision</span>
+            </div>
             <strong>Locating Street Markets: Analysis from Qualitative and Quantitative Factors Using a Discrete Choice Model, Mixed Integer Nonlinear Programming and Fuzzy AHP</strong>
             <span class="meta">Pesca, J., Mejía, G., &amp; Gutiérrez-Franco, E. <a href="https://github.com/JaimePesca/Locating-street-markets-Using-a-discrete-choice-model-MINLP-and-fuzzy-AHP" data-i18n="research.pubs.code">Code on GitHub</a></span>
             <span data-i18n="research.pubs.markets">Applied to the district of Bosa, Bogotá, to balance demand capture with urban planning criteria. Presented at the INFORMS / ALIO / ASOCIO 2024 conference.</span>
+            <span class="rs-stage s2" aria-hidden="true"><i></i><i></i><i></i></span>
           </li>
-          <li>
-            <span class="status" data-i18n="research.status.prep">In preparation</span>
+          <li class="reveal" style="--delay:.3s">
+            <div class="rs-pub-head">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" transform="rotate(-38 28 18)" d="M43 18c0-1.3-1.5-2-3.6-2H34l-6.3-9h-3.2l3.6 9h-7.7l-2.7-3.9h-2.7l1.8 4.6v2.6l-1.8 4.6h2.7l2.7-3.9h7.7l-3.6 9h3.2l6.3-9h5.4c2.1 0 3.6-.7 3.6-2z"/><path class="i-faint" d="M9 29c3-5 6-8 10-10" stroke-dasharray="2 4"/><rect x="5" y="32" width="10" height="10" rx="1.5"/><rect class="i-tint" x="15" y="32" width="10" height="10" rx="1.5"/><path class="i-faint" d="M10 32v4M20 32v4"/></svg></span>
+              <span class="status st-prep" data-i18n="research.status.prep">In preparation</span>
+            </div>
             <strong>A Two-Stage Decision Support Model for Cut Flower Palletisation in Full Charter Air Freight</strong>
             <span class="meta">Pesca, J., Bautista Conde, D. Y., Gutierrez-Franco, E., &amp; Mejia-Argueta, C.</span>
             <span data-i18n="research.pubs.flowers">Integer programming for allocation and online bin packing for placement, validated on real charter flight data from the Bogotá to Miami corridor. It extends my MIT capstone on Boeing 747-400F charter flights, which reached about 90% average volumetric utilization. Presented at the MIT Global SCALE Network 2026.</span>
+            <span class="rs-stage s1" aria-hidden="true"><i></i><i></i><i></i></span>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Docencia: cursos con ícono y, al lado, un tablero con un problema lineal resuelto frente a la clase -->
+    <section class="section has-deco rs-teach">
+      <span class="deco deco-dots at-bl hide-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="research.teaching.title">Teaching</h2>
-        <ul class="highlight-list">
-          <li>
-            <strong data-i18n="research.teaching.1.title">Business Analytics and Technology · Universidad Externado de Colombia</strong>
-            <span data-i18n="research.teaching.1.text">Final-semester emphasis of the Business Administration program: data quality, KPI design, applied statistics, predictive modeling and data ethics, with student consulting projects that end in a Power BI dashboard and an executive defense.</span>
-          </li>
-          <li>
-            <strong data-i18n="research.teaching.2.title">Optimization Methods II · Universidad Externado de Colombia</strong>
-            <span data-i18n="research.teaching.2.text">Two undergraduate sections on linear and nonlinear programming, modeling and solution techniques.</span>
-          </li>
-          <li>
-            <strong data-i18n="research.teaching.3.title">Logistics and Supply Chain Management · Universidad de La Sabana</strong>
-            <span data-i18n="research.teaching.3.text">I taught sessions of this undergraduate Industrial Engineering course, alongside a graduate research assistantship in the Logistics Systems Research Group.</span>
-          </li>
-        </ul>
-        <div class="chip-row" style="margin-top:1.8rem">
+        <div class="split">
+          <div>
+          <h2 class="reveal" data-i18n="research.teaching.title">Teaching</h2>
+          <ul class="highlight-list iconic">
+            <li class="reveal">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="5" y="8" width="38" height="31" rx="3"/><path d="M5 15h38"/><circle class="i-solid" cx="10" cy="11.5" r="1.3"/><circle class="i-solid" cx="14.5" cy="11.5" r="1.3"/><path class="i-faint" d="M11 32l7-7 5 4 7-9 7 5"/></svg></span>
+              <strong data-i18n="research.teaching.1.title">Business Analytics and Technology · Universidad Externado de Colombia</strong>
+              <span data-i18n="research.teaching.1.text">Final-semester emphasis of the Business Administration program: data quality, KPI design, applied statistics, predictive modeling and data ethics, with student consulting projects that end in a Power BI dashboard and an executive defense.</span>
+            </li>
+            <li class="reveal" style="--delay:.1s">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M6 5v36h37"/><path class="i-tint" d="M6 41V24l10-11 15 2 7 26z"/><path class="i-faint" d="M20 4l23 23" stroke-dasharray="2 4"/><circle class="i-solid" cx="31" cy="15" r="3"/></svg></span>
+              <strong data-i18n="research.teaching.2.title">Optimization Methods II · Universidad Externado de Colombia</strong>
+              <span data-i18n="research.teaching.2.text">Two undergraduate sections on linear and nonlinear programming, modeling and solution techniques.</span>
+            </li>
+            <li class="reveal" style="--delay:.2s">
+              <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-faint" d="M7 34C12 21 22 13 36 10" stroke-dasharray="2 4"/><path d="M33 5l6 5-6 5"/><circle class="i-solid" cx="7" cy="35" r="3"/><rect class="i-tint" x="24" y="26" width="17" height="15" rx="1.5"/><path d="M24 31.5h17M32.5 26v5.5"/></svg></span>
+              <strong data-i18n="research.teaching.3.title">Logistics and Supply Chain Management · Universidad de La Sabana</strong>
+              <span data-i18n="research.teaching.3.text">I taught sessions of this undergraduate Industrial Engineering course, alongside a graduate research assistantship in the Logistics Systems Research Group.</span>
+            </li>
+          </ul>
+          </div>
+          <div class="split-art rs-board reveal" style="--delay:.2s" aria-hidden="true">
+            <svg class="art" viewBox="0 0 300 300" focusable="false">
+              <!-- Tablero con ejes, región factible y la recta objetivo que barre hasta el óptimo -->
+              <rect class="a-bg a-line" x="24" y="34" width="252" height="170" rx="8"/>
+              <path class="a-line" d="M44 214h212"/>
+              <path class="a-faint" d="M58 58v122h194"/>
+              <path class="a-fill a-line" d="M58 180v-56l38-36 72 6 44 86z"/>
+              <path class="a-faint a-dash rs-sweep" d="M98 98l74 74"/>
+              <path class="a-pop-line anim-draw" pathLength="1" d="M136 62l64 64" style="--dur:1.4s; --anim-delay:.7s"/>
+              <circle class="a-faint" cx="168" cy="94" r="13"/>
+              <circle class="a-pop anim-pulse" cx="168" cy="94" r="6" style="--dur:6s"/>
+              <!-- Tarjeta flotante con barras (analítica) -->
+              <g class="anim-float" style="--dur:8s">
+                <rect class="a-bg a-line" x="204" y="10" width="80" height="54" rx="9"/>
+                <rect class="a-fill a-line anim-bar" x="219" y="36" width="10" height="18" rx="2" style="--anim-delay:.5s"/>
+                <rect class="a-fill a-line anim-bar" x="235" y="28" width="10" height="26" rx="2" style="--anim-delay:.65s"/>
+                <rect class="a-pop anim-bar" x="251" y="20" width="10" height="34" rx="2" style="--anim-delay:.8s"/>
+              </g>
+              <!-- Estudiantes frente al tablero -->
+              <g class="a-fill a-line">
+                <circle cx="82" cy="246" r="12"/><path d="M58 292a24 22 0 0 1 48 0"/>
+                <circle cx="150" cy="240" r="12"/><path d="M126 286a24 22 0 0 1 48 0"/>
+                <circle cx="218" cy="246" r="12"/><path d="M194 292a24 22 0 0 1 48 0"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="chip-row reveal" style="margin-top:1.8rem">
           <span class="chip">MILP · MINLP</span>
           <span class="chip" data-i18n="research.chip.stochastic">Stochastic programming</span>
           <span class="chip" data-i18n="research.chip.heuristics">Heuristics &amp; matheuristics</span>
@@ -350,17 +511,44 @@
           <span class="chip">GAMS</span>
           <span class="chip">Python</span>
         </div>
-        <p style="margin-top:1.6rem" data-i18n="research.memberships">I am a member of The OR Society (United Kingdom) and the Colombian Association of Operations Research (ASOCIO).</p>
+        <div class="rs-member reveal">
+          <span class="icon-badge sm round" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="18" cy="17" r="6"/><path d="M7 40c0-6.6 4.9-12 11-12s11 5.4 11 12"/><circle class="i-faint" cx="33" cy="15" r="5"/><path class="i-faint" d="M32 25c5.3 0 9 4.6 9 10.5"/></svg></span>
+          <p style="margin-top:1.6rem" data-i18n="research.memberships">I am a member of The OR Society (United Kingdom) and the Colombian Association of Operations Research (ASOCIO).</p>
+        </div>
       </div>
     </section>
 
     <section class="cta" id="contact">
-      <div class="wrap">
-        <h2 data-i18n="research.cta.title">Academic contact</h2>
-        <p data-i18n="research.cta.text">I'm open to co-authorship, applied research projects and academic talks.</p>
-        <div class="cta-actions">
-          <a class="btn" href="#contact" data-mail data-ga-event="email_click" data-i18n="cta.write">Write to me</a>
-          <a class="mail" href="#contact" data-mail data-mail-text data-ga-event="email_click">jaime.e.pesca.s (at) gmail.com</a>
+      <div class="wrap hero-grid rs-cta-grid">
+        <div class="hero-copy">
+          <h2 data-i18n="research.cta.title">Academic contact</h2>
+          <p data-i18n="research.cta.text">I'm open to co-authorship, applied research projects and academic talks.</p>
+          <div class="cta-actions">
+            <a class="btn anim-shimmer" href="#contact" data-mail data-ga-event="email_click" data-i18n="cta.write">Write to me</a>
+            <a class="mail" href="#contact" data-mail data-mail-text data-ga-event="email_click">jaime.e.pesca.s (at) gmail.com</a>
+          </div>
+        </div>
+        <!-- Red de coautoría: colegas unidos a un nodo central, un artículo en camino -->
+        <div class="hero-art rs-coauth hide-sm" aria-hidden="true">
+          <svg class="art" viewBox="0 0 300 300" focusable="false">
+            <circle class="a-faint a-dash" cx="150" cy="150" r="118"/>
+            <g class="anim-orbit" style="--dur:36s"><circle class="a-pop" cx="150" cy="32" r="4.5"/></g>
+            <path class="a-faint" d="M150 150L72 96M150 150L246 186M150 150L176 250M150 150L62 206M72 96L62 206M246 186L176 250M72 96L118 44"/>
+            <path class="a-pop-line anim-flow" d="M150 150L232 82"/>
+            <circle class="a-bg a-line" cx="72" cy="96" r="9"/>
+            <circle class="a-bg a-line" cx="232" cy="82" r="11"/>
+            <circle class="a-bg a-line" cx="246" cy="186" r="8"/>
+            <circle class="a-bg a-line" cx="176" cy="250" r="9"/>
+            <circle class="a-bg a-line" cx="62" cy="206" r="7"/>
+            <circle class="a-bg a-faint" cx="118" cy="44" r="6"/>
+            <circle class="a-fill a-line" cx="150" cy="150" r="22"/>
+            <circle class="a-pop" cx="150" cy="150" r="9"/>
+            <g class="anim-float" style="--dur:7s">
+              <path class="a-bg a-line" d="M196 118h26l10 10v36h-36z"/>
+              <path class="a-line" d="M222 118v10h10"/>
+              <path class="a-faint" d="M204 138h20M204 146h20M204 154h12"/>
+            </g>
+          </svg>
         </div>
       </div>
     </section>

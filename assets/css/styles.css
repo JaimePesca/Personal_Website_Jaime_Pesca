@@ -104,6 +104,9 @@
   --font-display: "neue-haas-grotesk-display", "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "neue-haas-grotesk-text", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-label: var(--font-body);
+
+  /* Esquinas de tarjetas, cifras y recuadros (igual en todas las páginas) */
+  --radius: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -290,6 +293,26 @@ button:focus-visible {
   border-bottom: 2px solid var(--accent);
 }
 
+/* Cada área con su color: el mismo cuadrado de los títulos antes del
+   nombre y, al pasar o enfocar, la línea inferior en ese tono */
+.nav-menu a { border-bottom: 2px solid transparent; }
+.nav-menu a[href*="research"] { --nav-tone: var(--c-research); }
+.nav-menu a[href*="growth"]   { --nav-tone: var(--c-growth); }
+.nav-menu a[href*="data"]     { --nav-tone: var(--c-data); }
+.nav-menu a[href*="training"] { --nav-tone: var(--c-teach); }
+
+.nav-menu a::before {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin-right: 0.45em;
+  vertical-align: 0.14em;
+  background: var(--nav-tone, var(--accent));
+}
+
+.nav-menu a:is(:hover, :focus-visible) { border-bottom-color: var(--nav-tone, var(--accent)); }
+
 /* Selector de idioma */
 .nav-tools {
   display: flex;
@@ -422,6 +445,7 @@ button:focus-visible {
   background: var(--accent-soft);
   border: 1px solid var(--line);
   border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
   padding: clamp(1.4rem, 4vw, 2.4rem);
   display: flex;
   flex-direction: column;
@@ -493,6 +517,7 @@ main > .section:nth-child(even of .section) { background: var(--accent-faint); }
   gap: 0.8rem;
   background: var(--surface);
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   padding: 1.6rem 1.5rem 1.5rem;
   text-decoration: none;
   color: var(--ink);
@@ -634,12 +659,50 @@ main > .section:nth-child(even of .section) { background: var(--accent-faint); }
   font-size: 1.05rem;
 }
 
-.ai-section .eyebrow { display: block; margin-bottom: 0.8rem; }
+/* Destello (✦) de "Experto en IA": una sola máscara para la etiqueta de
+   las secciones de IA, el chip del héroe y el párrafo de IA de la portada */
+body {
+  --spark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2c.9 4.6 3 6.7 7.6 7.6C13 10.5 10.9 12.6 10 17.2 9.1 12.6 7 10.5 2.4 9.6 7 8.7 9.1 6.6 10 2zM18.5 14c.45 2.3 1.5 3.35 3.8 3.8-2.3.45-3.35 1.5-3.8 3.8-.45-2.3-1.5-3.35-3.8-3.8 2.3-.45 3.35-1.5 3.8-3.8z'/%3E%3C/svg%3E");
+}
+
+/* Etiqueta de la sección de IA: píldora con el destello delante */
+.ai-section .eyebrow {
+  --shimmer: color-mix(in srgb, var(--accent) 20%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.32rem 0.85rem 0.32rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+  border-radius: 999px;
+  background: var(--surface);
+  font-weight: 600;
+}
 
 .chip-ai {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   border-color: var(--accent);
   color: var(--accent);
   font-weight: 600;
+}
+
+.ai-section .eyebrow::before,
+.chip-ai::before {
+  content: "";
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  background: currentColor;
+}
+
+.ai-section .eyebrow::before,
+.chip-ai::before,
+.about-ai::before {
+  -webkit-mask: var(--spark) center / contain no-repeat;
+  mask: var(--spark) center / contain no-repeat;
 }
 
 /* Valores en el bloque de contacto */
@@ -653,15 +716,35 @@ main > .section:nth-child(even of .section) { background: var(--accent-faint); }
 }
 
 .values-inline li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-label);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.3rem 0.75rem;
+  padding: 0.3rem 0.75rem 0.3rem 0.6rem;
   border: 1px solid color-mix(in srgb, var(--on-deep) 35%, transparent);
   border-radius: 999px;
   color: var(--on-deep-muted);
 }
+
+/* Ícono de cada valor: escudo (ética), medalla (calidad),
+   lista (rigurosidad) e indicador (analítica garantizada) */
+.values-inline li::before {
+  content: "";
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  background: currentColor;
+  -webkit-mask: var(--v-icon) center / contain no-repeat;
+  mask: var(--v-icon) center / contain no-repeat;
+}
+
+.values-inline li:nth-child(1) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.5l7.5 3v5.5c0 4.8-3.2 8.6-7.5 10.5-4.3-1.9-7.5-5.7-7.5-10.5V5.5z'/%3E%3Cpath d='M8.5 12l2.5 2.5 4.5-5'/%3E%3C/svg%3E"); }
+.values-inline li:nth-child(2) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9.5' r='6.5'/%3E%3Cpath d='M9 15.5L7.5 22l4.5-2 4.5 2-1.5-6.5'/%3E%3C/svg%3E"); }
+.values-inline li:nth-child(3) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4.5' y='3' width='15' height='18' rx='1.5'/%3E%3Cpath d='M8 9l1.5 1.5L12 8M8 15.5l1.5 1.5 2.5-2.5M14 9.5h2.5M14 16h2.5'/%3E%3C/svg%3E"); }
+.values-inline li:nth-child(4) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 17a9 9 0 0 1 18 0'/%3E%3Cpath d='M12 17l4.5-5'/%3E%3Ccircle cx='12' cy='17' r='1.2'/%3E%3C/svg%3E"); }
 
 /* ---------- Movimiento (ver main.js) ---------- */
 .js .reveal {
@@ -852,4 +935,759 @@ main > .section:nth-child(even of .section) { background: var(--accent-faint); }
 @media (prefers-reduced-motion: reduce) {
   .profile-card, .btn, .faq summary::after { transition: none; }
   .profile-card:hover { transform: none; }
+}
+
+/* ============================================================
+   Sistema visual
+   Lenguaje gráfico compartido: íconos de línea, arte del héroe,
+   fondos decorativos, tarjetas con interacción, biblioteca de
+   animaciones y adornos de títulos y del bloque de contacto.
+   Todo lo decorativo va con aria-hidden="true" y sin texto.
+   Colores: solo tokens (y color-mix de ellos); nada en línea.
+   ============================================================ */
+
+/* ---------- Tokens del arte ----------
+   El mismo dibujo sirve sobre fondo claro y sobre el profundo:
+   las clases .a-* y los adornos leen estas variables, que cambian
+   según el contexto (claro por defecto; profundo en .hero.tinted,
+   .cta y .on-deep). */
+body {
+  --art-ink: var(--accent);
+  --art-muted: color-mix(in srgb, var(--accent) 40%, transparent);
+  --art-fill: var(--accent-soft);
+  --art-bg: var(--surface);
+  --art-glow: color-mix(in srgb, var(--accent) 16%, transparent);
+  --art-pop: var(--accent);
+  --deco: color-mix(in srgb, var(--accent) 24%, transparent);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-io: cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.hero.tinted,
+.cta,
+.on-deep {
+  --art-ink: var(--on-deep);
+  --art-muted: color-mix(in srgb, var(--on-deep) 36%, transparent);
+  --art-fill: color-mix(in srgb, var(--on-deep) 9%, transparent);
+  --art-bg: var(--deep);
+  --art-glow: color-mix(in srgb, var(--accent) 24%, transparent);
+  --art-pop: color-mix(in srgb, var(--accent) 55%, var(--on-deep));
+  --deco: color-mix(in srgb, var(--on-deep) 16%, transparent);
+}
+
+/* ---------- Íconos de línea ----------
+   <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+   Trazo de 1.75 en una grilla de 48; el color sale de currentColor. */
+.icon {
+  --icon-size: 48px;
+  display: block;
+  flex: none;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+.icon-sm { --icon-size: 32px; stroke-width: 2.25; }
+.icon-lg { --icon-size: 64px; stroke-width: 1.6; }
+.icon-xl { --icon-size: 96px; stroke-width: 1.4; }
+
+/* Partes del ícono: relleno tenue, punto sólido, línea secundaria */
+.icon .i-tint { fill: currentColor; fill-opacity: 0.16; }
+.icon .i-solid { fill: currentColor; stroke: none; }
+.icon .i-faint { opacity: 0.45; }
+
+/* Insignia: fondo suave del tono con el ícono en acento */
+.icon-badge {
+  --badge: 64px;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  align-self: flex-start;
+  width: var(--badge);
+  height: var(--badge);
+  border-radius: 18px;
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.icon-badge > .icon { --icon-size: calc(var(--badge) * 0.62); }
+.icon-badge.sm { --badge: 44px; border-radius: 12px; }
+
+/* En la insignia pequeña el ícono mide unos 27 px: trazo más grueso y
+   detalles menos tenues, igual en todas las páginas */
+.icon-badge.sm .icon { stroke-width: 2.4; }
+.icon-badge.sm .i-faint { opacity: 0.7; }
+.icon-badge.lg { --badge: 84px; border-radius: 24px; }
+.icon-badge.round { border-radius: 50%; }
+
+/* Variante llena (acento con ícono claro) */
+.icon-badge.solid {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: none;
+}
+
+/* Sobre los fondos profundos (héroe tintado, contacto) */
+.hero.tinted .icon-badge,
+.cta .icon-badge,
+.on-deep .icon-badge {
+  background: color-mix(in srgb, var(--on-deep) 10%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--on-deep) 22%, transparent);
+  color: var(--on-deep);
+}
+
+/* ---------- Arte (SVG en línea) ----------
+   Clases para las piezas de una ilustración; el color depende del
+   contexto (ver tokens del arte). */
+.art { display: block; width: 100%; height: auto; overflow: visible; }
+
+.a-line,
+.a-faint,
+.a-pop-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.a-line { stroke: var(--art-ink); stroke-width: 1.6; }
+.a-faint { stroke: var(--art-muted); stroke-width: 1.2; }
+.a-pop-line { stroke: var(--art-pop); stroke-width: 2.2; }
+.a-fill { fill: var(--art-fill); }
+.a-solid { fill: var(--art-ink); }
+.a-pop { fill: var(--art-pop); }
+.a-bg { fill: var(--art-bg); }
+.a-dash { stroke-dasharray: 4 6; }
+
+/* ---------- Héroe en dos columnas ----------
+   <div class="wrap hero-grid">
+     <div class="hero-copy"> (eyebrow, h1, lede, botón) </div>
+     <div class="hero-art" aria-hidden="true"> <svg class="art">… </div>
+   </div> */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 2rem 3rem;
+  align-items: center;
+}
+
+.hero-copy { min-width: 0; }
+
+.hero .hero-grid h1 { font-size: clamp(2.3rem, 5.6vw, 3.9rem); }
+
+.hero-art {
+  position: relative;
+  isolation: isolate;
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+  color: var(--art-ink);
+  pointer-events: none;
+}
+
+/* Halo suave detrás de la ilustración */
+.hero-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 4%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--art-glow), transparent);
+}
+
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { justify-self: center; max-width: min(260px, 75%); }
+  .hero-art.art-first { order: -1; max-width: min(220px, 60%); }
+}
+
+/* ---------- Texto con ilustración al lado (secciones claras) ---------- */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 2rem 3.5rem;
+  align-items: center;
+}
+
+.split.reverse { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); }
+.split.reverse > .split-art { order: -1; }
+
+.split-art {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 360px;
+  color: var(--art-ink);
+  pointer-events: none;
+}
+
+@media (max-width: 820px) {
+  .split,
+  .split.reverse { grid-template-columns: 1fr; }
+  .split-art { max-width: min(260px, 75%); }
+  .split.reverse > .split-art { order: 0; }
+}
+
+/* ---------- Fondos decorativos ----------
+   El contenedor lleva .has-deco; los adornos son hijos con
+   .deco .deco-<tipo> .at-<esquina> y aria-hidden="true". Quedan
+   detrás del contenido y se recortan en el borde (sin desborde). */
+.has-deco {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+}
+
+.deco {
+  --size: 260px;
+  --k: 1;
+  position: absolute;
+  z-index: -1;
+  width: calc(var(--size) * var(--k));
+  height: calc(var(--size) * var(--k));
+  pointer-events: none;
+  color: var(--deco);
+}
+
+.deco.s-sm { --size: 160px; }
+.deco.s-lg { --size: 420px; }
+.deco.s-xl { --size: 600px; }
+
+/* Posiciones: medio adorno fuera del borde */
+.deco.at-tl { top: calc(var(--size) * var(--k) * -0.35); left: calc(var(--size) * var(--k) * -0.35); }
+.deco.at-tr { top: calc(var(--size) * var(--k) * -0.35); right: calc(var(--size) * var(--k) * -0.35); }
+.deco.at-bl { bottom: calc(var(--size) * var(--k) * -0.35); left: calc(var(--size) * var(--k) * -0.35); }
+.deco.at-br { bottom: calc(var(--size) * var(--k) * -0.35); right: calc(var(--size) * var(--k) * -0.35); }
+.deco.at-r { top: calc(50% - var(--size) * var(--k) / 2); right: calc(var(--size) * var(--k) * -0.45); }
+.deco.at-l { top: calc(50% - var(--size) * var(--k) / 2); left: calc(var(--size) * var(--k) * -0.45); }
+
+/* Grilla de puntos que se desvanece hacia el borde
+   (en las máscaras solo importa la opacidad del color) */
+.deco-dots {
+  background-image: radial-gradient(circle, var(--deco) 1.3px, transparent 1.8px);
+  background-size: 18px 18px;
+  -webkit-mask-image: radial-gradient(closest-side, var(--ink), transparent);
+  mask-image: radial-gradient(closest-side, var(--ink), transparent);
+}
+
+/* Cuadrícula de papel milimetrado */
+.deco-grid {
+  background-image:
+    linear-gradient(var(--deco) 1px, transparent 1px),
+    linear-gradient(90deg, var(--deco) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(closest-side, var(--ink), transparent);
+  mask-image: radial-gradient(closest-side, var(--ink), transparent);
+}
+
+/* Anillos concéntricos: el borde y dos pseudoelementos */
+.deco-rings {
+  border: 1.5px solid var(--deco);
+  border-radius: 50%;
+}
+
+.deco-rings::before,
+.deco-rings::after {
+  content: "";
+  position: absolute;
+  border: 1.5px solid var(--deco);
+  border-radius: 50%;
+}
+
+.deco-rings::before { inset: 16%; }
+.deco-rings::after { inset: 33%; }
+
+/* Mancha suave y orgánica */
+.deco-blob {
+  border-radius: 43% 57% 62% 38% / 45% 38% 62% 55%;
+  background: radial-gradient(circle at 38% 36%, var(--art-glow), transparent 72%);
+}
+
+/* Motivo sigma (Σ, como el favicon) */
+.deco-sigma {
+  height: calc(var(--size) * var(--k) * 1.15);
+  background: var(--deco);
+  opacity: 0.55;
+  clip-path: polygon(8% 0, 92% 0, 92% 17%, 37% 17%, 63% 50%, 37% 83%, 92% 83%, 92% 100%, 8% 100%, 8% 87%, 43% 50%, 8% 13%);
+}
+
+/* Curvas de nivel (mapa topográfico) */
+.deco-topo {
+  --topo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240' fill='none' stroke='currentColor' stroke-width='0.7'%3E%3Cpath d='M138 114C139 119 136 125 133 129C130 133 125 135 121 138C116 140 111 142 107 142C103 142 98 139 94 137C90 134 86 131 83 128C81 124 80 119 79 114C79 109 78 103 80 99C82 94 87 89 92 87C96 86 102 88 107 89C112 89 116 90 120 92C123 94 127 97 130 101C133 104 138 109 138 114ZM160 112C160 119 156 129 151 136C146 142 138 146 131 149C125 152 117 156 110 156C103 155 96 151 90 147C84 143 77 139 73 133C69 128 68 120 67 112C66 104 64 94 67 87C71 80 79 72 86 70C93 67 103 71 110 72C117 74 123 75 129 78C135 81 141 86 146 91C151 97 159 105 160 112ZM182 110C183 120 176 134 169 142C162 151 152 156 142 161C133 165 122 170 113 169C104 169 94 163 86 158C77 152 68 147 63 139C57 131 56 121 54 110C53 99 50 86 54 76C58 66 70 55 80 52C89 49 103 54 113 56C123 59 131 60 139 65C147 69 155 74 162 82C169 89 180 100 182 110ZM204 108C206 121 196 138 187 149C179 160 165 167 153 173C141 178 128 183 116 183C104 182 92 174 81 168C71 161 59 155 52 145C46 135 44 121 42 108C40 95 35 76 40 64C45 52 61 38 73 34C86 30 103 38 116 41C129 43 138 46 149 51C159 57 168 63 177 73C186 82 203 95 204 108ZM227 106C229 121 216 143 205 156C195 169 179 178 164 185C150 191 133 197 119 196C105 195 90 186 77 178C65 170 50 162 42 150C34 138 33 122 30 106C28 90 19 67 26 52C32 37 52 21 67 17C83 12 104 21 119 25C134 28 146 32 158 39C170 45 181 52 193 64C204 75 225 91 227 106ZM251 104C254 122 236 147 223 162C210 178 192 189 176 197C159 205 139 210 122 208C105 207 88 197 73 188C58 179 41 170 32 156C23 142 22 123 19 104C15 85 3 57 11 40C18 22 43 4 61 -1C80 -6 104 4 122 9C140 13 152 19 167 26C181 34 194 41 208 54C222 67 249 86 251 104ZM275 102C278 123 256 151 241 169C226 187 206 201 187 209C168 218 145 222 125 221C105 219 86 208 69 198C52 189 32 178 22 162C12 145 11 124 7 102C2 80 -13 47 -5 27C3 7 34 -13 55 -19C77 -25 105 -13 125 -7C145 -1 159 6 175 15C192 24 207 31 223 45C240 60 272 81 275 102Z'/%3E%3C/svg%3E");
+  background: var(--deco);
+  opacity: 0.8;
+  -webkit-mask: var(--topo) center / cover no-repeat;
+  mask: var(--topo) center / cover no-repeat;
+}
+
+@media (max-width: 720px) {
+  .deco { --k: 0.6; }
+  .hide-sm { display: none !important; }
+}
+
+/* ---------- Adornos por defecto: héroe tintado y contacto ---------- */
+.hero.tinted,
+.cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+}
+
+/* Héroe: puntos arriba a la derecha y halo del acento */
+.hero.tinted::before,
+.hero.tinted::after,
+.cta::before,
+.cta::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero.tinted::before {
+  top: -60px;
+  right: -60px;
+  width: min(560px, 90vw);
+  aspect-ratio: 1;
+  background-image: radial-gradient(circle, var(--deco) 1.2px, transparent 1.7px);
+  background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(closest-side, var(--ink), transparent);
+  mask-image: radial-gradient(closest-side, var(--ink), transparent);
+}
+
+.hero.tinted::after {
+  right: -12%;
+  bottom: -55%;
+  width: min(760px, 120vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--art-glow), transparent);
+}
+
+/* Contacto: ondas concéntricas a la derecha que laten despacio */
+.cta::before {
+  right: -200px;
+  top: 50%;
+  width: 580px;
+  height: 580px;
+  margin-top: -290px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 33px, var(--deco) 34px 35.5px, transparent 36.5px 44px);
+  -webkit-mask-image: radial-gradient(closest-side, var(--ink) 35%, transparent);
+  mask-image: radial-gradient(closest-side, var(--ink) 35%, transparent);
+  animation: pulse 9s var(--ease-io) infinite;
+}
+
+.cta::after {
+  left: -40px;
+  bottom: -40px;
+  width: 220px;
+  height: 220px;
+  background-image: radial-gradient(circle, var(--deco) 1.2px, transparent 1.7px);
+  background-size: 18px 18px;
+  -webkit-mask-image: radial-gradient(closest-side, var(--ink), transparent);
+  mask-image: radial-gradient(closest-side, var(--ink), transparent);
+}
+
+@media (max-width: 720px) {
+  .cta::before { right: -300px; top: auto; bottom: -330px; margin-top: 0; }
+}
+
+/* ---------- Títulos de sección ----------
+   El cuadrado de acento gana una sombra desplazada y una línea que
+   se desvanece; si el título (o su bloque) lleva .reveal, ambos
+   entran al aparecer. */
+.section h2::before {
+  box-shadow: 0.2em 0.2em 0 color-mix(in srgb, var(--accent) 24%, transparent);
+  transition: transform 0.7s var(--ease-out) 0.1s;
+}
+
+.section h2::after {
+  content: "";
+  flex: 0 1 5rem;
+  height: 1px;
+  margin-left: 0.2rem;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.55;
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-out) 0.3s;
+}
+
+.js .section h2.reveal:not(.is-visible)::before,
+.js .section .reveal:not(.is-visible) h2::before,
+.js .section.reveal:not(.is-visible) h2::before { transform: scale(0) rotate(-135deg); }
+
+.js .section h2.reveal:not(.is-visible)::after,
+.js .section .reveal:not(.is-visible) h2::after,
+.js .section.reveal:not(.is-visible) h2::after { transform: scaleX(0); }
+
+/* En el celular la línea pasa debajo del texto, pegada a él (a lo ancho
+   empujaba el título a dos líneas) y, si aun así se parte, el cuadrado
+   se queda en la primera línea */
+@media (max-width: 560px) {
+  .section h2 {
+    position: relative;
+    align-items: baseline;
+  }
+
+  .section h2::after {
+    position: absolute;
+    left: calc(0.55em + 0.7rem);
+    bottom: -0.5rem;
+    width: 3rem;
+    margin-left: 0;
+  }
+}
+
+/* ---------- Tarjetas: elevación y acento al pasar o enfocar ---------- */
+.btn { transition: filter 0.15s ease, transform 0.2s var(--ease-out); }
+.btn:hover { transform: translateY(-1px); }
+
+/* Perfiles (hub y 404): barra superior del tono y sombra suave */
+.profile-card {
+  position: relative;
+  transition: border-color 0.15s ease, transform 0.25s var(--ease-out);
+}
+
+.profile-card::before,
+.profile-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.profile-card::before {
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--card-accent, var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.profile-card::after {
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow: 0 18px 36px -22px color-mix(in srgb, var(--card-accent, var(--accent)) 60%, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-card:focus-visible {
+  outline-color: var(--card-accent, var(--accent));
+  border-color: var(--card-accent, var(--accent));
+  transform: translateY(-2px);
+}
+
+.profile-card:is(:hover, :focus-visible)::before { transform: scaleX(1); }
+.profile-card:is(:hover, :focus-visible)::after { opacity: 1; }
+.profile-card .icon-badge { color: var(--card-accent, var(--accent)); background: color-mix(in srgb, var(--card-accent, var(--accent)) 10%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--card-accent, var(--accent)) 20%, transparent); }
+
+/* Servicios: la línea superior se llena de acento; ranura de ícono arriba */
+.service {
+  position: relative;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.service::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out);
+  pointer-events: none;
+}
+
+.service:is(:hover, :focus-within) { transform: translateY(-3px); }
+.service:is(:hover, :focus-within)::before { transform: scaleX(1); }
+
+.service > .icon-badge:first-child,
+.service > .icon:first-child { margin-bottom: 0.45rem; }
+
+:is(.service, .profile-card, .stat-row li):is(:hover, :focus-within) .icon-badge { transform: translateY(-3px) rotate(-6deg); }
+
+/* Variante tarjeta: <div class="service-grid cards"> */
+.service-grid.cards { gap: 1.2rem; }
+
+.service-grid.cards > .service {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.4rem 1.4rem;
+}
+
+.service-grid.cards > .service::before {
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.service-grid.cards > .service:is(:hover, :focus-within) { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+
+/* Sombra tintada de tarjetas y cifras: una capa fija en ::after que solo
+   cambia de opacidad (como .profile-card), sin animar box-shadow */
+.service-grid.cards:not(.steps) > .service::after,
+.stat-row.tiles li::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow: 0 18px 36px -24px color-mix(in srgb, var(--accent) 60%, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.service-grid.cards:not(.steps) > .service:is(:hover, :focus-within)::after,
+.stat-row.tiles li:is(:hover, :focus-within)::after { opacity: 1; }
+
+/* Variante proceso: <div class="service-grid steps">, cada número con
+   .step-num; en escritorio una línea punteada une los pasos */
+.step-num {
+  display: inline-grid;
+  place-items: center;
+  align-self: flex-start;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+@media (min-width: 900px) {
+  .service-grid.steps > .service:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: calc(1rem + 1.375rem);
+    left: 3.5rem;
+    right: -1.6rem;
+    border-top: 1.5px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+    pointer-events: none;
+  }
+}
+
+/* Destacados: deslizamiento suave y fondo del tono */
+.highlight-list li {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.highlight-list li::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.55rem -0.8rem -0.55rem 0;
+  background: linear-gradient(90deg, var(--accent-soft), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.highlight-list li:is(:hover, :focus-within) { transform: translateX(4px); }
+.highlight-list li:is(:hover, :focus-within)::before { opacity: 1; }
+
+/* Variante con ícono a la izquierda: <ul class="highlight-list iconic">
+   y una .icon-badge.sm como primer hijo de cada <li> */
+.highlight-list.iconic li { padding-left: calc(1.1rem + 44px + 1rem); min-height: 44px; }
+.highlight-list.iconic li > .icon-badge { position: absolute; top: 0; left: 1.1rem; }
+
+/* Cifras en mosaico: <ul class="stat-row tiles"> */
+.stat-row.tiles { gap: 1rem; }
+
+/* Sin recorte, para que se vea la sombra; la barra sigue la esquina */
+.stat-row.tiles li {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.2rem 1.2rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.stat-row.tiles li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+  background: var(--accent);
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-out) var(--delay, 0s);
+}
+
+.js .stat-row.tiles li.reveal:not(.is-visible)::before,
+.js .stat-row.tiles.reveal:not(.is-visible) li::before { transform: scaleX(0); }
+
+.stat-row.tiles li:is(:hover, :focus-within) { transform: translateY(-3px); }
+
+/* ---------- Biblioteca de animaciones ----------
+   Solo transform, opacity y stroke-dashoffset; bucles lentos.
+   Duración con --dur y retraso con --anim-delay en cada elemento. */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(var(--amp, 8px) * -1)); }
+}
+
+@keyframes orbit { to { transform: rotate(360deg); } }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.65; }
+}
+
+@keyframes draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  40%, 100% { transform: translateX(100%); }
+}
+
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes bar-wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(var(--low, 0.6)); }
+}
+
+@keyframes blink {
+  0%, 55%, 100% { opacity: 1; }
+  65%, 90% { opacity: 0.2; }
+}
+
+@keyframes flow { to { stroke-dashoffset: -20; } }
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.anim-float { animation: float var(--dur, 6s) var(--ease-io) var(--anim-delay, 0s) infinite; }
+.anim-orbit { animation: orbit var(--dur, 24s) linear var(--anim-delay, 0s) infinite; }
+.anim-spin { animation: spin-slow var(--dur, 60s) linear var(--anim-delay, 0s) infinite; }
+.anim-pulse { animation: pulse var(--dur, 5s) var(--ease-io) var(--anim-delay, 0s) infinite; }
+.anim-sway { animation: sway var(--dur, 7s) var(--ease-io) var(--anim-delay, 0s) infinite; }
+.anim-blink { animation: blink var(--dur, 4s) linear var(--anim-delay, 0s) infinite; }
+
+/* Trazo que se dibuja una vez (el elemento lleva pathLength="1") */
+.anim-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw var(--dur, 1.6s) var(--ease-out) var(--anim-delay, 0.2s) forwards;
+}
+
+/* Guiones que avanzan por una ruta (el patrón debe sumar 20: 4 6, 2 8, 5 5) */
+.anim-flow {
+  stroke-dasharray: 4 6;
+  animation: flow var(--dur, 4s) linear var(--anim-delay, 0s) infinite;
+}
+
+/* Barras que crecen desde la base (una vez) o respiran (bucle) */
+.anim-bar,
+.anim-bar-wave { transform-origin: bottom; }
+.anim-bar { animation: bar-grow var(--dur, 1.1s) var(--ease-out) var(--anim-delay, 0s) both; }
+.anim-bar-wave { animation: bar-wave var(--dur, 5s) var(--ease-io) var(--anim-delay, 0s) infinite; }
+
+/* Destello que cruza un botón o una tarjeta cada pocos segundos */
+.anim-shimmer {
+  --shimmer: color-mix(in srgb, var(--on-deep) 38%, transparent);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.anim-shimmer::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, var(--shimmer) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shimmer var(--dur, 6s) var(--ease-io) var(--anim-delay, 1s) infinite;
+  pointer-events: none;
+}
+
+/* Botón claro sobre fondo profundo: un reflejo tenue y angosto del tono
+   (no una mancha que tape la etiqueta) */
+.hero.tinted .anim-shimmer,
+.cta .anim-shimmer,
+.on-deep .anim-shimmer { --shimmer: color-mix(in srgb, var(--accent) 12%, transparent); }
+
+.hero.tinted .anim-shimmer::after,
+.cta .anim-shimmer::after,
+.on-deep .anim-shimmer::after {
+  background: linear-gradient(100deg, transparent 42%, var(--shimmer) 50%, transparent 58%);
+}
+
+/* Dentro de un SVG, cada pieza gira o escala sobre su propio centro;
+   .anim-orbit gira alrededor de --orbit (por defecto, el centro del dibujo) */
+svg :is(.anim-float, .anim-pulse, .anim-spin, .anim-sway, .anim-bar, .anim-bar-wave) {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+svg :is(.anim-bar, .anim-bar-wave) { transform-origin: bottom; }
+
+svg .anim-orbit {
+  transform-box: view-box;
+  transform-origin: var(--orbit, 50% 50%);
+}
+
+/* Mientras un bloque .reveal no aparece, sus animaciones esperan */
+.js .reveal:not(.is-visible) [class*="anim-"],
+.js .reveal:not(.is-visible) [class*="anim-"]::after { animation-play-state: paused; }
+
+/* ---------- Movimiento reducido: todo quieto y completo ----------
+   (main.js ya muestra de una vez todos los .reveal) */
+@media (prefers-reduced-motion: reduce) {
+  [class*="anim-"],
+  .anim-shimmer::after,
+  .cta::before { animation: none !important; }
+
+  .anim-draw { stroke-dashoffset: 0; }
+  .anim-shimmer::after { opacity: 0; }
+
+  *,
+  *::before,
+  *::after { transition-duration: 0s !important; transition-delay: 0s !important; }
+
+  .btn:hover,
+  .profile-card:focus-visible,
+  .service:is(:hover, :focus-within),
+  .highlight-list li:is(:hover, :focus-within),
+  .stat-row.tiles li:is(:hover, :focus-within),
+  :is(.service, .profile-card, .stat-row li):is(:hover, :focus-within) .icon-badge { transform: none; }
 }

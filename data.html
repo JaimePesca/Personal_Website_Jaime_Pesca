@@ -44,9 +44,10 @@
   <meta name="theme-color" content="#a31f34">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260929a">
-  <script src="assets/js/i18n.js?v=20260929a"></script>
-  <script src="assets/js/main.js?v=20260929a" defer></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=202609291858">
+  <link rel="stylesheet" href="assets/css/pages/data.css?v=202609291858">
+  <script src="assets/js/i18n.js?v=202609291858"></script>
+  <script src="assets/js/main.js?v=202609291858" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -193,31 +194,134 @@
 
   <main>
     <section class="hero tinted">
-      <div class="wrap">
-        <span class="eyebrow" data-i18n="data.eyebrow">Data Science &amp; Consulting</span>
-        <h1 data-i18n="data.h1">From raw data to informed decisions.</h1>
-        <p class="lede" data-i18n="data.lede">Descriptive, predictive and prescriptive analytics: machine learning, executive dashboards and large-scale optimization, turned into concrete business decisions.</p>
-        <a class="btn" href="#contact" data-ga-event="request_data_consultation" data-i18n="data.cta.button">Request a consultation</a>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="data.eyebrow">Data Science &amp; Consulting</span>
+          <h1 data-i18n="data.h1">From raw data to informed decisions.</h1>
+          <p class="lede" data-i18n="data.lede">Descriptive, predictive and prescriptive analytics: machine learning, executive dashboards and large-scale optimization, turned into concrete business decisions.</p>
+          <a class="btn anim-shimmer" href="#contact" data-ga-event="request_data_consultation" data-i18n="data.cta.button">Request a consultation</a>
+        </div>
+        <!-- Del dato crudo a la decisión: una tabla con datos crudos alimenta el gráfico,
+             donde se dibuja la frontera de decisión entre dos clases; un tablero flota
+             arriba y el flujo termina en la decisión (visto bueno) -->
+        <div class="hero-art dt-hero-art reveal" style="--delay:.15s" aria-hidden="true">
+          <svg class="art" viewBox="0 0 400 400" focusable="false">
+            <!-- Ventana del gráfico con papel milimetrado -->
+            <rect class="a-fill" x="52" y="36" width="320" height="296" rx="22"/>
+            <path class="dt-grid" d="M120 72V290M148 72V290M176 72V290M204 72V290M232 72V290M260 72V290M288 72V290M316 72V290M344 72V290M92 262H348M92 234H348M92 206H348M92 178H348M92 150H348M92 122H348M92 94H348"/>
+            <path class="a-fill" d="M104 72C170 104 204 214 348 246V72Z"/>
+            <rect class="a-faint" x="52" y="36" width="320" height="296" rx="22"/>
+            <g class="a-solid dt-dim"><circle cx="74" cy="54" r="3.5"/><circle cx="86" cy="54" r="3.5"/><circle cx="98" cy="54" r="3.5"/></g>
+            <path class="a-line" d="M92 66V290H352"/>
+            <!-- Dos clases de puntos -->
+            <g class="a-bg a-line">
+              <circle cx="112" cy="150" r="4.5"/><circle cx="138" cy="192" r="4.5"/><circle cx="166" cy="168" r="4.5"/><circle cx="124" cy="238" r="4.5"/><circle cx="176" cy="224" r="4.5"/><circle cx="208" cy="258" r="4.5"/><circle cx="156" cy="268" r="4.5"/><circle cx="242" cy="272" r="4.5"/><circle cx="284" cy="276" r="4.5"/><circle cx="196" cy="200" r="4.5"/><circle cx="230" cy="234" r="4.5"/>
+            </g>
+            <g class="a-solid">
+              <circle cx="186" cy="104" r="4.5"/><circle cx="214" cy="92" r="4.5"/><circle cx="238" cy="124" r="4.5"/><circle cx="266" cy="100" r="4.5"/><circle cx="296" cy="134" r="4.5"/><circle cx="274" cy="164" r="4.5"/><circle cx="320" cy="190" r="4.5"/><circle cx="304" cy="96" r="4.5"/><circle cx="248" cy="160" r="4.5"/><circle cx="160" cy="86" r="4.5"/>
+            </g>
+            <!-- Frontera de decisión (se dibuja al aparecer) y el punto que la define -->
+            <path class="a-pop-line anim-draw dt-bound" pathLength="1" d="M104 72C170 104 204 214 348 246" style="--dur:1.8s; --anim-delay:.5s"/>
+            <circle class="dt-ring dt-focus" cx="226" cy="186" r="12"/>
+            <circle class="a-pop" cx="226" cy="186" r="5.5"/>
+            <!-- Flujo: de los datos crudos a la decisión -->
+            <path class="a-pop-line anim-flow dt-flow" d="M132 362C196 398 262 396 322 358"/>
+            <!-- Tablero flotante -->
+            <g class="anim-float" style="--dur:8s">
+              <rect class="a-bg a-line" x="268" y="4" width="124" height="86" rx="12"/>
+              <g class="a-solid dt-dim"><circle cx="282" cy="15" r="3"/><circle cx="292" cy="15" r="3"/><circle cx="302" cy="15" r="3"/></g>
+              <path class="a-faint" d="M268 26H392M280 78H380"/>
+              <rect class="a-fill a-line anim-bar" x="284" y="60" width="12" height="18" rx="2" style="--anim-delay:.5s"/>
+              <rect class="a-fill a-line anim-bar" x="302" y="48" width="12" height="30" rx="2" style="--anim-delay:.6s"/>
+              <rect class="a-fill a-line anim-bar" x="320" y="54" width="12" height="24" rx="2" style="--anim-delay:.7s"/>
+              <rect class="a-fill a-line anim-bar" x="338" y="40" width="12" height="38" rx="2" style="--anim-delay:.8s"/>
+              <rect class="a-pop anim-bar" x="356" y="32" width="12" height="46" rx="2" style="--anim-delay:.9s"/>
+            </g>
+            <!-- Tabla de datos crudos (con una celda vacía) -->
+            <g class="anim-float" style="--dur:9s; --anim-delay:-4s">
+              <rect class="a-bg a-line" x="8" y="300" width="124" height="84" rx="12"/>
+              <path class="a-line dt-cell" d="M20 311h18M58 311h22M100 311h20"/>
+              <path class="a-faint" d="M8 321H132M48 321V384M90 321V384"/>
+              <path class="a-faint dt-cell" d="M20 336h16M58 336h20M100 336h18M20 352h12M100 352h22M20 368h18M58 368h14M100 368h12"/>
+              <rect class="a-faint a-dash" x="56" y="346" width="24" height="12" rx="3"/>
+            </g>
+            <!-- Decisión -->
+            <circle class="dt-ring anim-pulse" cx="346" cy="352" r="36" style="--dur:6s"/>
+            <circle class="a-bg a-line" cx="346" cy="352" r="26"/>
+            <path class="a-pop-line dt-check" d="M334 352l8 8 16-17"/>
+          </svg>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Áreas de trabajo: tarjetas con ícono y un croquis de cada tipo de análisis -->
+    <section class="section has-deco dt-areas">
+      <span class="deco deco-grid at-tr s-lg" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl hide-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="data.areas.title">Areas of work</h2>
-        <div class="service-grid pairs">
-          <div class="service">
+        <h2 class="reveal" data-i18n="data.areas.title">Areas of work</h2>
+        <div class="service-grid pairs cards">
+          <div class="service reveal">
+            <!-- Red neuronal · histograma con su campana -->
+            <div class="dt-card-top" aria-hidden="true">
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-faint" d="M12 11.5L19.5 15M12 12.5L20 28M12 24L19.5 18M12 24L19.5 30M12 35.5L20 20M12 36.5L19.5 33M29 17.5L35.5 22M29 30.5L35.5 26"/><circle cx="8" cy="10" r="4"/><circle cx="8" cy="24" r="4"/><circle cx="8" cy="38" r="4"/><circle class="i-tint" cx="24" cy="16" r="5"/><circle class="i-tint" cx="24" cy="32" r="5"/><circle class="i-solid" cx="40" cy="24" r="4.5"/></svg></span>
+              <svg class="art dt-mini" viewBox="0 0 120 56" focusable="false">
+                <g class="a-fill"><rect x="14" y="47" width="10" height="5" rx="1.5"/><rect x="26" y="40" width="10" height="12" rx="1.5"/><rect x="38" y="28" width="10" height="24" rx="1.5"/><rect x="50" y="16" width="10" height="36" rx="1.5"/><rect x="62" y="16" width="10" height="36" rx="1.5"/><rect x="74" y="28" width="10" height="24" rx="1.5"/><rect x="86" y="40" width="10" height="12" rx="1.5"/><rect x="98" y="47" width="10" height="5" rx="1.5"/></g>
+                <path class="a-faint" d="M6 52H114"/>
+                <path class="a-faint a-dash" d="M61 4V52"/>
+                <path class="a-line anim-draw" pathLength="1" d="M8 52C33 52 41 9 61 9S89 52 114 52" style="--anim-delay:.4s"/>
+              </svg>
+            </div>
             <h3 data-i18n="data.areas.1.title">Machine learning and statistics</h3>
             <p data-i18n="data.areas.1.text">Churn and classification models, segmentation, cohort analysis, discrete choice modeling and experimental design.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.1s">
+            <!-- Tablero · indicador con su tendencia -->
+            <div class="dt-card-top" aria-hidden="true">
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="5" y="8" width="38" height="31" rx="3"/><path d="M5 15h38"/><circle class="i-solid" cx="10" cy="11.5" r="1.3"/><circle class="i-solid" cx="14.5" cy="11.5" r="1.3"/><path class="i-faint" d="M11 32l7-7 5 4 7-9 7 5"/></svg></span>
+              <svg class="art dt-mini" viewBox="0 0 120 56" focusable="false">
+                <path class="a-faint a-dash" d="M6 20H114"/>
+                <path class="a-faint" d="M6 52H114"/>
+                <path class="a-fill" d="M8 44L26 36 42 40 60 26 76 30 92 18 108 12V52H8Z"/>
+                <path class="a-line anim-draw" pathLength="1" d="M8 44L26 36 42 40 60 26 76 30 92 18 108 12" style="--anim-delay:.5s"/>
+                <circle class="dt-ring dt-hover-pulse" cx="108" cy="12" r="8"/>
+                <circle class="a-pop" cx="108" cy="12" r="4"/>
+              </svg>
+            </div>
             <h3 data-i18n="data.areas.2.title">Business intelligence</h3>
             <p data-i18n="data.areas.2.text">Executive dashboards in Power BI, Looker Studio and Metabase, with data storytelling and automated reporting.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.15s">
+            <!-- Programa lineal: región factible y vértice óptimo · cotas que cierran la brecha -->
+            <div class="dt-card-top" aria-hidden="true">
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M5 4v39h39"/><path class="i-tint" d="M10 38V21l9-11 16 3 7 13-3 12z"/><path class="i-faint" d="M22 3.3L44 19.8" stroke-dasharray="3 4"/><circle class="i-solid" cx="35" cy="13" r="3.2"/></svg></span>
+              <svg class="art dt-mini" viewBox="0 0 120 56" focusable="false">
+                <path class="a-faint" d="M6 52H114"/>
+                <path class="a-fill" d="M8 10H28V20H50V26H74V29H106V31C80 33 50 39 8 47Z"/>
+                <path class="a-line anim-draw" pathLength="1" d="M8 10H28V20H50V26H74V29H106V31" style="--anim-delay:.5s"/>
+                <path class="a-faint anim-draw" pathLength="1" d="M8 47C50 39 80 33 106 31" style="--anim-delay:.7s"/>
+                <circle class="dt-ring dt-hover-pulse" cx="106" cy="31" r="8"/>
+                <circle class="a-pop" cx="106" cy="31" r="4"/>
+              </svg>
+            </div>
             <h3 data-i18n="data.areas.3.title">Optimization and operations research</h3>
             <p data-i18n="data.areas.3.text">MILP and MINLP models, large-scale combinatorial optimization and heuristics for scheduling, location and logistics.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.25s">
+            <!-- Base de datos que fluye a una medición · etapas del flujo ETL -->
+            <div class="dt-card-top" aria-hidden="true">
+              <span class="icon-badge"><svg class="icon" viewBox="0 0 48 48" focusable="false"><ellipse class="i-tint" cx="14" cy="9" rx="10" ry="4"/><path d="M4 9v17c0 2.2 4.5 4 10 4s10-1.8 10-4V9"/><path class="i-faint" d="M4 17.5c0 2.2 4.5 4 10 4s10-1.8 10-4M27 15c5 .5 8.5 3.5 9.5 8.5" stroke-dasharray="2.5 3"/><path class="i-tint" d="M21.5 42a11.5 11.5 0 0 1 23 0z"/><path d="M33 42l6.5-7"/><circle class="i-solid" cx="33" cy="42" r="2.4"/></svg></span>
+              <svg class="art dt-mini" viewBox="0 0 120 56" focusable="false">
+                <ellipse class="a-fill a-line" cx="16" cy="18" rx="10" ry="4"/>
+                <path class="a-line" d="M6 18v18c0 2.2 4.5 4 10 4s10-1.8 10-4V18"/>
+                <path class="a-pop-line dt-pipe anim-flow" d="M30 28H44M70 28H84"/>
+                <rect class="a-fill a-line" x="46" y="18" width="22" height="20" rx="5"/>
+                <path class="a-faint" d="M52 25h10M52 31h6"/>
+                <path class="a-fill a-line" d="M86 40a14 14 0 0 1 28 0z"/>
+                <path class="a-line" d="M100 40l6-7"/>
+                <circle class="a-pop" cx="100" cy="40" r="3"/>
+              </svg>
+            </div>
             <h3 data-i18n="data.areas.4.title">Data pipelines and measurement</h3>
             <p data-i18n="data.areas.4.text">SQL, Python pipelines and ETL automation, plus GA4 and GTM measurement frameworks for digital products.</p>
           </div>
@@ -225,21 +329,48 @@
       </div>
     </section>
 
-    <section class="section ai-section">
+    <!-- Inteligencia artificial aplicada: red neuronal junto al título y un ícono por tarjeta -->
+    <section class="section ai-section has-deco">
+      <span class="deco deco-blob at-tr s-lg" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl s-lg hide-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <span class="eyebrow" data-i18n="ai.badge">AI expert</span>
-        <h2 data-i18n="data.ai.title">Applied artificial intelligence</h2>
-        <p class="section-intro" data-i18n="data.ai.intro">As an AI expert, I use artificial intelligence where it truly adds value to your decisions.</p>
-        <div class="service-grid">
-          <div class="service">
+        <div class="dt-ai-head reveal">
+          <div>
+            <span class="eyebrow" data-i18n="ai.badge">AI expert</span>
+            <h2 data-i18n="data.ai.title">Applied artificial intelligence</h2>
+            <p class="section-intro" data-i18n="data.ai.intro">As an AI expert, I use artificial intelligence where it truly adds value to your decisions.</p>
+          </div>
+          <!-- Red neuronal: datos de entrada, dos capas ocultas y la salida; una señal la recorre -->
+          <div class="dt-net" aria-hidden="true">
+            <svg class="art" viewBox="0 0 360 166" focusable="false">
+              <path class="a-faint dt-edge" d="M52 40L122 26M52 40L122 64M52 40L122 102M52 40L122 140M52 80L122 26M52 80L122 64M52 80L122 102M52 80L122 140M52 120L122 26M52 120L122 64M52 120L122 102M52 120L122 140M138 26L212 26M138 26L212 64M138 26L212 102M138 26L212 140M138 64L212 26M138 64L212 64M138 64L212 102M138 64L212 140M138 102L212 26M138 102L212 64M138 102L212 102M138 102L212 140M138 140L212 26M138 140L212 64M138 140L212 102M138 140L212 140M228 26L294 60M228 26L294 100M228 64L294 60M228 64L294 100M228 102L294 60M228 102L294 100M228 140L294 60M228 140L294 100"/>
+              <path class="a-pop-line anim-flow" d="M52 80L122 64M138 64L212 102M228 102L294 60" style="--dur:5s"/>
+              <g class="a-fill a-line"><rect x="33" y="33" width="14" height="14" rx="3"/><rect x="33" y="73" width="14" height="14" rx="3"/><rect x="33" y="113" width="14" height="14" rx="3"/></g>
+              <g class="a-bg a-line"><circle cx="130" cy="26" r="8"/><circle cx="130" cy="64" r="8"/><circle cx="130" cy="102" r="8"/><circle cx="130" cy="140" r="8"/><circle cx="220" cy="26" r="8"/><circle cx="220" cy="64" r="8"/><circle cx="220" cy="102" r="8"/><circle cx="220" cy="140" r="8"/><circle cx="305" cy="100" r="10"/></g>
+              <circle class="a-pop" cx="130" cy="64" r="4"/>
+              <circle class="a-pop" cx="220" cy="102" r="4"/>
+              <circle class="dt-ring anim-pulse" cx="305" cy="60" r="18" style="--dur:6s"/>
+              <circle class="a-pop" cx="305" cy="60" r="10"/>
+              <path class="a-pop anim-blink" d="M342 16c1 5 3.2 7.2 8 8-4.8.8-7 3-8 8-1-5-3.2-7.2-8-8 4.8-.8 7-3 8-8z" style="--dur:5s"/>
+            </svg>
+          </div>
+        </div>
+        <div class="service-grid cards">
+          <div class="service reveal">
+            <!-- Modelo en producción: ciclo de reentrenamiento y monitoreo -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M8.96 18.53A16 16 0 0 1 39.04 18.53M39.9 13.6l-.86 4.93-3.84-3.23M39.04 29.47A16 16 0 0 1 8.96 29.47M8.1 34.4l.86-4.93 3.84 3.23"/><circle class="i-tint" cx="24" cy="24" r="6"/><circle class="i-solid" cx="24" cy="24" r="2.2"/></svg></span>
             <h3 data-i18n="data.ai.1.title">Machine learning in production</h3>
             <p data-i18n="data.ai.1.text">Predictive and classification models that go beyond the prototype and support everyday decisions.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.1s">
+            <!-- IA generativa: conversación con destello -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M7 15h24a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H18l-7 6v-6H7a3 3 0 0 1-3-3V18a3 3 0 0 1 3-3z"/><path class="i-faint" d="M11 22h15M11 28h10"/><path class="i-solid" d="M38 4c.8 3.8 2.4 5.4 6 6-3.6.6-5.2 2.2-6 6-.8-3.8-2.4-5.4-6-6 3.6-.6 5.2-2.2 6-6z"/></svg></span>
             <h3 data-i18n="data.ai.2.title">Generative AI and LLMs</h3>
             <p data-i18n="data.ai.2.text">Assistants and automations built on large language models to analyze documents, answer questions about your data and speed up repetitive work.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.2s">
+            <!-- IA más optimización: la predicción apunta a la mejor decisión -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M14 4c1 5.4 3.6 8 9 9-5.4 1-8 3.6-9 9-1-5.4-3.6-8-9-9 5.4-1 8-3.6 9-9z"/><path class="i-faint" d="M19 24c2.5 2 4 3 6.5 3.5" stroke-dasharray="2 3.5"/><circle class="i-tint" cx="31" cy="31" r="13"/><circle cx="31" cy="31" r="6.5"/><circle class="i-solid" cx="31" cy="31" r="2.6"/></svg></span>
             <h3 data-i18n="data.ai.3.title">AI plus optimization</h3>
             <p data-i18n="data.ai.3.text">Predictions that feed optimization models, so you get not just a forecast but the best decision to make with it.</p>
           </div>
@@ -247,56 +378,175 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- Experiencia: tarjetas de caso, cada una con una portada ilustrada y su ícono -->
+    <section class="section has-deco dt-xp">
+      <span class="deco deco-dots at-tr s-lg" aria-hidden="true"></span>
+      <span class="deco deco-rings at-bl hide-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="data.projects.title">Selected experience</h2>
-        <ul class="highlight-list">
-          <li>
+        <h2 class="reveal" data-i18n="data.projects.title">Selected experience</h2>
+        <ul class="highlight-list dt-cases">
+          <li class="dt-case dt-feature reveal">
+            <!-- Equipo al centro, conectado con banca, consumo masivo, telecomunicaciones y energía -->
+            <div class="dt-cover" aria-hidden="true">
+              <svg class="art" viewBox="0 0 360 200" focusable="false">
+                <circle class="a-faint a-dash anim-spin" cx="180" cy="100" r="92" style="--dur:90s"/>
+                <circle class="a-faint" cx="180" cy="100" r="56"/>
+                <path class="a-faint" d="M154 85L121 66M206 85L239 66M154 115L121 134M206 115L239 134"/>
+                <path class="a-pop-line anim-flow dt-hover-flow" d="M154 85L121 66M206 85L239 66M154 115L121 134M206 115L239 134"/>
+                <g class="anim-orbit" style="--dur:36s"><circle class="a-pop" cx="180" cy="8" r="4.5"/></g>
+                <g class="a-bg a-line"><circle cx="180" cy="100" r="30"/><circle cx="100" cy="54" r="24"/><circle cx="260" cy="54" r="24"/><circle cx="100" cy="146" r="24"/><circle cx="260" cy="146" r="24"/></g>
+                <g class="icon dt-glyph" transform="translate(162 82) scale(.75)"><circle class="i-tint" cx="18" cy="17" r="6"/><path d="M7 40c0-6.6 4.9-12 11-12s11 5.4 11 12"/><circle class="i-faint" cx="33" cy="15" r="5"/><path class="i-faint" d="M32 25c5.3 0 9 4.6 9 10.5"/></g>
+                <g class="icon dt-glyph" transform="translate(85.6 39.6) scale(.6)"><path class="i-tint" d="M6 18L24 7l18 11z"/><path d="M10 22v14M18.5 22v14M29.5 22v14M38 22v14M5 41h38"/></g>
+                <g class="icon dt-glyph" transform="translate(245.6 39.6) scale(.6)"><path d="M4 8h6l5 22h22l4-15H12.5"/><path class="i-tint" d="M13 15h28l-4 15H15.5z"/><circle class="i-solid" cx="18" cy="37" r="3"/><circle class="i-solid" cx="34" cy="37" r="3"/></g>
+                <g class="icon dt-glyph" transform="translate(85.6 131.6) scale(.6)"><circle class="i-solid" cx="24" cy="20" r="3"/><path d="M24 23v19M18 42h12"/><path class="i-faint" d="M17 13a10 10 0 0 0 0 14M31 13a10 10 0 0 1 0 14M11.5 8a17 17 0 0 0 0 24M36.5 8a17 17 0 0 1 0 24"/></g>
+                <g class="icon dt-glyph" transform="translate(245.6 131.6) scale(.6)"><path class="i-tint" d="M27 4L11 27h12l-3 17 17-24H25z"/></g>
+              </svg>
+            </div>
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="24" cy="24" r="17"/><path class="i-faint" d="M7 24h34M24 7c4.5 4.7 6.8 10.4 6.8 17S28.5 36.3 24 41c-4.5-4.7-6.8-10.4-6.8-17S19.5 11.7 24 7z"/><path d="M13 16l23 3-6 15z"/><circle class="i-solid" cx="13" cy="16" r="3"/><circle class="i-solid" cx="36" cy="19" r="3"/><circle class="i-solid" cx="30" cy="34" r="3"/></svg></span>
             <strong data-i18n="data.projects.1.title">Senior Data Scientist · Multinational companies</strong>
             <span data-i18n="data.projects.1.text">I directed machine learning and optimization projects end to end for multinational companies in banking, consumer goods, telecommunications and energy, coordinating technical teams and executive stakeholders.</span>
           </li>
-          <li>
+          <li class="dt-case reveal" style="--delay:.1s">
+            <!-- Turnos por persona que siguen la curva de demanda -->
+            <div class="dt-cover" aria-hidden="true">
+              <svg class="art" viewBox="0 0 320 150" focusable="false">
+                <path class="a-faint dt-dim" d="M76 18V140M108 18V140M140 18V140M172 18V140M204 18V140M236 18V140M268 18V140"/>
+                <path class="a-faint" d="M44 140H300"/>
+                <path class="a-pop-line anim-draw" pathLength="1" d="M44 38C84 20 112 42 150 28S232 12 300 32" style="--anim-delay:.3s"/>
+                <g class="a-fill a-line"><circle cx="24" cy="56" r="7"/><circle cx="24" cy="80" r="7"/><circle cx="24" cy="104" r="7"/><circle cx="24" cy="128" r="7"/></g>
+                <g class="a-fill a-line">
+                  <rect class="dt-shift" x="44" y="49" width="96" height="14" rx="7" style="--d:.3s"/><rect class="dt-shift" x="172" y="49" width="92" height="14" rx="7" style="--d:.45s"/>
+                  <rect class="dt-shift" x="76" y="73" width="112" height="14" rx="7" style="--d:.35s"/><rect class="dt-shift" x="220" y="73" width="80" height="14" rx="7" style="--d:.5s"/>
+                  <rect class="dt-shift" x="44" y="97" width="64" height="14" rx="7" style="--d:.4s"/>
+                  <rect class="dt-shift" x="108" y="121" width="96" height="14" rx="7" style="--d:.45s"/><rect class="dt-shift" x="236" y="121" width="64" height="14" rx="7" style="--d:.6s"/>
+                </g>
+                <rect class="a-pop dt-shift" x="140" y="97" width="96" height="14" rx="7" style="--d:.55s"/>
+              </svg>
+            </div>
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M12 4h6v7c0 1.6 3 3.2 3 7v22a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3V18c0-3.8 3-5.4 3-7z"/><path class="i-faint" d="M9 24h12"/><rect x="25" y="14" width="19" height="20" rx="2"/><path class="i-faint" d="M25 20h19M30 11v5M39 11v5"/><rect class="i-solid" x="32" y="24" width="5" height="5" rx="1"/></svg></span>
             <strong data-i18n="data.projects.2.title">Workforce scheduling optimization · Multinational beverage company</strong>
             <span data-i18n="data.projects.2.text">A large-scale mixed integer programming model that integrates production capacity, labor constraints and demand variability, moving planning from heuristic allocation to mathematical optimization.</span>
           </li>
-          <li>
+          <li class="dt-case reveal" style="--delay:.2s">
+            <!-- Clientes con su puntaje de riesgo; los que pasan el umbral quedan marcados -->
+            <div class="dt-cover" aria-hidden="true">
+              <svg class="art" viewBox="0 0 320 150" focusable="false">
+                <path class="a-faint" d="M30 136H290"/>
+                <path class="a-faint a-dash" d="M30 102H290"/>
+                <g class="a-fill a-line">
+                  <circle cx="50" cy="32" r="9"/><path d="M35 64c0-9.4 6.7-16 15-16s15 6.6 15 16z"/>
+                  <circle cx="94" cy="32" r="9"/><path d="M79 64c0-9.4 6.7-16 15-16s15 6.6 15 16z"/>
+                  <circle cx="138" cy="32" r="9"/><path d="M123 64c0-9.4 6.7-16 15-16s15 6.6 15 16z"/>
+                  <circle cx="226" cy="32" r="9"/><path d="M211 64c0-9.4 6.7-16 15-16s15 6.6 15 16z"/>
+                  <rect class="anim-bar" x="43" y="118" width="14" height="18" rx="3" style="--anim-delay:.3s"/>
+                  <rect class="anim-bar" x="87" y="106" width="14" height="30" rx="3" style="--anim-delay:.4s"/>
+                  <rect class="anim-bar" x="131" y="122" width="14" height="14" rx="3" style="--anim-delay:.5s"/>
+                  <rect class="anim-bar" x="219" y="114" width="14" height="22" rx="3" style="--anim-delay:.7s"/>
+                </g>
+                <g class="a-pop">
+                  <circle cx="182" cy="32" r="9"/><path d="M167 64c0-9.4 6.7-16 15-16s15 6.6 15 16z"/>
+                  <circle cx="270" cy="32" r="9"/><path d="M255 64c0-9.4 6.7-16 15-16s15 6.6 15 16z"/>
+                  <rect class="anim-bar" x="175" y="86" width="14" height="50" rx="3" style="--anim-delay:.6s"/>
+                  <rect class="anim-bar" x="263" y="96" width="14" height="40" rx="3" style="--anim-delay:.8s"/>
+                </g>
+                <circle class="dt-ring anim-pulse" cx="182" cy="44" r="24" style="--dur:6s"/>
+                <circle class="dt-ring" cx="270" cy="44" r="24"/>
+              </svg>
+            </div>
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="17" cy="15" r="7"/><path d="M5 40c0-7.2 5.4-13 12-13 2.4 0 4.6.7 6.5 2"/><path d="M27 22l5 6 4-4 7 8M43 25.5V32h-6.5"/></svg></span>
             <strong data-i18n="data.projects.3.title">Churn prediction · Software startup</strong>
             <span data-i18n="data.projects.3.text">Machine learning models to flag at-risk customers, with automated Python pipelines and Metabase dashboards.</span>
           </li>
-          <li>
+          <li class="dt-case reveal" style="--delay:.3s">
+            <!-- Carga aérea: cajas de flores acomodadas en el contorno del avión, una más
+                 entrando (empaque en línea), el avión en su ruta y la ocupación cerca del 90% -->
+            <div class="dt-cover" aria-hidden="true">
+              <svg class="art" viewBox="0 0 320 150" focusable="false">
+                <defs><g id="dt-fl"><circle cx="0" cy="-3.6" r="2.6"/><circle cx="3.4" cy="-1.1" r="2.6"/><circle cx="2.1" cy="2.9" r="2.6"/><circle cx="-2.1" cy="2.9" r="2.6"/><circle cx="-3.4" cy="-1.1" r="2.6"/></g></defs>
+                <path class="a-faint a-dash anim-flow dt-hover-flow" d="M14 42C70 16 170 8 264 22"/>
+                <path class="a-solid" transform="rotate(-6 286 22) translate(86 12)" d="M214 10C214 8.4 212 7.6 209 7.6H203L195-3H191L196 7.6H189L186 3H183L185 8V12L183 17H186L189 12.4H196L191 23H195L203 12.4H209C212 12.4 214 11.6 214 10Z"/>
+                <path class="a-faint a-dash" d="M58 134V82Q58 46 96 46H224Q262 46 262 82V134"/>
+                <g class="a-fill a-line">
+                  <rect x="62" y="108" width="46" height="24" rx="2"/><rect x="110" y="108" width="38" height="24" rx="2"/><rect x="150" y="108" width="48" height="24" rx="2"/><rect x="200" y="108" width="58" height="24" rx="2"/>
+                  <rect x="62" y="82" width="40" height="24" rx="2"/><rect x="104" y="82" width="52" height="24" rx="2"/><rect x="158" y="82" width="44" height="24" rx="2"/><rect x="204" y="82" width="52" height="24" rx="2"/>
+                  <rect x="72" y="56" width="50" height="24" rx="2"/><rect x="124" y="56" width="44" height="24" rx="2"/><rect x="218" y="56" width="30" height="24" rx="2"/>
+                </g>
+                <g class="dt-petal"><use href="#dt-fl" x="85" y="120"/><use href="#dt-fl" x="229" y="120"/><use href="#dt-fl" x="130" y="94"/><use href="#dt-fl" x="97" y="68"/></g>
+                <g class="a-bg"><circle cx="85" cy="120" r="1.5"/><circle cx="229" cy="120" r="1.5"/><circle cx="130" cy="94" r="1.5"/><circle cx="97" cy="68" r="1.5"/></g>
+                <g class="dt-drop">
+                  <rect class="a-fill a-line" x="170" y="56" width="46" height="24" rx="2"/>
+                  <use class="dt-petal" href="#dt-fl" x="193" y="68"/><circle class="a-bg" cx="193" cy="68" r="1.5"/>
+                </g>
+                <path class="a-line dt-plate" d="M48 134H272"/>
+                <circle class="a-faint dt-gauge" cx="292" cy="86" r="18"/>
+                <circle class="a-pop-line dt-gauge dt-util" cx="292" cy="86" r="18" pathLength="100" transform="rotate(-90 292 86)"/>
+                <!-- Carga dentro del aro: tres cajas apiladas, como la bodega -->
+                <g class="a-fill a-line dt-mini-load"><rect x="284" y="86" width="8" height="7" rx="1"/><rect x="292" y="86" width="8" height="7" rx="1"/><rect x="288" y="79" width="8" height="7" rx="1"/></g>
+              </svg>
+            </div>
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="5" y="31" width="13" height="12" rx="1.5"/><rect class="i-tint" x="18" y="31" width="13" height="12" rx="1.5"/><rect x="11" y="19" width="13" height="12" rx="1.5"/><circle class="i-solid" cx="24.5" cy="37" r="2.2"/><path class="i-faint" d="M24 17c2.5-3.5 4.5-5 7-6" stroke-dasharray="2 3"/><path class="i-solid" transform="translate(37 11) rotate(-28) scale(.42) translate(-198.5 -10)" d="M214 10C214 8.4 212 7.6 209 7.6H203L195-3H191L196 7.6H189L186 3H183L185 8V12L183 17H186L189 12.4H196L191 23H195L203 12.4H209C212 12.4 214 11.6 214 10Z"/></svg></span>
             <strong data-i18n="data.projects.4.title">Air cargo loading · One of the largest flower exporters</strong>
             <span data-i18n="data.projects.4.text">Online 3D bin packing for the charter flights of one of the largest flower exporters in the region, reaching about 90% average volumetric utilization across 16 flights, up to 12 points above the historical baseline.</span>
           </li>
         </ul>
-        <div class="chip-row" style="margin-top:1.8rem">
-          <span class="chip">Python</span>
-          <span class="chip">R</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Power BI</span>
-          <span class="chip">Looker Studio</span>
-          <span class="chip">Metabase</span>
-          <span class="chip">Gurobi</span>
-          <span class="chip">GAMS</span>
-          <span class="chip">PuLP</span>
-          <span class="chip">Git</span>
+        <!-- Herramientas: panel con ícono de código -->
+        <div class="dt-stack reveal" style="--delay:.1s">
+          <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M16 14L6 24l10 10M32 14l10 10-10 10"/><path class="i-faint" d="M27 9l-6 30"/></svg></span>
+          <div class="chip-row" style="margin-top:1.8rem">
+            <span class="chip">Python</span>
+            <span class="chip">R</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Looker Studio</span>
+            <span class="chip">Metabase</span>
+            <span class="chip">Gurobi</span>
+            <span class="chip">GAMS</span>
+            <span class="chip">PuLP</span>
+            <span class="chip">Git</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="cta" id="contact">
-      <div class="wrap">
-        <h2 data-i18n="data.cta.title">Let's put your data to work</h2>
-        <p data-i18n="data.cta.text">Tell me about your business problem. I'll reply with a first read of where data, AI or optimization can make the biggest difference.</p>
-        <div class="cta-actions">
-          <a class="btn" href="#contact" data-mail data-ga-event="request_data_consultation" data-i18n="data.cta.button">Request a consultation</a>
-          <a class="mail" href="#contact" data-mail data-mail-text data-ga-event="email_click">jaime.e.pesca.s (at) gmail.com</a>
+      <div class="wrap hero-grid dt-cta-grid">
+        <div class="hero-copy">
+          <h2 data-i18n="data.cta.title">Let's put your data to work</h2>
+          <p data-i18n="data.cta.text">Tell me about your business problem. I'll reply with a first read of where data, AI or optimization can make the biggest difference.</p>
+          <div class="cta-actions">
+            <a class="btn anim-shimmer" href="#contact" data-mail data-ga-event="request_data_consultation" data-i18n="data.cta.button">Request a consultation</a>
+            <a class="mail" href="#contact" data-mail data-mail-text data-ga-event="email_click">jaime.e.pesca.s (at) gmail.com</a>
+          </div>
+          <!-- Valores con su ícono (ética, calidad, rigor, analítica garantizada) -->
+          <ul class="values-inline">
+            <li data-i18n="values.1.title">Ethics</li>
+            <li data-i18n="values.2.title">Quality</li>
+            <li data-i18n="values.3.title">Rigor</li>
+            <li data-i18n="values.4.title">Guaranteed analytics</li>
+          </ul>
         </div>
-        <ul class="values-inline">
-          <li data-i18n="values.1.title">Ethics</li>
-          <li data-i18n="values.2.title">Quality</li>
-          <li data-i18n="values.3.title">Rigor</li>
-          <li data-i18n="values.4.title">Guaranteed analytics</li>
-        </ul>
+        <!-- Tu problema (sobre) entra al análisis: histórico, pronóstico con su banda,
+             el punto óptimo y la respuesta lista -->
+        <div class="hero-art dt-cta-art hide-sm reveal" style="--delay:.15s" aria-hidden="true">
+          <svg class="art" viewBox="0 0 320 240" focusable="false">
+            <rect class="a-bg a-line" x="138" y="30" width="164" height="126" rx="14"/>
+            <g class="a-solid dt-dim"><circle cx="153" cy="44" r="3"/><circle cx="163" cy="44" r="3"/><circle cx="173" cy="44" r="3"/></g>
+            <path class="a-faint" d="M138 56H302"/>
+            <path class="dt-grid" d="M152 82H288M152 106H288M152 130H288"/>
+            <path class="a-fill" d="M230 104L284 64V98Z"/>
+            <path class="a-line anim-draw" pathLength="1" d="M154 134L180 120 204 126 230 104" style="--anim-delay:.4s"/>
+            <path class="a-pop-line a-dash" d="M230 104L256 92 284 80"/>
+            <circle class="dt-ring anim-pulse" cx="284" cy="80" r="12" style="--dur:6s"/>
+            <circle class="a-pop" cx="284" cy="80" r="5"/>
+            <path class="a-pop-line anim-flow dt-flow" d="M68 138C68 100 96 86 138 86"/>
+            <g class="anim-float" style="--dur:8s">
+              <rect class="a-bg a-line" x="18" y="140" width="98" height="66" rx="9"/>
+              <path class="a-line" d="M22 145l45 32 45-32"/>
+            </g>
+            <circle class="a-bg a-line" cx="290" cy="168" r="22"/>
+            <path class="a-pop-line dt-check" d="M280 168l7 7 14-15"/>
+          </svg>
+        </div>
       </div>
     </section>
   </main>

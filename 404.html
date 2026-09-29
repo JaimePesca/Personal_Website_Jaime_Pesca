@@ -19,9 +19,10 @@
   <meta name="theme-color" content="#a31f34">
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20260929a">
-  <script src="/assets/js/i18n.js?v=20260929a"></script>
-  <script src="/assets/js/main.js?v=20260929a" defer></script>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=202609291858">
+  <link rel="stylesheet" href="/assets/css/pages/home.css?v=202609291858">
+  <script src="/assets/js/i18n.js?v=202609291858"></script>
+  <script src="/assets/js/main.js?v=202609291858" defer></script>
 </head>
 <body class="p-home">
 
@@ -46,42 +47,140 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow" data-i18n="nf.eyebrow">Error 404</span>
-        <h1 data-i18n="nf.h1">This page does not exist.</h1>
-        <p class="lede" data-i18n="nf.lede">The link may be broken or the page may have moved. These are the four areas of my work:</p>
-        <a class="btn" href="/" data-i18n="nf.home">Back to home</a>
+    <section class="hero has-deco">
+      <span class="deco deco-dots at-tr s-lg" aria-hidden="true"></span>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="nf.eyebrow">Error 404</span>
+          <h1 data-i18n="nf.h1">This page does not exist.</h1>
+          <p class="lede" data-i18n="nf.lede">The link may be broken or the page may have moved. These are the four areas of my work:</p>
+          <a class="btn" href="/" data-i18n="nf.home">Back to home</a>
+        </div>
+        <!-- Ruta perdida: el nodo buscado no existe y una ruta punteada lleva de vuelta al centro (Σ) y a las cuatro áreas -->
+        <div class="hero-art nf-art" aria-hidden="true">
+          <svg class="art" viewBox="0 0 400 400" focusable="false">
+            <circle class="a-fill" cx="200" cy="210" r="168"/>
+            <circle class="a-faint" cx="200" cy="210" r="186" stroke-width="2.4" stroke-dasharray="0 11"/>
+            <path class="a-faint" d="M200 230L92 170M200 230L318 196M200 230L104 318M200 230L300 316"/>
+            <path class="a-faint" d="M226 202L250 172"/>
+            <path class="a-faint a-dash" d="M254 166L262 156"/>
+            <g class="anim-spin" style="--dur:30s"><circle class="a-line a-dash" cx="288" cy="120" r="32"/></g>
+            <circle class="a-faint anim-pulse" cx="288" cy="120" r="14" style="--dur:5s"/>
+            <circle class="a-pop" cx="288" cy="120" r="7"/>
+            <path class="a-pop-line anim-flow" style="--dur:5s; stroke-dasharray:5 5" d="M256 126C222 126 204 150 202 190"/>
+            <g class="nf-node t-research"><circle class="ab-disc" cx="92" cy="170" r="20"/><svg class="ni" focusable="false" x="78" y="156" width="28" height="28" viewBox="0 0 48 48"><path class="i-faint" d="M19.8 19.8l-6-6M28.2 19.8l6-6M19.8 28.2l-6 6M28.2 28.2l6 6"/><circle class="i-tint" cx="24" cy="24" r="6"/><circle cx="11" cy="11" r="4"/><circle cx="37" cy="11" r="4"/><circle cx="11" cy="37" r="4"/><circle cx="37" cy="37" r="4"/></svg></g>
+            <g class="nf-node t-growth"><circle class="ab-disc" cx="318" cy="196" r="20"/><svg class="ni" focusable="false" x="304" y="182" width="28" height="28" viewBox="0 0 48 48"><circle cx="22" cy="26" r="16"/><circle class="i-faint" cx="22" cy="26" r="9.5"/><circle class="i-solid" cx="22" cy="26" r="3.5"/><path d="M22 26L40 8M33 8h7v7"/></svg></g>
+            <g class="nf-node t-data"><circle class="ab-disc" cx="300" cy="316" r="20"/><svg class="ni" focusable="false" x="286" y="302" width="28" height="28" viewBox="0 0 48 48"><path d="M6 41h36"/><rect class="i-tint" x="9" y="28" width="6" height="13" rx="1"/><rect class="i-tint" x="21" y="21" width="6" height="20" rx="1"/><rect class="i-tint" x="33" y="13" width="6" height="28" rx="1"/><path class="i-faint" d="M8 20l12-8 8 4 11-8"/></svg></g>
+            <g class="nf-node t-teach"><circle class="ab-disc" cx="104" cy="318" r="20"/><svg class="ni" focusable="false" x="90" y="304" width="28" height="28" viewBox="0 0 48 48"><rect class="i-tint" x="6" y="7" width="36" height="25" rx="2"/><path d="M24 32v7M17 43l7-4 7 4"/><path class="i-faint" d="M12 25l7-7 5 4 11-9"/></svg></g>
+            <circle class="a-bg a-line" cx="200" cy="230" r="38" stroke-width="2"/>
+            <svg class="ni t-sigma" focusable="false" x="178" y="208" width="44" height="44" viewBox="0 0 48 48"><path d="M36 10H12l12 14-12 14h24"/><path class="i-faint" d="M36 10v5M36 38v-5"/><circle class="i-solid" cx="24" cy="24" r="2.2"/></svg>
+          </svg>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Profiles" data-i18n-attr="aria-label:home.profiles">
+    <section class="section has-deco" aria-label="Profiles" data-i18n-attr="aria-label:home.profiles">
+      <span class="deco deco-rings at-r hide-sm" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl s-lg" aria-hidden="true"></span>
       <div class="wrap">
         <div class="profile-grid">
-          <a class="profile-card card-research" href="/research.html">
-            <span class="eyebrow" data-i18n="home.card.research.eyebrow">Academia</span>
-            <h3 data-i18n="home.card.research.title">Research &amp; Teaching</h3>
-            <p data-i18n="home.card.research.text">Optimization models for wildfire response, urban food access and air cargo, plus university teaching in analytics and optimization.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
-          <a class="profile-card card-growth" href="/growth.html">
-            <span class="eyebrow" data-i18n="home.card.growth.eyebrow">Marketing</span>
-            <h3 data-i18n="home.card.growth.title">Growth &amp; Media Buying</h3>
-            <p data-i18n="home.card.growth.text">Paid media on Meta and Google run with a data scientist's rigor: measurable acquisition, built to scale.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
-          <a class="profile-card card-data" href="/data.html">
-            <span class="eyebrow" data-i18n="home.card.data.eyebrow">Analytics</span>
-            <h3 data-i18n="home.card.data.title">Data Science</h3>
-            <p data-i18n="home.card.data.text">Machine learning, dashboards and large-scale optimization for banking, consumer goods, telecom and tech.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
-          <a class="profile-card card-teach" href="/training.html">
-            <span class="eyebrow" data-i18n="home.card.training.eyebrow">In-company</span>
-            <h3 data-i18n="home.card.training.title">Corporate Training</h3>
-            <p data-i18n="home.card.training.text">Applied courses on analytics, experimentation and optimization for business teams and their leaders.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
+          <div class="card-slot reveal" style="--delay:.1s">
+            <a class="profile-card card-research" href="/research.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Localización de instalaciones sobre curvas de nivel: clientes, dos centros y una ruta de carga -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <path class="a-faint ca-soft" d="M-10 100C60 82 110 116 180 96S300 70 410 90M-10 66C50 50 120 84 190 64S310 40 410 58M-10 32C70 16 130 48 200 30S320 8 410 24"/>
+                  <path class="a-faint ca-links" d="M64 40L120 62M78 94L120 62M150 24L120 62M170 100L120 62M226 30L272 72M232 106L272 72M322 40L272 72M338 100L272 72"/>
+                  <path class="a-pop-line a-dash anim-flow ca-route" d="M126 55C164 14 234 18 268 64"/>
+                  <g class="ca-nodes">
+                    <circle class="a-bg a-line" cx="64" cy="40" r="4.5"/><circle class="a-bg a-line" cx="78" cy="94" r="4.5"/><circle class="a-bg a-line" cx="150" cy="24" r="4.5"/><circle class="a-bg a-line" cx="170" cy="100" r="4.5"/><circle class="a-bg a-line" cx="226" cy="30" r="4.5"/><circle class="a-bg a-line" cx="232" cy="106" r="4.5"/><circle class="a-bg a-line" cx="338" cy="100" r="4.5"/>
+                  </g>
+                  <circle class="a-faint ca-halo" cx="322" cy="40" r="12"/>
+                  <circle class="a-pop" cx="322" cy="40" r="5"/>
+                  <rect class="a-fill a-line ca-fac" x="112" y="54" width="16" height="16" rx="3"/>
+                  <rect class="a-fill a-line ca-fac" x="264" y="64" width="16" height="16" rx="3"/>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.research.eyebrow">Academia</span>
+              <h3 data-i18n="home.card.research.title">Research &amp; Teaching</h3>
+              <p data-i18n="home.card.research.text">Optimization models for wildfire response, urban food access and air cargo, plus university teaching in analytics and optimization.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+          <div class="card-slot reveal" style="--delay:.2s">
+            <a class="profile-card card-growth" href="/growth.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Embudo que alimenta barras crecientes y una diana -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <g class="ca-drops"><circle class="a-pop" cx="52" cy="10" r="3"/><circle class="a-pop" cx="68" cy="5" r="3"/><circle class="a-pop" cx="84" cy="11" r="3"/></g>
+                  <path class="a-fill a-line" d="M30 24h76L80 58v26l-24 12V58z"/>
+                  <path class="a-faint" d="M40 36h56"/>
+                  <path class="a-faint a-dash anim-flow ca-flow" d="M70 98C100 112 136 110 166 106"/>
+                  <path class="a-faint" d="M166 106h134"/>
+                  <rect class="a-fill a-line ca-bar" x="176" y="80" width="20" height="26" rx="2"/>
+                  <rect class="a-fill a-line ca-bar" x="206" y="66" width="20" height="40" rx="2"/>
+                  <rect class="a-fill a-line ca-bar" x="236" y="50" width="20" height="56" rx="2"/>
+                  <rect class="a-fill a-line ca-bar" x="266" y="32" width="20" height="74" rx="2"/>
+                  <path class="a-pop-line" d="M176 66L216 52L246 36L284 16"/>
+                  <circle class="a-fill a-line" cx="350" cy="64" r="30"/>
+                  <circle class="a-faint" cx="350" cy="64" r="18"/>
+                  <circle class="a-pop" cx="350" cy="64" r="6"/>
+                  <path class="a-line ca-arrow" d="M350 64L386 28M374 28h12v12"/>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.growth.eyebrow">Marketing</span>
+              <h3 data-i18n="home.card.growth.title">Growth &amp; Media Buying</h3>
+              <p data-i18n="home.card.growth.text">Paid media on Meta and Google run with a data scientist's rigor: measurable acquisition, built to scale.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+          <div class="card-slot reveal" style="--delay:.3s">
+            <a class="profile-card card-data" href="/data.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Dispersión con curva ajustada y una red neuronal pequeña -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <path class="a-faint" d="M36 10v96h182"/>
+                  <g class="ca-pts">
+                    <circle class="a-fill a-line" cx="50" cy="94" r="3.5"/><circle class="a-fill a-line" cx="60" cy="104" r="3.5"/><circle class="a-fill a-line" cx="72" cy="90" r="3.5"/><circle class="a-fill a-line" cx="86" cy="98" r="3.5"/><circle class="a-fill a-line" cx="98" cy="82" r="3.5"/><circle class="a-fill a-line" cx="110" cy="92" r="3.5"/><circle class="a-fill a-line" cx="122" cy="74" r="3.5"/><circle class="a-fill a-line" cx="134" cy="82" r="3.5"/><circle class="a-fill a-line" cx="146" cy="62" r="3.5"/><circle class="a-fill a-line" cx="158" cy="72" r="3.5"/><circle class="a-fill a-line" cx="170" cy="50" r="3.5"/><circle class="a-fill a-line" cx="182" cy="58" r="3.5"/><circle class="a-fill a-line" cx="194" cy="36" r="3.5"/><circle class="a-fill a-line" cx="204" cy="44" r="3.5"/>
+                  </g>
+                  <path class="a-pop-line" d="M40 102C92 94 150 62 212 24"/>
+                  <path class="a-faint a-dash anim-flow ca-edges" d="M262 30L312 24M262 30L312 60M262 30L312 96M262 60L312 24M262 60L312 60M262 60L312 96M262 90L312 24M262 90L312 60M262 90L312 96M312 24L362 60M312 60L362 60M312 96L362 60"/>
+                  <g class="ca-net"><circle class="a-bg a-line" cx="262" cy="30" r="6"/><circle class="a-bg a-line" cx="262" cy="60" r="6"/><circle class="a-bg a-line" cx="262" cy="90" r="6"/><circle class="a-bg a-line" cx="312" cy="24" r="6"/><circle class="a-bg a-line" cx="312" cy="60" r="6"/><circle class="a-bg a-line" cx="312" cy="96" r="6"/></g>
+                  <circle class="a-faint ca-halo" cx="362" cy="60" r="15"/>
+                  <circle class="a-pop" cx="362" cy="60" r="8"/>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.data.eyebrow">Analytics</span>
+              <h3 data-i18n="home.card.data.title">Data Science</h3>
+              <p data-i18n="home.card.data.text">Machine learning, dashboards and large-scale optimization for banking, consumer goods, telecom and tech.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+          <div class="card-slot reveal" style="--delay:.4s">
+            <a class="profile-card card-teach" href="/training.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Clase: tablero con una curva que sube, quien enseña y el grupo -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <rect class="a-fill a-line" x="124" y="10" width="150" height="76" rx="4"/>
+                  <path class="a-line" d="M199 86v14M183 110l16-10 16 10"/>
+                  <path class="a-faint" d="M142 74v-10M160 74v-16M178 74v-12M196 74v-22"/>
+                  <path class="a-pop-line" d="M142 50L166 40L190 44L218 30L252 22"/>
+                  <circle class="a-pop" cx="252" cy="22" r="4"/>
+                  <circle class="a-fill a-line" cx="72" cy="42" r="11"/>
+                  <path class="a-line" d="M48 120c0-26 10-46 24-46s24 20 24 46"/>
+                  <path class="a-line ca-pointer" d="M90 82L150 58"/>
+                  <g class="ca-head"><circle class="a-fill a-line" cx="316" cy="60" r="9"/><path class="a-line" d="M298 98c0-12 8-22 18-22s18 10 18 22"/></g>
+                  <g class="ca-head"><circle class="a-fill a-line" cx="366" cy="60" r="9"/><path class="a-line" d="M348 98c0-12 8-22 18-22s18 10 18 22"/></g>
+                  <g class="ca-head"><circle class="a-bg a-line" cx="341" cy="84" r="10"/><path class="a-bg a-line" d="M319 126c0-14 10-26 22-26s22 12 22 26"/></g>
+                  <g class="ca-bubble"><path class="a-bg a-line" d="M322 6h42a9 9 0 0 1 9 9v6a9 9 0 0 1-9 9h-24l-9 8v-8h-9a9 9 0 0 1-9-9v-6a9 9 0 0 1 9-9z"/><circle class="a-solid" cx="332" cy="18" r="2"/><circle class="a-solid" cx="343" cy="18" r="2"/><circle class="a-solid" cx="354" cy="18" r="2"/></g>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.training.eyebrow">In-company</span>
+              <h3 data-i18n="home.card.training.title">Corporate Training</h3>
+              <p data-i18n="home.card.training.text">Applied courses on analytics, experimentation and optimization for business teams and their leaders.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,492 @@
+/* ============================================================
+   Formación empresarial (training.html), tono violeta p-teach.
+   Se apoya en el "Sistema visual" de styles.css; aquí va solo lo
+   propio de esta página: el aula del héroe, las cifras con gráfico
+   de unidades, los temas, la IA para el equipo, el puente entre
+   aula y empresa, la duración de cada formato, las preguntas y la
+   idea encendida del contacto.
+   Colores solo con tokens; todo lo decorativo con aria-hidden.
+   ============================================================ */
+
+.p-teach {
+  /* Destello (✦) de la etiqueta de IA */
+  --tr-spark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2c.9 4.6 3 6.7 7.6 7.6C13 10.5 10.9 12.6 10 17.2 9.1 12.6 7 10.5 2.4 9.6 7 8.7 9.1 6.6 10 2zM18.5 14c.45 2.3 1.5 3.35 3.8 3.8-2.3.45-3.35 1.5-3.8 3.8-.45-2.3-1.5-3.35-3.8-3.8 2.3-.45 3.35-1.5 3.8-3.8z'/%3E%3C/svg%3E");
+}
+
+/* Trazo y relleno "recortados" con el color del fondo del dibujo */
+.tr-knock {
+  fill: none;
+  stroke: var(--art-bg);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tr-knock-fill { fill: var(--art-bg); }
+
+/* Puntos tenues (botones de ventana del tablero) y halo */
+.tr-dim { fill: var(--art-muted); }
+.tr-glow { fill: var(--art-glow); }
+
+/* Grosores especiales del dibujo: signo de pregunta, título del
+   certificado y ventanas de la oficina */
+.art .tr-q { stroke-width: 3; }
+.art .tr-title { stroke-width: 4; }
+.art .tr-win { stroke-width: 6; }
+
+/* ---------- Entradas con .reveal y realce al pasar el cursor ----------
+   .reveal usa transform; el realce usa translate para no chocar con
+   ella (y sin el retraso escalonado de la entrada). Solo se animan
+   transform, translate y opacity. */
+.js .p-teach :is(.service, .stat-row.tiles li, .tr-formats li).reveal {
+  transition:
+    opacity 0.6s ease var(--delay, 0s),
+    transform 0.6s ease var(--delay, 0s),
+    translate 0.3s var(--ease-out);
+}
+
+.p-teach :is(.service, .stat-row.tiles li, .tr-formats li).reveal.is-visible:is(:hover, :focus-within) { translate: 0 -3px; }
+
+/* Las cifras ya suben con transform en styles.css: aquí solo translate
+   (así no suben 6 px en dos tiempos) */
+.p-teach .stat-row.tiles li.reveal.is-visible:is(:hover, :focus-within) { transform: none; }
+
+/* Sombra suave de los formatos: la misma capa fija en ::after que
+   styles.css da a tarjetas y cifras; solo cambia su opacidad */
+.tr-formats li::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow: 0 18px 36px -24px color-mix(in srgb, var(--accent) 60%, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tr-formats li:is(:hover, :focus-within)::after { opacity: 1; }
+
+.p-teach .service-grid.cards > .service { border-radius: 4px; }
+
+/* ---------- Héroe: el aula ---------- */
+.tr-hero-art { max-width: 440px; }
+
+/* ---------- Cifras: 2 grandes arriba y 3 instituciones abajo ---------- */
+.tr-stats .stat-row.tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+.tr-stats .stat-row.tiles li {
+  grid-column: span 2;
+  border-radius: 4px;
+}
+
+/* Los íconos toman el acento (no el gris de .stat-row span) */
+.tr-stats .stat-row .icon-badge {
+  color: var(--accent);
+  max-width: none;
+  margin-bottom: 0.6rem;
+}
+
+/* Cifra grande: insignia y número a la izquierda, gráfico de unidades a
+   su lado y la descripción a todo lo ancho debajo (no se aprieta) */
+.tr-stats .stat-row.tiles li.tr-big {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto 1fr;
+  column-gap: 1.6rem;
+  row-gap: 0.3rem;
+}
+
+.tr-big > :not(.tr-units) { grid-column: 1; }
+
+.tr-stats .tr-big > span[data-i18n] {
+  grid-column: 1 / -1;
+  max-width: 46ch;
+  margin-top: 0.2rem;
+}
+
+/* Gráfico de unidades: cada figura es una persona (100) o una empresa (40);
+   no más alto que la insignia más el número */
+.tr-units {
+  --u: 9px;
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: end;
+  display: block;
+  width: calc(var(--u) * 10);
+  max-width: none;
+  overflow: hidden;
+  background: var(--accent);
+  opacity: 0.8;
+  -webkit-mask: var(--glyph) 0 0 / var(--u) var(--u) repeat;
+  mask: var(--glyph) 0 0 / var(--u) var(--u) repeat;
+  transition: opacity 0.3s ease;
+}
+
+.tr-people {
+  height: calc(var(--u) * 10);
+  --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='3.3' r='2.3'/%3E%3Cpath d='M1.9 11.2c0-2.7 1.8-4.6 4.1-4.6s4.1 1.9 4.1 4.6z'/%3E%3C/svg%3E");
+}
+
+.tr-firms {
+  height: calc(var(--u) * 4);
+  --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 11V4.6L6 2l4 2.6V11z'/%3E%3C/svg%3E");
+}
+
+/* Se llena de abajo hacia arriba al aparecer */
+.tr-units::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  transform: translateY(-101%);
+  transition: transform 1.5s var(--ease-out) calc(var(--delay, 0s) + 0.35s);
+}
+
+.js .reveal:not(.is-visible) .tr-units::after { transform: none; }
+
+.tr-big:is(:hover, :focus-within) .tr-units { opacity: 1; }
+
+/* Curva de aprendizaje a lo ancho, detrás del botón */
+.tr-curve {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+}
+
+.tr-curve-area { fill: color-mix(in srgb, var(--accent) 7%, transparent); }
+
+.tr-curve-line {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent) 38%, transparent);
+  stroke-width: 1.5;
+}
+
+/* ---------- Temas: la insignia se llena de acento al pasar ---------- */
+.tr-topics .icon-badge {
+  transition: transform 0.35s var(--ease-out), background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tr-topics .service:is(:hover, :focus-within) .icon-badge {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 10px 22px -12px color-mix(in srgb, var(--accent) 80%, transparent);
+}
+
+/* ---------- IA: etiqueta con destello y equipo + IA ---------- */
+.tr-ai .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.32rem 0.85rem 0.32rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+  border-radius: 999px;
+  background: var(--surface);
+  font-weight: 600;
+  --shimmer: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.tr-ai .eyebrow::before {
+  content: "";
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  background: currentColor;
+  -webkit-mask: var(--tr-spark) center / contain no-repeat;
+  mask: var(--tr-spark) center / contain no-repeat;
+}
+
+.tr-ai-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 1rem 3rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.tr-ai-art {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 1.4rem;
+  pointer-events: none;
+}
+
+.tr-ai-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -18% -8%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--art-glow), transparent);
+}
+
+/* Resplandor suave (sin borde visible) en las esquinas */
+.p-teach .deco-blob { background: radial-gradient(closest-side, var(--art-glow), transparent); }
+
+/* Tres tarjetas en fila hasta tableta (sin una sola en la segunda fila) */
+.tr-ai-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+
+.tr-ai-cards > .service {
+  background: linear-gradient(165deg, var(--surface) 55%, var(--accent-faint));
+}
+
+/* ---------- Por qué: lista con insignia a la izquierda y el puente ---------- */
+.tr-why .split { align-items: center; }
+
+.tr-why-list {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.tr-why-list > .service {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 1.2rem;
+  row-gap: 0.35rem;
+  align-content: start;
+  padding-top: 1.3rem;
+}
+
+.tr-why-list > .service > .icon-badge {
+  --badge: 56px;
+  grid-row: span 2;
+  margin-bottom: 0;
+  border-radius: 16px;
+}
+
+.tr-why-art { max-width: 380px; }
+
+/* ---------- Formatos: tarjetas con la duración en una barra ---------- */
+/* El curso (el texto más largo) va más ancho para igualar las alturas */
+.tr-formats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 1.2rem;
+}
+
+/* Cada tarjeta: insignia y título arriba, el texto y, al pie, la barra
+   de duración (así las tres barras quedan alineadas para compararlas) */
+.tr-formats li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 1rem;
+  row-gap: 0.4rem;
+  padding: 1.5rem 1.4rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: 4px;
+}
+
+.tr-formats li::before {
+  inset: 0;
+  background: linear-gradient(180deg, var(--accent-soft), transparent 70%);
+}
+
+.tr-formats li:is(:hover, :focus-within) {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-top-color: var(--accent);
+}
+
+.tr-formats .icon-badge {
+  --badge: 56px;
+  grid-row: 1;
+  grid-column: 1;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  border-radius: 16px;
+}
+
+.tr-formats li > strong {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  margin-bottom: 0.5rem;
+}
+
+.tr-formats li > span[data-i18n] { grid-row: 2; grid-column: 1 / -1; }
+
+/* Barra de duración al pie: regla de 8 horas, una marca por hora
+   (charla de 1 a 2 horas, taller de 4 a 8 horas, curso en sesiones) */
+.tr-dur {
+  --track: color-mix(in srgb, var(--accent) 24%, transparent);
+  display: flex;
+  gap: 3px;
+  grid-row: 4;
+  grid-column: 1 / -1;
+  align-self: end;
+  height: 14px;
+  margin: 1.2rem 0 0;
+  background:
+    linear-gradient(var(--track), var(--track)) right center / 1.5px 14px no-repeat,
+    linear-gradient(var(--track), var(--track)) left center / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, var(--track) 0 1.5px, transparent 1.5px 12.5%) left center / 100% 14px no-repeat;
+}
+
+.tr-dur i {
+  flex: none;
+  height: 100%;
+  border-radius: 7px;
+  background: var(--accent);
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-out) calc(var(--delay, 0s) + 0.4s + var(--i, 0) * 0.1s);
+}
+
+/* Segundo tramo en tono suave y opaco (tapa las marcas): "hasta" 2 u 8 horas */
+.tr-dur:is(.d1, .d2) i:nth-child(2) {
+  --i: 3;
+  background: color-mix(in srgb, var(--accent) 38%, var(--surface));
+}
+
+/* 1 h + 1 h y 4 h + 4 h; el hueco entre tramos cae sobre la marca */
+.tr-dur.d1 i { width: calc(12.5% - 1.5px); }
+.tr-dur.d2 i { width: calc(50% - 1.5px); }
+
+/* Curso: sesiones regulares a lo largo de varias semanas (sin marcas de hora) */
+.tr-dur.d3 {
+  gap: 4%;
+  background: linear-gradient(var(--track), var(--track)) left center / 100% 2px no-repeat;
+}
+
+.tr-dur.d3 i { flex: 1; }
+.tr-dur.d3 i:nth-child(2) { --i: 1; }
+.tr-dur.d3 i:nth-child(3) { --i: 2; }
+.tr-dur.d3 i:nth-child(4) { --i: 3; }
+.tr-dur.d3 i:nth-child(5) { --i: 4; }
+.tr-dur.d3 i:nth-child(6) { --i: 5; }
+
+.js .reveal:not(.is-visible) .tr-dur i { transform: scaleX(0); }
+
+/* ---------- Preguntas: certificado, virtual, idiomas y dudas ---------- */
+.tr-faq .split { align-items: center; }
+
+.tr-faq-art { max-width: 330px; }
+
+/* ---------- Contacto: idea encendida en el centro de las ondas ----------
+   Las ondas de .cta::before tienen su centro a 90 px del borde
+   derecho; el centro del bombillo (x = 60 de 120) cae ahí. */
+.tr-cta-bulb {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 30px;
+  width: 120px;
+  height: 160px;
+  margin-top: -56px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Valores con su ícono (escudo, medalla, lista, indicador) */
+.p-teach .values-inline li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.p-teach .values-inline li::before {
+  content: "";
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  background: currentColor;
+  -webkit-mask: var(--v-icon) center / contain no-repeat;
+  mask: var(--v-icon) center / contain no-repeat;
+}
+
+.p-teach .values-inline li:nth-child(1) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.5l7.5 3v5.5c0 4.8-3.2 8.6-7.5 10.5-4.3-1.9-7.5-5.7-7.5-10.5V5.5z'/%3E%3Cpath d='M8.5 12l2.5 2.5 4.5-5'/%3E%3C/svg%3E"); }
+.p-teach .values-inline li:nth-child(2) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9.5' r='6.5'/%3E%3Cpath d='M9 15.5L7.5 22l4.5-2 4.5 2-1.5-6.5'/%3E%3C/svg%3E"); }
+.p-teach .values-inline li:nth-child(3) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4.5' y='3' width='15' height='18' rx='1.5'/%3E%3Cpath d='M8 9l1.5 1.5L12 8M8 15.5l1.5 1.5 2.5-2.5M14 9.5h2.5M14 16h2.5'/%3E%3C/svg%3E"); }
+.p-teach .values-inline li:nth-child(4) { --v-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 17a9 9 0 0 1 18 0'/%3E%3Cpath d='M12 17l4.5-5'/%3E%3Ccircle cx='12' cy='17' r='1.2'/%3E%3C/svg%3E"); }
+
+/* ---------- Pantallas medianas y pequeñas ---------- */
+@media (max-width: 1080px) {
+  .tr-cta-bulb { display: none; }
+}
+
+@media (max-width: 1000px) {
+  /* Formatos: charla y taller lado a lado (reglas iguales), curso debajo */
+  .tr-formats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tr-formats li:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 900px) {
+  .tr-units { --u: 8px; }
+}
+
+@media (max-width: 820px) {
+  .tr-hero-art { max-width: min(330px, 88%); }
+  .tr-ai-head { grid-template-columns: 1fr; }
+  .tr-ai-art { justify-self: center; max-width: min(340px, 94%); margin-bottom: 1.8rem; }
+}
+
+@media (max-width: 720px) {
+  /* Cifras en una columna; instituciones con la insignia a la izquierda */
+  .tr-stats .stat-row.tiles { grid-template-columns: minmax(0, 1fr); }
+
+  .tr-stats .stat-row.tiles li,
+  .tr-stats .stat-row.tiles li.tr-big { grid-column: auto; }
+
+  .tr-stats .stat-row.tiles li.tr-big { column-gap: 1rem; }
+
+  .tr-ai-cards,
+  .tr-formats { grid-template-columns: minmax(0, 1fr); }
+
+  .tr-stats .stat-row.tiles li.tr-inst {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.2rem;
+  }
+
+  .tr-stats .tr-inst .icon-badge {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+
+  .tr-curve { height: 60px; }
+
+  .tr-why-art,
+  .tr-faq-art { max-width: min(280px, 80%); }
+
+  .tr-why-list > .service { grid-template-columns: 48px minmax(0, 1fr); column-gap: 1rem; }
+  .tr-why-list > .service > .icon-badge { --badge: 48px; border-radius: 14px; }
+}
+
+@media (max-width: 560px) {
+  /* Tarjetas compactas: insignia a la izquierda del título */
+  .p-teach .service-grid.cards > .service {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+    align-content: start;
+    padding: 1.3rem 1.2rem 1.25rem;
+  }
+
+  .p-teach .service-grid.cards > .service > .icon-badge {
+    --badge: 48px;
+    grid-row: span 2;
+    margin-bottom: 0;
+    border-radius: 14px;
+  }
+
+  .tr-formats li { padding: 1.3rem 1.2rem 1.25rem; }
+  .tr-formats .icon-badge { --badge: 48px; border-radius: 14px; }
+}
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .p-teach :is(.service, .stat-row.tiles li, .tr-formats li).reveal.is-visible:is(:hover, :focus-within) { translate: none; }
+}

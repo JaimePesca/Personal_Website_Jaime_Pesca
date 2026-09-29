@@ -46,9 +46,10 @@
   <meta name="theme-color" content="#a31f34">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260929a">
-  <script src="assets/js/i18n.js?v=20260929a"></script>
-  <script src="assets/js/main.js?v=20260929a" defer></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=202609291858">
+  <link rel="stylesheet" href="assets/css/pages/home.css?v=202609291858">
+  <script src="assets/js/i18n.js?v=202609291858"></script>
+  <script src="assets/js/main.js?v=202609291858" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -243,7 +244,8 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero has-deco">
+      <span class="deco deco-dots at-tr s-lg" aria-hidden="true"></span>
       <div class="wrap hero-split">
         <div>
           <span class="eyebrow" data-i18n="home.eyebrow">Research · Growth · Data · Training</span>
@@ -257,131 +259,336 @@
             <span class="chip chip-ai" data-i18n="ai.badge">AI expert</span>
           </div>
         </div>
-        <div class="portrait">
-          <span class="initials" aria-hidden="true">JP</span>
-          <picture>
-            <source type="image/webp" srcset="images/jaime-pesca-500.webp 500w, images/jaime-pesca.webp 800w" sizes="(max-width: 720px) 150px, 250px">
-            <img src="images/jaime-pesca.jpg" alt="Jaime Enrique Pesca Santos" width="800" height="800" fetchpriority="high" onerror="this.hidden = true">
-          </picture>
+        <!-- Retrato en órbita: una persona, cuatro áreas (cada una en su tono) y la Σ del sitio -->
+        <div class="hero-visual">
+          <svg class="art hv-orbits" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+            <circle class="a-faint" cx="200" cy="200" r="194" stroke-width="2.4" stroke-dasharray="0 11"/>
+            <circle class="a-faint" cx="200" cy="200" r="165"/>
+            <circle class="a-faint a-dash anim-flow" cx="200" cy="200" r="140" style="--dur:8s"/>
+            <!-- Cada punto parte de su propio ángulo (entre las insignias), así quietos también quedan repartidos -->
+            <g class="anim-orbit hv-dot t-research" style="--dur:40s"><circle cx="200" cy="60" r="5"/></g>
+            <g transform="rotate(216 200 200)"><g class="anim-orbit hv-dot t-data" style="--dur:40s"><circle cx="200" cy="60" r="5"/></g></g>
+            <g transform="rotate(72 200 200)"><g class="anim-orbit hv-dot hv-rev t-growth" style="--dur:56s"><circle cx="200" cy="6" r="4"/></g></g>
+            <g transform="rotate(288 200 200)"><g class="anim-orbit hv-dot hv-rev t-teach" style="--dur:56s"><circle cx="200" cy="6" r="4"/></g></g>
+          </svg>
+          <div class="portrait">
+            <span class="initials" aria-hidden="true">JP</span>
+            <picture>
+              <source type="image/webp" srcset="images/jaime-pesca-500.webp 500w, images/jaime-pesca.webp 800w" sizes="(max-width: 720px) 150px, 250px">
+              <img src="images/jaime-pesca.jpg" alt="Jaime Enrique Pesca Santos" width="800" height="800" fetchpriority="high" onerror="this.hidden = true">
+            </picture>
+          </div>
+          <!-- Investigación: red de optimización -->
+          <span class="hv-node t-research" aria-hidden="true"><span class="icon-badge sm round anim-float" style="--anim-delay:-1s"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-faint" d="M19.8 19.8l-6-6M28.2 19.8l6-6M19.8 28.2l-6 6M28.2 28.2l6 6"/><circle class="i-tint" cx="24" cy="24" r="6"/><circle cx="11" cy="11" r="4"/><circle cx="37" cy="11" r="4"/><circle cx="11" cy="37" r="4"/><circle cx="37" cy="37" r="4"/></svg></span></span>
+          <!-- Growth: diana -->
+          <span class="hv-node t-growth" aria-hidden="true"><span class="icon-badge sm round anim-float" style="--anim-delay:-4s"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle cx="22" cy="26" r="16"/><circle class="i-faint" cx="22" cy="26" r="9.5"/><circle class="i-solid" cx="22" cy="26" r="3.5"/><path d="M22 26L40 8M33 8h7v7"/></svg></span></span>
+          <!-- Datos: barras con tendencia -->
+          <span class="hv-node t-data" aria-hidden="true"><span class="icon-badge sm round anim-float" style="--anim-delay:-2.5s"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M6 41h36"/><rect class="i-tint" x="9" y="28" width="6" height="13" rx="1"/><rect class="i-tint" x="21" y="21" width="6" height="20" rx="1"/><rect class="i-tint" x="33" y="13" width="6" height="28" rx="1"/><path class="i-faint" d="M8 20l12-8 8 4 11-8"/><circle class="i-solid" cx="40" cy="7" r="2.5"/></svg></span></span>
+          <!-- Formación: tablero -->
+          <span class="hv-node t-teach" aria-hidden="true"><span class="icon-badge sm round anim-float" style="--anim-delay:-5.5s"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="6" y="7" width="36" height="25" rx="2"/><path d="M24 32v7M17 43l7-4 7 4"/><path class="i-faint" d="M12 25l7-7 5 4 11-9"/></svg></span></span>
+          <!-- Σ: el sello del sitio -->
+          <span class="hv-node t-sigma" aria-hidden="true"><span class="icon-badge sm round solid"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M36 10H12l12 14-12 14h24"/><path class="i-faint" d="M36 10v5M36 38v-5"/><circle class="i-solid" cx="24" cy="24" r="2.2"/></svg></span></span>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Profiles" data-i18n-attr="aria-label:home.profiles">
+    <section class="section has-deco" aria-label="Profiles" data-i18n-attr="aria-label:home.profiles">
+      <span class="deco deco-rings at-r hide-sm" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl s-lg" aria-hidden="true"></span>
       <div class="wrap">
         <div class="profile-grid">
-          <a class="profile-card card-research" href="research.html">
-            <span class="eyebrow" data-i18n="home.card.research.eyebrow">Academia</span>
-            <h3 data-i18n="home.card.research.title">Research &amp; Teaching</h3>
-            <p data-i18n="home.card.research.text">Optimization models for wildfire response, urban food access and air cargo, plus university teaching in analytics and optimization.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
-          <a class="profile-card card-growth" href="growth.html">
-            <span class="eyebrow" data-i18n="home.card.growth.eyebrow">Marketing</span>
-            <h3 data-i18n="home.card.growth.title">Growth &amp; Media Buying</h3>
-            <p data-i18n="home.card.growth.text">Paid media on Meta and Google run with a data scientist's rigor: measurable acquisition, built to scale.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
-          <a class="profile-card card-data" href="data.html">
-            <span class="eyebrow" data-i18n="home.card.data.eyebrow">Analytics</span>
-            <h3 data-i18n="home.card.data.title">Data Science</h3>
-            <p data-i18n="home.card.data.text">Machine learning, dashboards and large-scale optimization for banking, consumer goods, telecom and tech.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
-          <a class="profile-card card-teach" href="training.html">
-            <span class="eyebrow" data-i18n="home.card.training.eyebrow">In-company</span>
-            <h3 data-i18n="home.card.training.title">Corporate Training</h3>
-            <p data-i18n="home.card.training.text">Applied courses on analytics, experimentation and optimization for business teams and their leaders.</p>
-            <span class="go" data-i18n="home.card.go">View profile →</span>
-          </a>
+          <div class="card-slot reveal" style="--delay:.1s">
+            <a class="profile-card card-research" href="research.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Localización de instalaciones sobre curvas de nivel: clientes, dos centros y una ruta de carga -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <path class="a-faint ca-soft" d="M-10 100C60 82 110 116 180 96S300 70 410 90M-10 66C50 50 120 84 190 64S310 40 410 58M-10 32C70 16 130 48 200 30S320 8 410 24"/>
+                  <path class="a-faint ca-links" d="M64 40L120 62M78 94L120 62M150 24L120 62M170 100L120 62M226 30L272 72M232 106L272 72M322 40L272 72M338 100L272 72"/>
+                  <path class="a-pop-line a-dash anim-flow ca-route" d="M126 55C164 14 234 18 268 64"/>
+                  <g class="ca-nodes">
+                    <circle class="a-bg a-line" cx="64" cy="40" r="4.5"/><circle class="a-bg a-line" cx="78" cy="94" r="4.5"/><circle class="a-bg a-line" cx="150" cy="24" r="4.5"/><circle class="a-bg a-line" cx="170" cy="100" r="4.5"/><circle class="a-bg a-line" cx="226" cy="30" r="4.5"/><circle class="a-bg a-line" cx="232" cy="106" r="4.5"/><circle class="a-bg a-line" cx="338" cy="100" r="4.5"/>
+                  </g>
+                  <circle class="a-faint ca-halo" cx="322" cy="40" r="12"/>
+                  <circle class="a-pop" cx="322" cy="40" r="5"/>
+                  <rect class="a-fill a-line ca-fac" x="112" y="54" width="16" height="16" rx="3"/>
+                  <rect class="a-fill a-line ca-fac" x="264" y="64" width="16" height="16" rx="3"/>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.research.eyebrow">Academia</span>
+              <h3 data-i18n="home.card.research.title">Research &amp; Teaching</h3>
+              <p data-i18n="home.card.research.text">Optimization models for wildfire response, urban food access and air cargo, plus university teaching in analytics and optimization.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+          <div class="card-slot reveal" style="--delay:.2s">
+            <a class="profile-card card-growth" href="growth.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Embudo que alimenta barras crecientes y una diana -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <g class="ca-drops"><circle class="a-pop" cx="52" cy="10" r="3"/><circle class="a-pop" cx="68" cy="5" r="3"/><circle class="a-pop" cx="84" cy="11" r="3"/></g>
+                  <path class="a-fill a-line" d="M30 24h76L80 58v26l-24 12V58z"/>
+                  <path class="a-faint" d="M40 36h56"/>
+                  <path class="a-faint a-dash anim-flow ca-flow" d="M70 98C100 112 136 110 166 106"/>
+                  <path class="a-faint" d="M166 106h134"/>
+                  <rect class="a-fill a-line ca-bar" x="176" y="80" width="20" height="26" rx="2"/>
+                  <rect class="a-fill a-line ca-bar" x="206" y="66" width="20" height="40" rx="2"/>
+                  <rect class="a-fill a-line ca-bar" x="236" y="50" width="20" height="56" rx="2"/>
+                  <rect class="a-fill a-line ca-bar" x="266" y="32" width="20" height="74" rx="2"/>
+                  <path class="a-pop-line" d="M176 66L216 52L246 36L284 16"/>
+                  <circle class="a-fill a-line" cx="350" cy="64" r="30"/>
+                  <circle class="a-faint" cx="350" cy="64" r="18"/>
+                  <circle class="a-pop" cx="350" cy="64" r="6"/>
+                  <path class="a-line ca-arrow" d="M350 64L386 28M374 28h12v12"/>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.growth.eyebrow">Marketing</span>
+              <h3 data-i18n="home.card.growth.title">Growth &amp; Media Buying</h3>
+              <p data-i18n="home.card.growth.text">Paid media on Meta and Google run with a data scientist's rigor: measurable acquisition, built to scale.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+          <div class="card-slot reveal" style="--delay:.3s">
+            <a class="profile-card card-data" href="data.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Dispersión con curva ajustada y una red neuronal pequeña -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <path class="a-faint" d="M36 10v96h182"/>
+                  <g class="ca-pts">
+                    <circle class="a-fill a-line" cx="50" cy="94" r="3.5"/><circle class="a-fill a-line" cx="60" cy="104" r="3.5"/><circle class="a-fill a-line" cx="72" cy="90" r="3.5"/><circle class="a-fill a-line" cx="86" cy="98" r="3.5"/><circle class="a-fill a-line" cx="98" cy="82" r="3.5"/><circle class="a-fill a-line" cx="110" cy="92" r="3.5"/><circle class="a-fill a-line" cx="122" cy="74" r="3.5"/><circle class="a-fill a-line" cx="134" cy="82" r="3.5"/><circle class="a-fill a-line" cx="146" cy="62" r="3.5"/><circle class="a-fill a-line" cx="158" cy="72" r="3.5"/><circle class="a-fill a-line" cx="170" cy="50" r="3.5"/><circle class="a-fill a-line" cx="182" cy="58" r="3.5"/><circle class="a-fill a-line" cx="194" cy="36" r="3.5"/><circle class="a-fill a-line" cx="204" cy="44" r="3.5"/>
+                  </g>
+                  <path class="a-pop-line" d="M40 102C92 94 150 62 212 24"/>
+                  <path class="a-faint a-dash anim-flow ca-edges" d="M262 30L312 24M262 30L312 60M262 30L312 96M262 60L312 24M262 60L312 60M262 60L312 96M262 90L312 24M262 90L312 60M262 90L312 96M312 24L362 60M312 60L362 60M312 96L362 60"/>
+                  <g class="ca-net"><circle class="a-bg a-line" cx="262" cy="30" r="6"/><circle class="a-bg a-line" cx="262" cy="60" r="6"/><circle class="a-bg a-line" cx="262" cy="90" r="6"/><circle class="a-bg a-line" cx="312" cy="24" r="6"/><circle class="a-bg a-line" cx="312" cy="60" r="6"/><circle class="a-bg a-line" cx="312" cy="96" r="6"/></g>
+                  <circle class="a-faint ca-halo" cx="362" cy="60" r="15"/>
+                  <circle class="a-pop" cx="362" cy="60" r="8"/>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.data.eyebrow">Analytics</span>
+              <h3 data-i18n="home.card.data.title">Data Science</h3>
+              <p data-i18n="home.card.data.text">Machine learning, dashboards and large-scale optimization for banking, consumer goods, telecom and tech.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+          <div class="card-slot reveal" style="--delay:.4s">
+            <a class="profile-card card-teach" href="training.html">
+              <span class="card-art" aria-hidden="true">
+                <!-- Clase: tablero con una curva que sube, quien enseña y el grupo -->
+                <svg class="art" viewBox="0 0 400 120" focusable="false">
+                  <rect class="a-fill a-line" x="124" y="10" width="150" height="76" rx="4"/>
+                  <path class="a-line" d="M199 86v14M183 110l16-10 16 10"/>
+                  <path class="a-faint" d="M142 74v-10M160 74v-16M178 74v-12M196 74v-22"/>
+                  <path class="a-pop-line" d="M142 50L166 40L190 44L218 30L252 22"/>
+                  <circle class="a-pop" cx="252" cy="22" r="4"/>
+                  <circle class="a-fill a-line" cx="72" cy="42" r="11"/>
+                  <path class="a-line" d="M48 120c0-26 10-46 24-46s24 20 24 46"/>
+                  <path class="a-line ca-pointer" d="M90 82L150 58"/>
+                  <g class="ca-head"><circle class="a-fill a-line" cx="316" cy="60" r="9"/><path class="a-line" d="M298 98c0-12 8-22 18-22s18 10 18 22"/></g>
+                  <g class="ca-head"><circle class="a-fill a-line" cx="366" cy="60" r="9"/><path class="a-line" d="M348 98c0-12 8-22 18-22s18 10 18 22"/></g>
+                  <g class="ca-head"><circle class="a-bg a-line" cx="341" cy="84" r="10"/><path class="a-bg a-line" d="M319 126c0-14 10-26 22-26s22 12 22 26"/></g>
+                  <g class="ca-bubble"><path class="a-bg a-line" d="M322 6h42a9 9 0 0 1 9 9v6a9 9 0 0 1-9 9h-24l-9 8v-8h-9a9 9 0 0 1-9-9v-6a9 9 0 0 1 9-9z"/><circle class="a-solid" cx="332" cy="18" r="2"/><circle class="a-solid" cx="343" cy="18" r="2"/><circle class="a-solid" cx="354" cy="18" r="2"/></g>
+                </svg>
+              </span>
+              <span class="eyebrow" data-i18n="home.card.training.eyebrow">In-company</span>
+              <h3 data-i18n="home.card.training.title">Corporate Training</h3>
+              <p data-i18n="home.card.training.text">Applied courses on analytics, experimentation and optimization for business teams and their leaders.</p>
+              <span class="go" data-i18n="home.card.go">View profile →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section has-deco">
+      <span class="deco deco-dots at-bl s-lg" aria-hidden="true"></span>
+      <div class="wrap split about-split">
+        <div class="reveal">
+          <h2 data-i18n="home.about.title">About me</h2>
+          <p data-i18n="home.about.p1">I'm an industrial engineer from Universidad de La Sabana, where I also earned an M.S. in Applied Analytics with distinction under a full research fellowship, and I hold a Graduate Certificate in Logistics and Supply Chain Management from MIT. I currently teach business analytics and optimization at Universidad Externado de Colombia.</p>
+          <p style="margin-top:1rem" data-i18n="home.about.p2">In more than four years of practice, I have managed over USD 150,000 a month in paid media for companies in the United States, Brazil and Colombia, led data science projects for multinational companies in banking, consumer goods and telecommunications, and trained more than 100 professionals. On the research side, that work has led to a peer-reviewed international publication and several working papers on location and logistics problems.</p>
+          <p class="about-ai" style="margin-top:1rem" data-i18n="home.about.ai">I am also an expert in artificial intelligence: I bring machine learning and generative AI into research, growth, data and training, to move faster without giving up rigor.</p>
+          <p style="margin-top:1rem" data-i18n="home.about.p3">In everything I do, the same approach: listen carefully, measure honestly and keep learning from each result.</p>
+        </div>
+        <!-- Trayectoria: un camino que une las cuatro áreas y termina en la IA -->
+        <div class="split-art about-art reveal" style="--delay:.15s" aria-hidden="true">
+          <svg class="art" viewBox="0 0 300 300" focusable="false">
+            <circle class="a-fill art-disc" cx="150" cy="150" r="128"/>
+            <circle class="a-faint" cx="150" cy="150" r="146" stroke-width="2.4" stroke-dasharray="0 10"/>
+            <g class="ab-stars"><circle cx="62" cy="84" r="2.5"/><circle cx="96" cy="52" r="2"/><circle cx="252" cy="150" r="2.5"/><circle cx="246" cy="236" r="2"/><circle cx="46" cy="170" r="2"/></g>
+            <path class="a-faint" d="M40 262C64 232 78 218 104 214S186 214 196 192S138 150 120 130S158 88 200 92S248 66 252 40"/>
+            <path class="a-line anim-draw" pathLength="1" stroke-width="2.2" style="--dur:2.4s; --anim-delay:.35s" d="M40 262C64 232 78 218 104 214S186 214 196 192S138 150 120 130S158 88 200 92S248 66 252 40"/>
+            <circle class="a-solid" cx="40" cy="262" r="5"/>
+            <g class="ab-node t-research" style="--pop-delay:.7s"><circle class="ab-disc" cx="104" cy="214" r="17"/><svg class="ni" focusable="false" x="92" y="202" width="24" height="24" viewBox="0 0 48 48"><path class="i-faint" d="M19.8 19.8l-6-6M28.2 19.8l6-6M19.8 28.2l-6 6M28.2 28.2l6 6"/><circle class="i-tint" cx="24" cy="24" r="6"/><circle cx="11" cy="11" r="4"/><circle cx="37" cy="11" r="4"/><circle cx="11" cy="37" r="4"/><circle cx="37" cy="37" r="4"/></svg></g>
+            <g class="ab-node t-growth" style="--pop-delay:1.1s"><circle class="ab-disc" cx="196" cy="192" r="17"/><svg class="ni" focusable="false" x="184" y="180" width="24" height="24" viewBox="0 0 48 48"><circle cx="22" cy="26" r="16"/><circle class="i-faint" cx="22" cy="26" r="9.5"/><circle class="i-solid" cx="22" cy="26" r="3.5"/><path d="M22 26L40 8M33 8h7v7"/></svg></g>
+            <g class="ab-node t-data" style="--pop-delay:1.5s"><circle class="ab-disc" cx="120" cy="130" r="17"/><svg class="ni" focusable="false" x="108" y="118" width="24" height="24" viewBox="0 0 48 48"><path d="M6 41h36"/><rect class="i-tint" x="9" y="28" width="6" height="13" rx="1"/><rect class="i-tint" x="21" y="21" width="6" height="20" rx="1"/><rect class="i-tint" x="33" y="13" width="6" height="28" rx="1"/><path class="i-faint" d="M8 20l12-8 8 4 11-8"/></svg></g>
+            <g class="ab-node t-teach" style="--pop-delay:1.9s"><circle class="ab-disc" cx="200" cy="92" r="17"/><svg class="ni" focusable="false" x="188" y="80" width="24" height="24" viewBox="0 0 48 48"><rect class="i-tint" x="6" y="7" width="36" height="25" rx="2"/><path d="M24 32v7M17 43l7-4 7 4"/><path class="i-faint" d="M12 25l7-7 5 4 11-9"/></svg></g>
+            <circle class="a-faint anim-pulse" cx="252" cy="40" r="27" style="--dur:6s"/>
+            <circle class="a-bg a-line" cx="252" cy="40" r="20"/>
+            <path class="a-pop anim-sway" style="--dur:8s" d="M252 26c1.4 7.2 4.8 10.6 12 12-7.2 1.4-10.6 4.8-12 12-1.4-7.2-4.8-10.6-12-12 7.2-1.4 10.6-4.8 12-12z"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values has-deco">
+      <span class="deco deco-grid at-tr s-lg hide-sm" aria-hidden="true"></span>
+      <span class="deco deco-blob at-bl s-lg anim-spin" aria-hidden="true"></span>
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="values.title">My commitment</h2>
+        <p class="section-intro reveal" style="--delay:.08s" data-i18n="values.intro">Whatever the project, four things are guaranteed:</p>
+        <div class="service-grid pairs value-grid">
+          <div class="value-slot reveal" style="--delay:.1s">
+            <div class="service value">
+              <!-- Ética: balanza -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M24 9v31M16 41h16M9 15h30"/><circle class="i-solid" cx="24" cy="9" r="2.5"/><path class="i-faint" d="M9 15L4.5 27M9 15l4.5 12M39 15l-4.5 12M39 15l4.5 12"/><path class="i-tint" d="M4 27h10a5 5 0 0 1-10 0zM34 27h10a5 5 0 0 1-10 0z"/></svg></span>
+              <h3 data-i18n="values.1.title">Ethics</h3>
+              <p data-i18n="values.1.text">Transparent work, honest numbers and your data handled with care and confidentiality.</p>
+            </div>
+          </div>
+          <div class="value-slot reveal" style="--delay:.2s">
+            <div class="service value">
+              <!-- Calidad: medalla -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="24" cy="19" r="13"/><path d="M18 30.5L15 43l9-4 9 4-3-12.5"/><path class="i-faint" d="M18.5 19l3.5 3.5L29.5 15"/></svg></span>
+              <h3 data-i18n="values.2.title">Quality</h3>
+              <p data-i18n="values.2.text">Every deliverable reviewed in detail, documented and ready to use from day one.</p>
+            </div>
+          </div>
+          <div class="value-slot reveal" style="--delay:.3s">
+            <div class="service value">
+              <!-- Rigor: compás de precisión -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M24 4v4"/><circle class="i-tint" cx="24" cy="12" r="4"/><path d="M22.3 15.6L12 41M25.7 15.6L36 41"/><path class="i-faint" d="M16.5 30c4.6 2 10.4 2 15 0"/><path class="i-faint" d="M7 36c3 4 7.5 6.5 12 7" stroke-dasharray="2 4"/></svg></span>
+              <h3 data-i18n="values.3.title">Rigor</h3>
+              <p data-i18n="values.3.text">Research methods applied to business: clear hypotheses, careful testing and validated results.</p>
+            </div>
+          </div>
+          <div class="value-slot reveal" style="--delay:.4s">
+            <div class="service value">
+              <!-- Analítica garantizada: gráfico con sello de verificación -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M6 41h24"/><rect class="i-tint" x="9" y="29" width="6" height="12" rx="1"/><rect class="i-tint" x="19" y="21" width="6" height="20" rx="1"/><path class="i-faint" d="M8 21l10-8 7 4 11-9"/><circle class="i-tint" cx="35" cy="33" r="8.5"/><path d="M31.2 33.2l2.6 2.6 5-5.2"/></svg></span>
+              <h3 data-i18n="values.4.title">Guaranteed analytics</h3>
+              <p data-i18n="values.4.text">Every recommendation backed by data you can check, not by opinions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section has-deco">
+      <span class="deco deco-rings at-br anim-pulse" style="--dur:8s" aria-hidden="true"></span>
+      <div class="wrap">
+        <h2 class="reveal" data-i18n="home.edu.title">Education &amp; recognition</h2>
+        <div class="split reverse edu-split">
+          <div class="reveal">
+            <ul class="highlight-list iconic">
+              <li>
+                <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v10c0 3 5.4 6 12 6s12-3 12-6V22"/><path class="i-faint" d="M44 18v11"/></svg></span>
+                <strong data-i18n="home.edu.ms.title">M.S. in Applied Analytics · Universidad de La Sabana</strong>
+                <span data-i18n="home.edu.ms.text">Distinction-level grade average and a full merit research fellowship.</span>
+              </li>
+              <li>
+                <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-faint" d="M7 34C12 21 22 13 36 10" stroke-dasharray="2 4"/><path d="M33 5l6 5-6 5"/><circle class="i-solid" cx="7" cy="35" r="3"/><rect class="i-tint" x="24" y="26" width="17" height="15" rx="1.5"/><path d="M24 31.5h17M32.5 26v5.5"/></svg></span>
+                <strong data-i18n="home.edu.mit.title">Graduate Certificate in Logistics and Supply Chain Management · MIT</strong>
+                <span data-i18n="home.edu.mit.text">Awarded a 50% merit scholarship.</span>
+              </li>
+              <li>
+                <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="5" y="8" width="38" height="31" rx="3"/><path d="M5 15h38"/><circle class="i-solid" cx="10" cy="11.5" r="1.3"/><circle class="i-solid" cx="14.5" cy="11.5" r="1.3"/><path class="i-faint" d="M11 32l7-7 5 4 7-9 7 5"/></svg></span>
+                <strong data-i18n="home.edu.xpro.title">Professional Certificate in Data Science and Analytics · MIT xPRO</strong>
+              </li>
+              <li>
+                <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M36.2 19L36.9 21.2L40.8 21.4L40.8 26.6L36.9 26.8L36.2 29.1L35.1 31.1L37.7 34.1L34.1 37.7L31.1 35.1L29 36.2L26.8 36.9L26.6 40.8L21.4 40.8L21.2 36.9L18.9 36.2L16.9 35.1L13.9 37.7L10.3 34.1L12.9 31.1L11.8 29L11.1 26.8L7.2 26.6L7.2 21.4L11.1 21.2L11.8 18.9L12.9 16.9L10.3 13.9L13.9 10.3L16.9 12.9L19 11.8L21.2 11.1L21.4 7.2L26.6 7.2L26.8 11.1L29.1 11.8L31.1 12.9L34.1 10.3L37.7 13.9L35.1 16.9z"/><circle cx="24" cy="24" r="5"/></svg></span>
+                <strong data-i18n="home.edu.bs.title">B.S. in Industrial Engineering · Universidad de La Sabana</strong>
+                <span data-i18n="home.edu.bs.text">Top national Saber Pro scores in Industrial Engineering.</span>
+              </li>
+              <li>
+                <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M15 7h18v10a9 9 0 0 1-18 0z"/><path d="M15 10H9c0 6 3 9.5 7.5 10M33 10h6c0 6-3 9.5-7.5 10M24 26v8M17 41h14M19 41l1.5-7h7l1.5 7"/><circle class="i-solid" cx="24" cy="15" r="2.5"/></svg></span>
+                <strong data-i18n="home.edu.awards.title">Awards</strong>
+                <span data-i18n="home.edu.awards.text">Best Practitioner Award, Universidad de La Sabana · First place, Noel x Universidad de La Sabana Innovation Challenge · First place, ASME Impromptu Vehicle Design Competition · Third place in Latin America, ASME Management Skills Competition.</span>
+              </li>
+              <li>
+                <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="24" cy="24" r="17"/><path class="i-faint" d="M7 24h34M24 7c4.5 4.7 6.8 10.4 6.8 17S28.5 36.3 24 41c-4.5-4.7-6.8-10.4-6.8-17S19.5 11.7 24 7z"/></svg></span>
+                <strong data-i18n="home.edu.lang.title">Languages</strong>
+                <span data-i18n="home.edu.lang.text">Spanish (native) · English (C1, IELTS 7.0).</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Reconocimiento: laurel, birrete con borla y medalla -->
+          <div class="split-art edu-art reveal" style="--delay:.15s" aria-hidden="true">
+            <svg class="art" viewBox="0 0 300 300" focusable="false">
+              <circle class="a-fill art-disc" cx="150" cy="160" r="122"/>
+              <circle class="a-faint" cx="150" cy="160" r="140" stroke-width="2.4" stroke-dasharray="0 10"/>
+              <path class="a-line" d="M146 252C92 238 60 184 76 112M154 252C208 238 240 184 224 112"/>
+              <g class="a-fill a-line ed-leaves">
+                <ellipse cx="111.5" cy="246.5" rx="11" ry="4.6" transform="rotate(-181.6 111.5 246.5)"/><ellipse cx="121.4" cy="231.5" rx="11" ry="4.6" transform="rotate(-111.6 121.4 231.5)"/><ellipse cx="94.6" cy="232.5" rx="10.5" ry="4.4" transform="rotate(-169.3 94.6 232.5)"/><ellipse cx="107.5" cy="220" rx="10.5" ry="4.4" transform="rotate(-99.3 107.5 220)"/><ellipse cx="80.9" cy="215.1" rx="9.9" ry="4.1" transform="rotate(-157.1 80.9 215.1)"/><ellipse cx="96.2" cy="205.6" rx="9.9" ry="4.1" transform="rotate(-87.1 96.2 205.6)"/><ellipse cx="70.9" cy="194.7" rx="9.4" ry="3.9" transform="rotate(-145.4 70.9 194.7)"/><ellipse cx="87.7" cy="188.4" rx="9.4" ry="3.9" transform="rotate(-75.4 87.7 188.4)"/><ellipse cx="64.8" cy="171.6" rx="8.8" ry="3.7" transform="rotate(-134.5 64.8 171.6)"/><ellipse cx="82.5" cy="168.7" rx="8.8" ry="3.7" transform="rotate(-64.5 82.5 168.7)"/><ellipse cx="62.9" cy="146.3" rx="8.3" ry="3.5" transform="rotate(-124.4 62.9 146.3)"/><ellipse cx="80.9" cy="146.5" rx="8.3" ry="3.5" transform="rotate(-54.4 80.9 146.5)"/><ellipse cx="65.4" cy="119" rx="7.7" ry="3.2" transform="rotate(-115.2 65.4 119)"/><ellipse cx="83.2" cy="122.1" rx="7.7" ry="3.2" transform="rotate(-45.2 83.2 122.1)"/>
+                <ellipse cx="188.5" cy="246.5" rx="11" ry="4.6" transform="rotate(361.6 188.5 246.5)"/><ellipse cx="178.6" cy="231.5" rx="11" ry="4.6" transform="rotate(291.6 178.6 231.5)"/><ellipse cx="205.4" cy="232.5" rx="10.5" ry="4.4" transform="rotate(349.3 205.4 232.5)"/><ellipse cx="192.5" cy="220" rx="10.5" ry="4.4" transform="rotate(279.3 192.5 220)"/><ellipse cx="219.1" cy="215.1" rx="9.9" ry="4.1" transform="rotate(337.1 219.1 215.1)"/><ellipse cx="203.8" cy="205.6" rx="9.9" ry="4.1" transform="rotate(267.1 203.8 205.6)"/><ellipse cx="229.1" cy="194.7" rx="9.4" ry="3.9" transform="rotate(325.4 229.1 194.7)"/><ellipse cx="212.3" cy="188.4" rx="9.4" ry="3.9" transform="rotate(255.4 212.3 188.4)"/><ellipse cx="235.2" cy="171.6" rx="8.8" ry="3.7" transform="rotate(314.5 235.2 171.6)"/><ellipse cx="217.5" cy="168.7" rx="8.8" ry="3.7" transform="rotate(244.5 217.5 168.7)"/><ellipse cx="237.1" cy="146.3" rx="8.3" ry="3.5" transform="rotate(304.4 237.1 146.3)"/><ellipse cx="219.1" cy="146.5" rx="8.3" ry="3.5" transform="rotate(234.4 219.1 146.5)"/><ellipse cx="234.6" cy="119" rx="7.7" ry="3.2" transform="rotate(295.2 234.6 119)"/><ellipse cx="216.8" cy="122.1" rx="7.7" ry="3.2" transform="rotate(225.2 216.8 122.1)"/>
+              </g>
+              <path class="a-line" d="M142 250l8 6 8-6M150 256l-7 15M150 256l7 15"/>
+              <path class="a-line" d="M136 176l14 22 14-22"/>
+              <circle class="a-pop" cx="150" cy="212" r="17"/>
+              <path class="a-bg" d="M150 203L152.2 208.9L158.6 209.2L153.6 213.2L155.3 219.3L150 215.8L144.7 219.3L146.4 213.2L141.4 209.2L147.8 208.9z"/>
+              <path class="a-bg a-line" d="M114 126v26c0 9 16 16 36 16s36-7 36-16v-26"/>
+              <path class="a-fill a-line" d="M150 86L216 114L150 142L84 114Z"/>
+              <path class="a-line" d="M150 114L196 124"/>
+              <g class="anim-sway ed-tassel" style="--dur:6s"><path class="a-line" d="M196 124v30"/><path class="a-pop" d="M191 152h10l3 16h-16z"/></g>
+              <circle class="a-solid" cx="150" cy="114" r="3.5"/>
+              <path class="a-pop anim-blink" style="--dur:5s" d="M244 70c.9 4.6 3 6.7 7.6 7.6-4.6.9-6.7 3-7.6 7.6-.9-4.6-3-6.7-7.6-7.6 4.6-.9 6.7-3 7.6-7.6z"/>
+              <path class="a-pop" d="M56 92c.7 3.4 2.2 4.9 5.6 5.6-3.4.7-4.9 2.2-5.6 5.6-.7-3.4-2.2-4.9-5.6-5.6 3.4-.7 4.9-2.2 5.6-5.6z" opacity=".6"/>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <h2 data-i18n="home.about.title">About me</h2>
-        <p data-i18n="home.about.p1">I'm an industrial engineer from Universidad de La Sabana, where I also earned an M.S. in Applied Analytics with distinction under a full research fellowship, and I hold a Graduate Certificate in Logistics and Supply Chain Management from MIT. I currently teach business analytics and optimization at Universidad Externado de Colombia.</p>
-        <p style="margin-top:1rem" data-i18n="home.about.p2">In more than four years of practice, I have managed over USD 150,000 a month in paid media for companies in the United States, Brazil and Colombia, led data science projects for multinational companies in banking, consumer goods and telecommunications, and trained more than 100 professionals. On the research side, that work has led to a peer-reviewed international publication and several working papers on location and logistics problems.</p>
-        <p style="margin-top:1rem" data-i18n="home.about.ai">I am also an expert in artificial intelligence: I bring machine learning and generative AI into research, growth, data and training, to move faster without giving up rigor.</p>
-        <p style="margin-top:1rem" data-i18n="home.about.p3">In everything I do, the same approach: listen carefully, measure honestly and keep learning from each result.</p>
-      </div>
-    </section>
-
-    <section class="section values">
-      <div class="wrap">
-        <h2 data-i18n="values.title">My commitment</h2>
-        <p class="section-intro" data-i18n="values.intro">Whatever the project, four things are guaranteed:</p>
-        <div class="service-grid pairs">
-          <div class="service value">
-            <h3 data-i18n="values.1.title">Ethics</h3>
-            <p data-i18n="values.1.text">Transparent work, honest numbers and your data handled with care and confidentiality.</p>
+        <div class="promo promo-lp has-deco reveal">
+          <span class="deco deco-dots at-tr" aria-hidden="true"></span>
+          <div class="promo-copy">
+            <span class="eyebrow" data-i18n="home.learn.eyebrow">Open learning resource</span>
+            <h3 data-i18n="home.learn.title">Optimization in Action</h3>
+            <p data-i18n="home.learn.text">I built an open library of interactive operations research resources, organized in five levels from linear programming to methods beyond mathematical programming. Many of them use real cases from my research in Colombia, and every resource runs in your browser: move the numbers and watch the optimum respond.</p>
+            <div class="chip-row">
+              <span class="chip" data-i18n="home.learn.fact1">5 learning levels</span>
+              <span class="chip" data-i18n="home.learn.fact2">4 real research cases</span>
+              <span class="chip" data-i18n="home.learn.fact3">Interactive, in your browser</span>
+              <span class="chip">EN · ES · PT · FR</span>
+            </div>
+            <a class="btn anim-shimmer" href="https://learn-optimization.jaimepesca.com/" data-keep-lang data-ga-event="learn_optimization_click" data-i18n="home.learn.button">Explore the resources</a>
           </div>
-          <div class="service value">
-            <h3 data-i18n="values.2.title">Quality</h3>
-            <p data-i18n="values.2.text">Every deliverable reviewed in detail, documented and ready to use from day one.</p>
+          <!-- Programación lineal en el navegador: región factible, recta objetivo que avanza y el óptimo -->
+          <div class="promo-art" aria-hidden="true">
+            <svg class="art" viewBox="0 0 300 250" focusable="false">
+              <defs><clipPath id="lp-clip"><rect x="41" y="8" width="250" height="201"/></clipPath></defs>
+              <circle class="a-fill a-line" cx="16" cy="14" r="4"/><circle class="a-fill a-line" cx="30" cy="14" r="4"/><circle class="a-fill a-line" cx="44" cy="14" r="4"/>
+              <rect class="a-fill" x="62" y="7" width="176" height="14" rx="7"/>
+              <path class="a-faint" d="M0 28H300"/>
+              <g transform="translate(0 32)">
+                <path class="a-faint lp-grid" d="M40 170H286M40 130H286M40 90H286M40 50H286M80 12V210M120 12V210M160 12V210M200 12V210M240 12V210"/>
+                <path class="a-faint" d="M40 90L196 31.5M84 40L236 124.4M194 70L254 220"/>
+                <path class="a-fill a-line lp-region" d="M40 210V90L120 60L210 110L250 210Z"/>
+                <path class="a-line" d="M58 184l26-20M76 162l8 2-2 8"/>
+                <g clip-path="url(#lp-clip)"><path class="a-pop-line lp-iso" stroke-dasharray="7 6" d="M-36 -20L172 240"/></g>
+                <path class="a-pop-line anim-draw" pathLength="1" style="--dur:2s; --anim-delay:.5s" d="M40 210V90L120 60L210 110"/>
+                <path class="a-line" d="M40 12V210H290M35 20l5-8 5 8M282 205l8 5-8 5"/>
+                <circle class="a-bg a-line" cx="40" cy="210" r="4"/><circle class="a-bg a-line" cx="40" cy="90" r="4"/><circle class="a-bg a-line" cx="120" cy="60" r="4"/><circle class="a-bg a-line" cx="250" cy="210" r="4"/>
+                <circle class="a-faint lp-hit" cx="210" cy="110" r="9" stroke-width="2"/>
+                <circle class="a-pop" cx="210" cy="110" r="6.5"/>
+              </g>
+            </svg>
           </div>
-          <div class="service value">
-            <h3 data-i18n="values.3.title">Rigor</h3>
-            <p data-i18n="values.3.text">Research methods applied to business: clear hypotheses, careful testing and validated results.</p>
-          </div>
-          <div class="service value">
-            <h3 data-i18n="values.4.title">Guaranteed analytics</h3>
-            <p data-i18n="values.4.text">Every recommendation backed by data you can check, not by opinions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <h2 data-i18n="home.edu.title">Education &amp; recognition</h2>
-        <ul class="highlight-list">
-          <li>
-            <strong data-i18n="home.edu.ms.title">M.S. in Applied Analytics · Universidad de La Sabana</strong>
-            <span data-i18n="home.edu.ms.text">Distinction-level grade average and a full merit research fellowship.</span>
-          </li>
-          <li>
-            <strong data-i18n="home.edu.mit.title">Graduate Certificate in Logistics and Supply Chain Management · MIT</strong>
-            <span data-i18n="home.edu.mit.text">Awarded a 50% merit scholarship.</span>
-          </li>
-          <li>
-            <strong data-i18n="home.edu.xpro.title">Professional Certificate in Data Science and Analytics · MIT xPRO</strong>
-          </li>
-          <li>
-            <strong data-i18n="home.edu.bs.title">B.S. in Industrial Engineering · Universidad de La Sabana</strong>
-            <span data-i18n="home.edu.bs.text">Top national Saber Pro scores in Industrial Engineering.</span>
-          </li>
-          <li>
-            <strong data-i18n="home.edu.awards.title">Awards</strong>
-            <span data-i18n="home.edu.awards.text">Best Practitioner Award, Universidad de La Sabana · First place, Noel x Universidad de La Sabana Innovation Challenge · First place, ASME Impromptu Vehicle Design Competition · Third place in Latin America, ASME Management Skills Competition.</span>
-          </li>
-          <li>
-            <strong data-i18n="home.edu.lang.title">Languages</strong>
-            <span data-i18n="home.edu.lang.text">Spanish (native) · English (C1, IELTS 7.0).</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="promo">
-          <span class="eyebrow" data-i18n="home.learn.eyebrow">Open learning resource</span>
-          <h3 data-i18n="home.learn.title">Optimization in Action</h3>
-          <p data-i18n="home.learn.text">I built an open library of interactive operations research resources, organized in five levels from linear programming to methods beyond mathematical programming. Many of them use real cases from my research in Colombia, and every resource runs in your browser: move the numbers and watch the optimum respond.</p>
-          <div class="chip-row">
-            <span class="chip" data-i18n="home.learn.fact1">5 learning levels</span>
-            <span class="chip" data-i18n="home.learn.fact2">4 real research cases</span>
-            <span class="chip" data-i18n="home.learn.fact3">Interactive, in your browser</span>
-            <span class="chip">EN · ES · PT · FR</span>
-          </div>
-          <a class="btn" href="https://learn-optimization.jaimepesca.com/" data-keep-lang data-ga-event="learn_optimization_click" data-i18n="home.learn.button">Explore the resources</a>
         </div>
       </div>
     </section>
 
     <section class="cta" id="contact">
+      <!-- Avión de papel con su estela: escríbeme -->
+      <div class="cta-plane" aria-hidden="true">
+        <svg class="art" viewBox="0 0 260 200" focusable="false">
+          <path class="a-faint anim-flow" style="--dur:5s" d="M6 190C56 184 66 132 106 128S150 170 182 138 196 90 206 74"/>
+          <g class="anim-float" style="--dur:7s">
+            <path class="a-fill a-line" d="M194 70L254 20L224 84Z"/>
+            <path class="a-line" d="M254 20L214 72L220 96L224 84"/>
+          </g>
+        </svg>
+      </div>
       <div class="wrap">
         <h2 data-i18n="home.cta.title">Get in touch</h2>
         <p data-i18n="home.cta.text">For research collaborations, campaigns, data projects or team training, write to me by email.</p>

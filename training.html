@@ -44,9 +44,10 @@
   <meta name="theme-color" content="#a31f34">
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260929a">
-  <script src="assets/js/i18n.js?v=20260929a"></script>
-  <script src="assets/js/main.js?v=20260929a" defer></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=202609291858">
+  <link rel="stylesheet" href="assets/css/pages/training.css?v=202609291858">
+  <script src="assets/js/i18n.js?v=202609291858"></script>
+  <script src="assets/js/main.js?v=202609291858" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -379,54 +380,149 @@
 
   <main>
     <section class="hero tinted">
-      <div class="wrap">
-        <span class="eyebrow" data-i18n="training.eyebrow">Corporate Training</span>
-        <h1 data-i18n="training.h1">Teams that understand their own data.</h1>
-        <p class="lede" data-i18n="training.lede">In-company courses that combine academic rigor with real business cases, so what the team learns gets used the very next Monday.</p>
-        <a class="btn" href="#contact" data-ga-event="request_training_program" data-i18n="training.cta.button">Design a program</a>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="training.eyebrow">Corporate Training</span>
+          <h1 data-i18n="training.h1">Teams that understand their own data.</h1>
+          <p class="lede" data-i18n="training.lede">In-company courses that combine academic rigor with real business cases, so what the team learns gets used the very next Monday.</p>
+          <a class="btn anim-shimmer" href="#contact" data-ga-event="request_training_program" data-i18n="training.cta.button">Design a program</a>
+        </div>
+        <!-- Aula: tablero con un gráfico que crece, el equipo conectado alrededor, una idea y una pregunta -->
+        <div class="hero-art tr-hero-art" aria-hidden="true">
+          <svg class="art" viewBox="0 0 400 400" focusable="false">
+            <circle class="a-fill" cx="200" cy="206" r="172"/>
+            <circle class="a-faint a-dash" cx="200" cy="206" r="190"/>
+            <!-- Birrete: el rigor académico -->
+            <path class="a-bg a-line" d="M48 89.5v11c0 4 8 8 18 8s18-4 18-8v-11"/>
+            <path class="a-bg a-line" d="M36 84l30-13 30 13-30 13z"/>
+            <path class="a-faint" d="M96 84v14"/>
+            <circle class="a-pop" cx="96" cy="100" r="3"/>
+            <!-- Tablero: barras que crecen y la tendencia al alza -->
+            <rect class="a-bg a-line" x="104" y="64" width="192" height="136" rx="12"/>
+            <path class="a-faint" d="M104 86h192M156 75h56"/>
+            <circle class="tr-dim" cx="118" cy="75" r="2.6"/><circle class="tr-dim" cx="127" cy="75" r="2.6"/><circle class="tr-dim" cx="136" cy="75" r="2.6"/>
+            <path class="a-faint a-dash" d="M122 154h156M122 124h156"/>
+            <path class="a-faint" d="M122 184h156"/>
+            <rect class="a-fill a-line anim-bar" x="128" y="168" width="18" height="16" rx="3" style="--anim-delay:.2s"/>
+            <rect class="a-fill a-line anim-bar" x="160" y="156" width="18" height="28" rx="3" style="--anim-delay:.3s"/>
+            <rect class="a-fill a-line anim-bar" x="192" y="144" width="18" height="40" rx="3" style="--anim-delay:.4s"/>
+            <rect class="a-fill a-line anim-bar" x="224" y="130" width="18" height="54" rx="3" style="--anim-delay:.5s"/>
+            <rect class="a-pop anim-bar" x="256" y="112" width="18" height="72" rx="3" style="--anim-delay:.6s"/>
+            <path class="a-pop-line anim-draw" pathLength="1" d="M137 158L169 146L201 132L233 116L270 96" style="--dur:1.3s; --anim-delay:.8s"/>
+            <path class="a-pop-line anim-draw" pathLength="1" d="M258 95.7L270 96L263.7 106.2" style="--dur:.3s; --anim-delay:2.05s"/>
+            <!-- Bandeja con marcador -->
+            <path class="a-line" d="M116 210h168"/>
+            <rect class="a-pop" x="236" y="203" width="24" height="6" rx="3"/>
+            <!-- Lo aprendido llega al equipo -->
+            <path class="a-faint anim-flow" d="M160 212C150 250 132 282 124 310"/>
+            <path class="a-faint anim-flow" d="M240 212C250 250 268 282 276 310" style="--anim-delay:-2s"/>
+            <path class="a-pop-line anim-flow" d="M200 214V324"/>
+            <!-- Equipo conectado -->
+            <path class="a-faint" d="M65 272A150 150 0 0 0 335 272"/>
+            <circle class="a-faint" cx="200" cy="356" r="30"/>
+            <circle class="a-bg a-line" cx="65" cy="272" r="22"/><circle class="a-fill a-line" cx="65" cy="266" r="7"/><path class="a-fill a-line" d="M53 287c0-7 5.4-12 12-12s12 5 12 12z"/>
+            <circle class="a-bg a-line" cx="120" cy="333" r="22"/><circle class="a-fill a-line" cx="120" cy="327" r="7"/><path class="a-fill a-line" d="M108 348c0-7 5.4-12 12-12s12 5 12 12z"/>
+            <circle class="a-pop" cx="200" cy="356" r="22"/><circle class="tr-knock-fill" cx="200" cy="350" r="7"/><path class="tr-knock-fill" d="M188 371c0-7 5.4-12 12-12s12 5 12 12z"/>
+            <circle class="a-bg a-line" cx="280" cy="333" r="22"/><circle class="a-fill a-line" cx="280" cy="327" r="7"/><path class="a-fill a-line" d="M268 348c0-7 5.4-12 12-12s12 5 12 12z"/>
+            <circle class="a-bg a-line" cx="335" cy="272" r="22"/><circle class="a-fill a-line" cx="335" cy="266" r="7"/><path class="a-fill a-line" d="M323 287c0-7 5.4-12 12-12s12 5 12 12z"/>
+            <!-- Una idea (bombillo) y una pregunta, flotando -->
+            <g class="anim-float" style="--dur:7s">
+              <path class="a-bg a-line" d="M30 148h48a14 14 0 0 1 14 14v30a14 14 0 0 1-14 14H64l-8 12-2-12H30a14 14 0 0 1-14-14v-30a14 14 0 0 1 14-14z"/>
+              <path class="a-pop" d="M54 160a11 11 0 0 0-6.6 19.8c1.6 1.3 2.2 2.7 2.2 4.2h8.8c0-1.5.6-2.9 2.2-4.2A11 11 0 0 0 54 160z"/>
+              <path class="a-line" d="M50 188h8M51.5 192h5"/>
+              <path class="a-faint" d="M40 166l-3-2M68 166l3-2M54 155v-3"/>
+            </g>
+            <g class="anim-float" style="--dur:8s; --anim-delay:-3s">
+              <path class="a-bg a-line" d="M322 148h48a14 14 0 0 1 14 14v30a14 14 0 0 1-14 14h-24l-2 12-8-12h-14a14 14 0 0 1-14-14v-30a14 14 0 0 1 14-14z"/>
+              <path class="a-line tr-q" d="M339 171a7 7 0 1 1 9.5 6.5c-1.6.7-2.5 1.8-2.5 3.5v2"/>
+              <circle class="a-solid" cx="346" cy="189.5" r="2.2"/>
+            </g>
+            <!-- Destellos -->
+            <path class="a-pop anim-blink" d="M330 56c1.4 7.7 4.9 11.2 14 14-9.1 2.8-12.6 6.3-14 14-1.4-7.7-4.9-11.2-14-14 9.1-2.8 12.6-6.3 14-14z" style="--dur:5s"/>
+            <path class="a-pop" d="M356 98c.6 3.3 2.1 4.8 6 6-3.9 1.2-5.4 2.7-6 6-.6-3.3-2.1-4.8-6-6 3.9-1.2 5.4-2.7 6-6z"/>
+          </svg>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section has-deco tr-stats">
+      <span class="deco deco-dots at-tr s-lg" aria-hidden="true"></span>
+      <!-- Curva de aprendizaje de fondo, a lo ancho de la sección -->
+      <svg class="tr-curve" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="tr-curve-area" d="M0 150C260 150 400 146 520 118S700 34 840 20 1080 12 1200 12V160H0z"/>
+        <path class="tr-curve-line" d="M0 150C260 150 400 146 520 118S700 34 840 20 1080 12 1200 12" vector-effect="non-scaling-stroke"/>
+      </svg>
       <div class="wrap">
-        <ul class="stat-row">
-          <li><strong>100+</strong><span data-i18n="training.stat.people">professionals trained in analytics, experimentation and optimization</span></li>
-          <li><strong>40+</strong><span data-i18n="training.stat.companies">companies and small businesses served, every program tailor-made</span></li>
-          <li><strong>Externado</strong><span data-i18n="training.stat.externado">lecturer in business analytics and optimization</span></li>
-          <li><strong>La Sabana</strong><span data-i18n="training.stat.sabana">logistics and supply chain teaching</span></li>
-          <li><strong>MIT</strong><span data-i18n="training.stat.3">training in data science and supply chain management</span></li>
+        <!-- Dos cifras grandes (con gráfico de unidades: cada figura es una persona o una empresa) y tres instituciones -->
+        <ul class="stat-row tiles">
+          <li class="reveal tr-big">
+            <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="18" cy="17" r="6"/><path d="M7 40c0-6.6 4.9-12 11-12s11 5.4 11 12"/><circle class="i-faint" cx="33" cy="15" r="5"/><path class="i-faint" d="M32 25c5.3 0 9 4.6 9 10.5"/></svg></span>
+            <strong data-count="100" data-suffix="+">100+</strong><span data-i18n="training.stat.people">professionals trained in analytics, experimentation and optimization</span>
+            <span class="tr-units tr-people" aria-hidden="true"></span>
+          </li>
+          <li class="reveal tr-big" style="--delay:.1s">
+            <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M8 41V12l15-6v35z"/><path d="M23 19h17v22M4 41h40"/><path class="i-faint" d="M13 16v3M18 16v3M13 25v3M18 25v3M13 34v3M18 34v3M29 26h5M29 33h5"/></svg></span>
+            <strong data-count="40" data-suffix="+">40+</strong><span data-i18n="training.stat.companies">companies and small businesses served, every program tailor-made</span>
+            <span class="tr-units tr-firms" aria-hidden="true"></span>
+          </li>
+          <li class="reveal tr-inst" style="--delay:.15s">
+            <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="6" y="7" width="36" height="25" rx="2"/><path d="M24 32v7M17 43l7-4 7 4"/><path class="i-faint" d="M12 25l7-7 5 4 11-9"/></svg></span>
+            <strong>Externado</strong><span data-i18n="training.stat.externado">lecturer in business analytics and optimization</span>
+          </li>
+          <li class="reveal tr-inst" style="--delay:.25s">
+            <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-faint" d="M7 34C12 21 22 13 36 10" stroke-dasharray="2 4"/><path d="M33 5l6 5-6 5"/><circle class="i-solid" cx="7" cy="35" r="3"/><rect class="i-tint" x="24" y="26" width="17" height="15" rx="1.5"/><path d="M24 31.5h17M32.5 26v5.5"/></svg></span>
+            <strong>La Sabana</strong><span data-i18n="training.stat.sabana">logistics and supply chain teaching</span>
+          </li>
+          <li class="reveal tr-inst" style="--delay:.35s">
+            <span class="icon-badge sm" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v10c0 3 5.4 6 12 6s12-3 12-6V22"/><path class="i-faint" d="M44 18v11"/></svg></span>
+            <strong>MIT</strong><span data-i18n="training.stat.3">training in data science and supply chain management</span>
+          </li>
         </ul>
-        <div class="stat-cta">
+        <div class="stat-cta reveal" style="--delay:.4s">
           <a class="btn" href="#contact" data-ga-event="request_training_program" data-i18n="training.cta.button">Design a program</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section has-deco tr-topics">
+      <span class="deco deco-rings at-tr" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="training.topics.title">Topics</h2>
-        <div class="service-grid">
-          <div class="service">
+        <h2 class="reveal" data-i18n="training.topics.title">Topics</h2>
+        <div class="service-grid cards">
+          <div class="service reveal">
+            <!-- Matraz: experimentos -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M20 6v12L9 37a3 3 0 0 0 2.6 4.5h24.8A3 3 0 0 0 39 37L28 18V6z"/><path d="M16 6h16"/><path class="i-faint" d="M14 30h20"/><circle class="i-solid" cx="21" cy="36" r="2"/><circle class="i-solid" cx="28" cy="34" r="1.5"/></svg></span>
             <h3 data-i18n="training.topics.1.title">Experimentation and A/B testing</h3>
             <p data-i18n="training.topics.1.text">How to design, run and read experiments that settle debates with evidence instead of opinions.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.08s">
+            <!-- Red de rutas: la mejor entre varias alternativas -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-faint" d="M9.9 28.9l6.2-12.9M22.5 12.6l7 .8M35.3 18.3l3.3 10.9" stroke-dasharray="2 3"/><circle class="i-faint" cx="18" cy="12" r="3.5"/><circle class="i-faint" cx="34" cy="14" r="3.5"/><path d="M12.4 34.2l6.3 1.7M27.4 36.2l7.7-1.3"/><circle cx="8" cy="33" r="3.5"/><circle class="i-tint" cx="23" cy="37" r="3.5"/><circle class="i-solid" cx="40" cy="34" r="4"/></svg></span>
             <h3 data-i18n="training.topics.2.title">Optimization for decisions</h3>
             <p data-i18n="training.topics.2.text">Turning scheduling, allocation and logistics problems into models that find the best feasible answer.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.16s">
+            <!-- Tablero -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="5" y="8" width="38" height="31" rx="3"/><path d="M5 15h38"/><circle class="i-solid" cx="10" cy="11.5" r="1.3"/><circle class="i-solid" cx="14.5" cy="11.5" r="1.3"/><path class="i-faint" d="M11 32l7-7 5 4 7-9 7 5"/></svg></span>
             <h3 data-i18n="training.topics.3.title">Analytics and dashboards</h3>
             <p data-i18n="training.topics.3.text">KPIs that matter and Power BI dashboards that the team actually uses to decide.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.08s">
+            <!-- Chip de IA -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="13" y="13" width="22" height="22" rx="3"/><path class="i-faint" d="M19 13V7M24 13V7M29 13V7M19 41v-6M24 41v-6M29 41v-6M13 19H7M13 24H7M13 29H7M41 19h-6M41 24h-6M41 29h-6"/><circle class="i-solid" cx="24" cy="24" r="3"/></svg></span>
             <h3 data-i18n="training.topics.4.title">Machine learning and AI for business</h3>
             <p data-i18n="training.topics.4.text">What predictive models and AI can and cannot do in daily operations today, with hands-on exercises.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.16s">
+            <!-- Megáfono -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M7 20v8a2 2 0 0 0 2 2h5l15 9V9L14 18H9a2 2 0 0 0-2 2z"/><path d="M14 30l3 9h5l-2.5-8"/><path class="i-faint" d="M35 18a8 8 0 0 1 0 12M39 13a15 15 0 0 1 0 22"/></svg></span>
             <h3 data-i18n="training.topics.5.title">Digital marketing and growth</h3>
             <p data-i18n="training.topics.5.text">How paid media and attribution work from the inside, and how to hold an agency or internal team accountable.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.24s">
+            <!-- Libro abierto con datos -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M24 13c-4-3-10-4-18-4v28c8 0 14 1 18 4 4-3 10-4 18-4V9c-8 0-14 1-18 4z"/><path d="M24 13v28"/><path class="i-faint" d="M11 18h8M11 24h8M11 30h5"/><path d="M30 31v-5M35 31v-10M40 31v-7"/></svg></span>
             <h3 data-i18n="training.topics.6.title">Data literacy for everyone</h3>
             <p data-i18n="training.topics.6.text">Reading data, asking better questions and distrusting averages, for teams without a technical background.</p>
           </div>
@@ -434,21 +530,65 @@
       </div>
     </section>
 
-    <section class="section ai-section">
+    <section class="section ai-section has-deco tr-ai">
+      <span class="deco deco-blob at-tr s-lg anim-spin" aria-hidden="true"></span>
+      <span class="deco deco-dots at-bl s-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <span class="eyebrow" data-i18n="ai.badge">AI expert</span>
-        <h2 data-i18n="training.ai.title">AI for your team</h2>
-        <p class="section-intro" data-i18n="training.ai.intro">As an AI expert, I help teams use artificial intelligence with confidence, judgment and measurable results.</p>
-        <div class="service-grid">
-          <div class="service">
+        <div class="tr-ai-head reveal">
+          <div>
+            <span class="eyebrow anim-shimmer" data-i18n="ai.badge">AI expert</span>
+            <h2 data-i18n="training.ai.title">AI for your team</h2>
+            <p class="section-intro" data-i18n="training.ai.intro">As an AI expert, I help teams use artificial intelligence with confidence, judgment and measurable results.</p>
+          </div>
+          <!-- El equipo trabaja con la IA y obtiene: asistente, impacto medido y uso responsable -->
+          <div class="tr-ai-art" aria-hidden="true">
+            <svg class="art" viewBox="0 0 340 180" focusable="false">
+              <path class="a-faint anim-flow" d="M62 40C100 40 106 76 134 76"/>
+              <path class="a-faint anim-flow" d="M62 90H134" style="--anim-delay:-1.3s"/>
+              <path class="a-faint anim-flow" d="M62 140C100 140 106 104 134 104" style="--anim-delay:-2.6s"/>
+              <path class="a-faint anim-flow" d="M206 76C228 76 230 40 250 40"/>
+              <path class="a-faint anim-flow" d="M206 90H266" style="--anim-delay:-1.3s"/>
+              <path class="a-faint anim-flow" d="M206 104C228 104 244 138 272 138" style="--anim-delay:-2.6s"/>
+              <!-- Equipo -->
+              <circle class="a-bg a-line" cx="44" cy="40" r="17"/><circle class="a-fill a-line" cx="44" cy="35" r="5.5"/><path class="a-fill a-line" d="M35 51c0-5.5 4-9.5 9-9.5s9 4 9 9.5z"/>
+              <circle class="a-bg a-line" cx="44" cy="90" r="17"/><circle class="a-fill a-line" cx="44" cy="85" r="5.5"/><path class="a-fill a-line" d="M35 101c0-5.5 4-9.5 9-9.5s9 4 9 9.5z"/>
+              <circle class="a-bg a-line" cx="44" cy="140" r="17"/><circle class="a-fill a-line" cx="44" cy="135" r="5.5"/><path class="a-fill a-line" d="M35 151c0-5.5 4-9.5 9-9.5s9 4 9 9.5z"/>
+              <!-- Chip de IA -->
+              <path class="a-faint" d="M156 62v-8M170 62v-8M184 62v-8M156 118v8M170 118v8M184 118v8M142 76h-8M142 90h-8M142 104h-8M198 76h8M198 90h8M198 104h8"/>
+              <rect class="a-bg a-line" x="142" y="62" width="56" height="56" rx="10"/>
+              <rect class="a-fill" x="152" y="72" width="36" height="36" rx="6"/>
+              <g class="anim-pulse" style="--dur:6s"><path class="a-pop" d="M170 78c1.2 6.6 4.2 9.6 12 12-7.8 2.4-10.8 5.4-12 12-1.2-6.6-4.2-9.6-12-12 7.8-2.4 10.8-5.4 12-12z"/></g>
+              <!-- Asistente: conversación -->
+              <path class="a-bg a-line" d="M262 18h52a12 12 0 0 1 12 12v16a12 12 0 0 1-12 12h-40l-12 9v-9a12 12 0 0 1-12-12V30a12 12 0 0 1 12-12z"/>
+              <path class="a-faint" d="M264 32h34M264 44h22"/>
+              <path class="a-pop anim-blink" d="M312 38c.6 3.3 2.1 4.8 6 6-3.9 1.2-5.4 2.7-6 6-.6-3.3-2.1-4.8-6-6 3.9-1.2 5.4-2.7 6-6z" style="--dur:5s"/>
+              <!-- Impacto medido -->
+              <path class="a-fill a-line" d="M264 104a28 28 0 0 1 56 0z"/>
+              <path class="a-faint" d="M271.5 92l4.3 2.5M292 80.5v5M312.5 92l-4.3 2.5"/>
+              <path class="a-pop-line" d="M292 104l13-14"/>
+              <circle class="a-pop" cx="292" cy="104" r="4"/>
+              <!-- Uso responsable -->
+              <path class="a-fill a-line" d="M292 116l18 7v12c0 11-7.6 19.6-18 24-10.4-4.4-18-13-18-24v-12z"/>
+              <path class="a-pop-line" d="M284 137l6 6 10-11"/>
+            </svg>
+          </div>
+        </div>
+        <div class="service-grid cards tr-ai-cards">
+          <div class="service reveal">
+            <!-- Conversación con destello -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M8 6h20a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H18l-7 6v-6H8a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/><path class="i-faint" d="M11 14h14M11 21h9"/><path d="M38 29c.7 4 2.3 5.6 6.3 6.3-4 .7-5.6 2.3-6.3 6.3-.7-4-2.3-5.6-6.3-6.3 4-.7 5.6-2.3 6.3-6.3z"/><circle class="i-solid" cx="40" cy="12" r="2"/></svg></span>
             <h3 data-i18n="training.ai.1.title">Generative AI at work</h3>
             <p data-i18n="training.ai.1.text">Hands-on use of AI assistants for analysis, writing and automation, with clear rules for privacy and quality.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.12s">
+            <!-- Blanco: el caso de uso que sí agrega valor -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><circle class="i-tint" cx="22" cy="26" r="16"/><circle class="i-faint" cx="22" cy="26" r="9.5"/><circle class="i-solid" cx="22" cy="26" r="3.5"/><path d="M22 26L40 8M33 8h7v7"/></svg></span>
             <h3 data-i18n="training.ai.2.title">From hype to use cases</h3>
             <p data-i18n="training.ai.2.text">How to find where AI adds value in your processes and how to measure its impact.</p>
           </div>
-          <div class="service">
+          <div class="service reveal" style="--delay:.24s">
+            <!-- Balanza: ética y criterio -->
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path d="M24 7v33M15 41h18M10 12h28"/><path class="i-faint" d="M10 12L5 25M10 12l5 13M38 12l-5 13M38 12l5 13"/><path class="i-tint" d="M4 25a6 6 0 0 0 12 0zM32 25a6 6 0 0 0 12 0z"/><circle class="i-solid" cx="24" cy="7" r="2.5"/></svg></span>
             <h3 data-i18n="training.ai.3.title">Responsible AI</h3>
             <p data-i18n="training.ai.3.text">Bias, data protection and verification: using AI with ethics and judgment.</p>
           </div>
@@ -456,83 +596,182 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section has-deco tr-why">
+      <span class="deco deco-rings at-tl s-sm" aria-hidden="true"></span>
+      <span class="deco deco-dots at-br" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="training.why.title">Why teams train with me</h2>
-        <div class="service-grid">
-          <div class="service">
-            <h3 data-i18n="training.why.1.title">Classroom and field experience</h3>
-            <p data-i18n="training.why.1.text">I teach at Universidad Externado, have taught logistics at Universidad de La Sabana and have led projects for banks, telecoms and consumer goods companies, so every concept arrives with a real case.</p>
+        <h2 class="reveal" data-i18n="training.why.title">Why teams train with me</h2>
+        <div class="split reverse">
+          <div class="service-grid tr-why-list">
+            <div class="service reveal">
+              <!-- Birrete y maletín: aula y campo -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M4 13l15-6.5 15 6.5-15 6.5z"/><path d="M10 16v6.5c0 1.9 4 3.5 9 3.5s9-1.6 9-3.5V16"/><path class="i-faint" d="M34 13v7"/><rect class="i-tint" x="24" y="30" width="20" height="13" rx="2"/><path d="M30 30v-3.5h8V30"/><path class="i-faint" d="M24 36h20"/></svg></span>
+              <h3 data-i18n="training.why.1.title">Classroom and field experience</h3>
+              <p data-i18n="training.why.1.text">I teach at Universidad Externado, have taught logistics at Universidad de La Sabana and have led projects for banks, telecoms and consumer goods companies, so every concept arrives with a real case.</p>
+            </div>
+            <div class="service reveal" style="--delay:.1s">
+              <!-- Ficha de rompecabezas: hecho a la medida -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M8 14h9a4 4 0 1 1 8 0h9v9a4 4 0 1 0 0 8v9h-9a4 4 0 1 0-8 0H8v-9a4 4 0 1 1 0-8z"/><path class="i-faint" d="M39 21l4-3M40 27h5M39 33l4 3"/></svg></span>
+              <h3 data-i18n="training.why.2.title">Built around your context</h3>
+              <p data-i18n="training.why.2.text">Exercises use the company's own data and challenges whenever possible, not generic examples.</p>
+            </div>
+            <div class="service reveal" style="--delay:.2s">
+              <!-- Cohete: listo para despegar desde el primer día -->
+              <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><path class="i-tint" d="M24 4c7 5 10 13 10 22v8H14v-8c0-9 3-17 10-22z"/><circle cx="24" cy="19" r="4"/><path d="M14 26l-6 8v6l6-4M34 26l6 8v6l-6-4"/><path class="i-faint" d="M20 38c0 4 2 6 4 8 2-2 4-4 4-8"/></svg></span>
+              <h3 data-i18n="training.why.3.title">Practical from day one</h3>
+              <p data-i18n="training.why.3.text">Participants leave each session with something built and ready to apply, not just notes.</p>
+            </div>
           </div>
-          <div class="service">
-            <h3 data-i18n="training.why.2.title">Built around your context</h3>
-            <p data-i18n="training.why.2.text">Exercises use the company's own data and challenges whenever possible, not generic examples.</p>
-          </div>
-          <div class="service">
-            <h3 data-i18n="training.why.3.title">Practical from day one</h3>
-            <p data-i18n="training.why.3.text">Participants leave each session with something built and ready to apply, not just notes.</p>
+          <!-- Aula y empresa unidas: lo de la clase va al campo y los casos reales vuelven a la clase -->
+          <div class="split-art tr-why-art reveal" style="--delay:.15s" aria-hidden="true">
+            <svg class="art" viewBox="0 0 300 300" focusable="false">
+              <circle class="a-fill" cx="150" cy="156" r="130"/>
+              <path class="a-faint" d="M18 222h264"/>
+              <!-- Ciclo aula → empresa → aula -->
+              <path class="a-pop-line anim-flow" d="M78 110C92 60 208 48 222 98"/>
+              <path class="a-faint anim-flow" d="M222 236C200 272 100 272 78 236"/>
+              <path class="a-pop-line" d="M214.9 91L222 98l2.5-9.7"/>
+              <path class="a-faint" d="M85.9 240.3L78 236l.2 9"/>
+              <!-- Aula: edificio con columnas -->
+              <path class="a-bg a-line" d="M26 144L74 116l48 28z"/>
+              <circle class="a-faint" cx="74" cy="134" r="5"/>
+              <rect class="a-bg a-line" x="32" y="148" width="84" height="8" rx="1.5"/>
+              <path class="a-line" d="M42 156v54M60 156v54M88 156v54M106 156v54"/>
+              <rect class="a-bg a-line" x="28" y="210" width="92" height="8" rx="1.5"/>
+              <!-- Empresa: oficina con ventanas -->
+              <rect class="a-bg a-line" x="180" y="104" width="86" height="118" rx="6"/>
+              <path class="a-faint tr-win" d="M195 124h10M218 124h10M241 124h10M195 142h10M218 142h10M241 142h10M195 160h10M218 160h10M241 160h10M195 178h10M241 178h10"/>
+              <path class="a-line" d="M213 222v-26h20v26"/>
+              <!-- Yo, en el puente entre los dos -->
+              <circle class="a-pop" cx="150" cy="62" r="22"/>
+              <circle class="tr-knock-fill" cx="150" cy="56" r="7"/>
+              <path class="tr-knock-fill" d="M138 77c0-7 5.4-12 12-12s12 5 12 12z"/>
+              <!-- Pieza a la medida -->
+              <g class="anim-float" style="--dur:8s; --amp:6px">
+                <path class="a-bg a-line" d="M246 40h12a5 5 0 1 1 10 0h14v13a5 5 0 1 0 0 10v13h-14a5 5 0 1 0-10 0h-12V63a5 5 0 1 1 0-10z"/>
+              </g>
+            </svg>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section has-deco tr-formats-sec">
+      <span class="deco deco-grid at-br s-lg" aria-hidden="true"></span>
+      <span class="deco deco-dots at-tl s-sm" aria-hidden="true"></span>
       <div class="wrap">
-        <h2 data-i18n="training.formats.title">Formats</h2>
-        <ul class="highlight-list">
-          <li>
+        <h2 class="reveal" data-i18n="training.formats.title">Formats</h2>
+        <!-- Tres formatos; la barra de abajo muestra cuánto dura cada uno -->
+        <ul class="highlight-list tr-formats">
+          <li class="reveal">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="18" y="5" width="12" height="22" rx="6"/><path d="M12 21a12 12 0 0 0 24 0M24 33v8M17 43h14"/><path class="i-faint" d="M18 13h5M18 19h5"/></svg></span>
             <strong data-i18n="training.formats.1.title">Talk (1 to 2 hours)</strong>
             <span data-i18n="training.formats.1.text">For internal events, kickoffs or leadership meetings.</span>
+            <span class="tr-dur d1" aria-hidden="true"><i></i><i></i></span>
           </li>
-          <li>
+          <li class="reveal" style="--delay:.12s">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="9" y="9" width="30" height="22" rx="2"/><path d="M4 36h40l-3 4H7z"/><path class="i-faint" d="M16 26v-4M22 26v-8M28 26v-6M34 26v-11"/></svg></span>
             <strong data-i18n="training.formats.2.title">Hands-on workshop (4 to 8 hours)</strong>
             <span data-i18n="training.formats.2.text">Built on the company's own data whenever possible; participants leave with something built.</span>
+            <span class="tr-dur d2" aria-hidden="true"><i></i><i></i></span>
           </li>
-          <li>
+          <li class="reveal" style="--delay:.24s">
+            <span class="icon-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 48 48" focusable="false"><rect class="i-tint" x="6" y="9" width="36" height="32" rx="3"/><path d="M6 18h36M15 5v8M33 5v8"/><path class="i-faint" d="M13 26h4M22 26h4M31 26h4M13 34h4"/><path d="M21 33.5l2.5 2.5 4.5-5"/></svg></span>
             <strong data-i18n="training.formats.3.title">In-company course (several weeks)</strong>
             <span data-i18n="training.formats.3.text">Regular sessions with support between them, like the experimentation and optimization course I designed for the analytics leadership of a telecommunications company.</span>
+            <span class="tr-dur d3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2 data-i18n="faq.title">Frequently asked questions</h2>
-        <div class="faq">
-          <details>
-            <summary data-i18n="training.faq.1.q">How much does a training program cost?</summary>
-            <p data-i18n="training.faq.1.a">It depends on the format and scope. After a first conversation at no cost, I send you a proposal with a closed price.</p>
-          </details>
-          <details>
-            <summary data-i18n="training.faq.2.q">Is the training in person or virtual?</summary>
-            <p data-i18n="training.faq.2.a">It can be in person, live virtual or hybrid, depending on what works best for your team.</p>
-          </details>
-          <details>
-            <summary data-i18n="training.faq.3.q">How long does it last?</summary>
-            <p data-i18n="training.faq.3.a">From a 1 to 2 hour talk to a 4 to 8 hour hands-on workshop, or an in-company course over several weeks.</p>
-          </details>
-          <details>
-            <summary data-i18n="training.faq.4.q">Can it be adapted to our company?</summary>
-            <p data-i18n="training.faq.4.a">Yes. Whenever possible, the exercises use your company's own data and challenges.</p>
-          </details>
-          <details>
-            <summary data-i18n="training.faq.5.q">Do participants receive a certificate?</summary>
-            <p data-i18n="training.faq.5.a">Yes, every participant receives a certificate of attendance.</p>
-          </details>
-          <details>
-            <summary data-i18n="training.faq.6.q">In which languages do you teach?</summary>
-            <p data-i18n="training.faq.6.a">Spanish and English.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.reply.q">How soon will I hear back?</summary>
-            <p data-i18n="faq.reply.a">I reply within one business day.</p>
-          </details>
+    <section class="section has-deco tr-faq">
+      <span class="deco deco-blob at-tr s-lg anim-spin" aria-hidden="true"></span>
+      <span class="deco deco-rings at-bl s-sm" aria-hidden="true"></span>
+      <div class="wrap split">
+        <div>
+          <h2 class="reveal" data-i18n="faq.title">Frequently asked questions</h2>
+          <div class="faq">
+            <details>
+              <summary data-i18n="training.faq.1.q">How much does a training program cost?</summary>
+              <p data-i18n="training.faq.1.a">It depends on the format and scope. After a first conversation at no cost, I send you a proposal with a closed price.</p>
+            </details>
+            <details>
+              <summary data-i18n="training.faq.2.q">Is the training in person or virtual?</summary>
+              <p data-i18n="training.faq.2.a">It can be in person, live virtual or hybrid, depending on what works best for your team.</p>
+            </details>
+            <details>
+              <summary data-i18n="training.faq.3.q">How long does it last?</summary>
+              <p data-i18n="training.faq.3.a">From a 1 to 2 hour talk to a 4 to 8 hour hands-on workshop, or an in-company course over several weeks.</p>
+            </details>
+            <details>
+              <summary data-i18n="training.faq.4.q">Can it be adapted to our company?</summary>
+              <p data-i18n="training.faq.4.a">Yes. Whenever possible, the exercises use your company's own data and challenges.</p>
+            </details>
+            <details>
+              <summary data-i18n="training.faq.5.q">Do participants receive a certificate?</summary>
+              <p data-i18n="training.faq.5.a">Yes, every participant receives a certificate of attendance.</p>
+            </details>
+            <details>
+              <summary data-i18n="training.faq.6.q">In which languages do you teach?</summary>
+              <p data-i18n="training.faq.6.a">Spanish and English.</p>
+            </details>
+            <details>
+              <summary data-i18n="faq.reply.q">How soon will I hear back?</summary>
+              <p data-i18n="faq.reply.a">I reply within one business day.</p>
+            </details>
+          </div>
+        </div>
+        <!-- Certificado, formación presencial o virtual, idiomas y dudas -->
+        <div class="split-art tr-faq-art reveal" style="--delay:.15s" aria-hidden="true">
+          <svg class="art" viewBox="0 0 300 300" focusable="false">
+            <circle class="a-fill" cx="150" cy="156" r="128"/>
+            <!-- Certificado (con otra hoja detrás) -->
+            <rect class="a-bg a-faint" x="62" y="84" width="170" height="124" rx="8" transform="rotate(5 147 146)"/>
+            <g transform="rotate(-5 147 146)">
+              <rect class="a-bg a-line" x="62" y="84" width="170" height="124" rx="8"/>
+              <rect class="a-faint" x="72" y="94" width="150" height="104" rx="4"/>
+              <path class="a-line tr-title" d="M104 118h86"/>
+              <path class="a-faint" d="M96 136h102M110 150h74"/>
+              <path class="a-line" d="M156 180c5-8 9 3 14-2s7 2 12-2"/>
+              <path class="a-faint" d="M152 188h46"/>
+              <path class="a-pop" d="M98 186l-6 22 9-4 6 7 3-19zM114 186l6 22-9-4-6 7-3-19z"/>
+              <circle class="a-pop" cx="106" cy="178" r="15"/>
+              <circle class="tr-knock" cx="106" cy="178" r="9.5"/>
+              <path class="tr-knock" d="M101.5 178.5l3 3 6-6.5"/>
+            </g>
+            <!-- Idiomas: el mundo con un punto que lo recorre -->
+            <circle class="a-faint a-dash" cx="244" cy="54" r="38"/>
+            <g class="anim-orbit" style="--orbit:244px 54px; --dur:22s"><circle class="a-pop" cx="244" cy="16" r="5"/></g>
+            <circle class="a-bg a-line" cx="244" cy="54" r="24"/>
+            <path class="a-faint" d="M220 54h48M244 30c7 6.5 10 14.5 10 24s-3 17.5-10 24c-7-6.5-10-14.5-10-24s3-17.5 10-24z"/>
+            <!-- Una duda -->
+            <g class="anim-float" style="--dur:7s; --amp:6px">
+              <path class="a-bg a-line" d="M40 222h52a14 14 0 0 1 14 14v16a14 14 0 0 1-14 14H64l-12 10v-10H40a14 14 0 0 1-14-14v-16a14 14 0 0 1 14-14z"/>
+              <path class="a-line tr-q" d="M59 238a7 7 0 1 1 9.5 6.5c-1.6.7-2.5 1.8-2.5 3.5v1.5"/>
+              <circle class="a-solid" cx="66" cy="256" r="2.2"/>
+            </g>
+            <!-- Formación virtual: portátil con un participante en pantalla -->
+            <rect class="a-bg a-line" x="176" y="216" width="84" height="56" rx="6"/>
+            <path class="a-bg a-line" d="M164 276h108l-8 8h-92z"/>
+            <circle class="a-fill a-line" cx="210" cy="237" r="7"/>
+            <path class="a-fill a-line" d="M197 264c0-9 6-14 13-14s13 5 13 14z"/>
+            <path class="a-faint" d="M234 232h16M234 241h10"/>
+            <circle class="a-pop" cx="186" cy="226" r="3"/>
+          </svg>
         </div>
       </div>
     </section>
 
     <section class="cta" id="contact">
+      <!-- Idea encendida en el centro de las ondas del contacto (solo escritorio) -->
+      <svg class="tr-cta-bulb" viewBox="0 0 120 160" aria-hidden="true" focusable="false">
+        <circle class="tr-glow" cx="60" cy="56" r="56"/>
+        <path class="a-pop-line anim-blink" d="M60 10V0M27 23l-7-7M93 23l7-7M14 56H4M106 56h10" style="--dur:6s"/>
+        <path class="a-fill a-line" d="M60 22a34 34 0 0 0-20 61.5c5 4 7 8.5 7 14.5h26c0-6 2-10.5 7-14.5A34 34 0 0 0 60 22z"/>
+        <path class="a-pop-line" d="M50 96V80l5-6 5 6 5-6 5 6v16"/>
+        <path class="a-line" d="M47 106h26M48 114h24M53 122h14"/>
+      </svg>
       <div class="wrap">
         <h2 data-i18n="training.cta.title">Train your team</h2>
         <p data-i18n="training.cta.text">Tell me what your team needs to learn and in what context. I'll design a program tailored to it, with clear goals and a format that fits your calendar.</p>

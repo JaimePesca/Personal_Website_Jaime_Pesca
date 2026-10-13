@@ -120,6 +120,9 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 
 // El botón flotante se esconde mientras haya en pantalla un botón de WhatsApp
 // de la propia página (encabezado, cifras o contacto), para no taparlo.
+// Empieza oculto (is-idle en el HTML) para no aparecer encima del botón del
+// encabezado al cargar; el margen inferior lo esconde antes de que un botón
+// que sube desde abajo pase por debajo de él.
 const waFloat = document.querySelector(".wa-float");
 const waButtons = document.querySelectorAll(".btn-wa");
 if (waFloat && waButtons.length && "IntersectionObserver" in window) {
@@ -127,6 +130,8 @@ if (waFloat && waButtons.length && "IntersectionObserver" in window) {
   const watch = new IntersectionObserver((entries) => {
     entries.forEach((entry) => (entry.isIntersecting ? onScreen.add(entry.target) : onScreen.delete(entry.target)));
     waFloat.classList.toggle("is-idle", onScreen.size > 0);
-  });
+  }, { rootMargin: "0px 0px 140px 0px" });
   waButtons.forEach((b) => watch.observe(b));
+} else if (waFloat) {
+  waFloat.classList.remove("is-idle");
 }

@@ -1750,6 +1750,8 @@ svg .anim-orbit {
   visibility: hidden;
   pointer-events: none;
   transform: scale(0.85);
+  /* Se esconde al instante; solo la reaparición tiene fundido */
+  transition: none;
 }
 
 /* Sin JavaScript no hay enlace de WhatsApp: se ocultan el botón y el ícono del pie */
@@ -1786,7 +1788,7 @@ html:not(.js) .needs-js { display: none; }
 }
 
 /* El botón no tapa la última línea del pie (donde puede alcanzarla) */
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .site-foot { padding-bottom: 6rem; }
 }
 

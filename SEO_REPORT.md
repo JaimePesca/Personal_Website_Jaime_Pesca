@@ -212,13 +212,13 @@ Cada idioma es la misma URL con `?lang=` (por ejemplo, `https://jaimepesca.com/g
 
 ## 6. Eventos de GA4 (R17)
 
-Los elementos medibles llevan `data-ga-event` en el HTML y `assets/js/main.js` envía el evento con `gtag`. Todos los eventos incluyen `page_language` (en, es, pt, fr) y `link_location`, que indica dónde fue el clic: `hero`, `promo`, `contact`, `footer`, `floating` (botón flotante) o `body` (por ejemplo, el botón debajo de las cifras). Los enlaces de contacto agregan `contact_method` (`whatsapp` o `email`).
+Los elementos medibles llevan `data-ga-event` en el HTML y `assets/js/main.js` envía el evento con `gtag`. Todos los eventos incluyen `page_language` (en, es, pt, fr); los de clic incluyen además `link_location`, que indica dónde fue el clic: `hero`, `promo`, `contact`, `footer`, `floating` (botón flotante) o `body` (por ejemplo, el botón debajo de las cifras). Los enlaces de contacto agregan `contact_method` (`whatsapp` o `email`).
 
 Desde octubre de 2026, WhatsApp es el contacto principal: los botones de venta abren WhatsApp con un mensaje prellenado según la página y el idioma, y el correo queda como alternativa en cada bloque de contacto.
 
 | Evento | Se dispara al hacer clic en | Páginas | Parámetros extra |
 |---|---|---|---|
-| `whatsapp_click` | **Cualquier** enlace a WhatsApp: botones de venta, "Escríbeme por WhatsApp", botón flotante y WhatsApp del pie. Es el evento de conversión. | todas | `cta`: botón de origen (por ejemplo `request_growth_plan`), `service`: página (`growth`, `data`, `teach`, `research`, `home`) |
+| `whatsapp_click` | **Cualquier** enlace a WhatsApp: botones de venta, "Escríbeme por WhatsApp", botón flotante y WhatsApp del pie. Es el evento de conversión. | todas | `cta`: botón de origen, solo si fue un botón de venta (por ejemplo `request_growth_plan`; en el botón flotante, el pie y "Escríbeme por WhatsApp" no va, y `link_location` dice de dónde vino), `service`: página (`growth`, `data`, `teach`, `research`, `home`) |
 | `request_growth_plan` | "Request a growth plan" (encabezado, cifras y contacto); abre WhatsApp | `growth.html` | |
 | `request_training_program` | "Design a program" (encabezado, cifras y contacto); abre WhatsApp | `training.html` | |
 | `request_data_consultation` | "Request a consultation" (encabezado y contacto); abre WhatsApp | `data.html` | |

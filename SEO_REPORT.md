@@ -219,6 +219,7 @@ Los elementos medibles llevan `data-ga-event` en el HTML y `assets/js/main.js` e
 | `request_growth_plan` | "Request a growth plan" (arriba y en contacto) | `growth.html` | |
 | `request_training_program` | "Design a program" (arriba y en contacto) | `training.html` | |
 | `request_data_consultation` | "Request a consultation" (arriba y en contacto) | `data.html` | |
+| `whatsapp_click` | Botón flotante de WhatsApp, WhatsApp del pie y "Escríbeme por WhatsApp" | todas | `link_location`: `floating`, `footer` o `contact` |
 | `email_click` | "Write to me", la dirección de correo y "Email" del pie | todas | |
 | `social_click` | LinkedIn o GitHub en el pie | todas | `link_label`: `linkedin` o `github` |
 | `learn_optimization_click` | Botón de Optimización en Acción y enlace del pie | todas | |
@@ -233,3 +234,9 @@ El botón "Request a growth plan" de arriba lleva a la sección de contacto y el
 3. **Ver los parámetros en informes:** en **Administrar → Definiciones personalizadas → Crear dimensión personalizada** (ámbito: Evento), crea `link_location`, `link_label`, `page_language`, `language` y `faq_question`.
 
 GA4 también registra por su cuenta un evento `click` en los enlaces que salen del sitio (medición mejorada). Los eventos de esta tabla son más específicos y no lo reemplazan.
+
+### Contacto por WhatsApp (octubre de 2026)
+
+Los botones `request_growth_plan`, `request_training_program` y `request_data_consultation` ahora abren WhatsApp con un mensaje prellenado según la página y el idioma; el correo quedó como alternativa en cada bloque de contacto. Todos los eventos incluyen `contact_method` (`whatsapp` o `email`).
+
+Para Google Ads: marca como eventos clave `request_growth_plan`, `request_training_program`, `request_data_consultation`, `whatsapp_click` y `email_click`, y luego impórtalos en Google Ads (**Objetivos → Conversiones → Nueva acción de conversión → Importar → Google Analytics 4**). Crea la dimensión personalizada `contact_method` para separar WhatsApp de correo en los informes.

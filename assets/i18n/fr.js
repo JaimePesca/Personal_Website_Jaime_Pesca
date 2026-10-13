@@ -101,7 +101,7 @@ I18N.register("fr", {
   "home.edu.lang.title": "Langues",
   "home.edu.lang.text": "Espagnol (langue maternelle) · Anglais (C1, IELTS 7.0).",
   "home.cta.title": "Prendre contact",
-  "home.cta.text": "Pour une collaboration de recherche, une campagne, un projet de données ou la formation d’une équipe, écrivez-moi par e-mail.",
+  "home.cta.text": "Pour une collaboration de recherche, une campagne, un projet de données ou la formation d’une équipe, écrivez-moi sur WhatsApp ou par e-mail.",
   "home.meta.desc": "Recherche opérationnelle, science des données, growth et formation en entreprise. Depuis la Colombie, à distance. Écrivez-moi pour en parler.",
   "home.profiles": "Profils",
   "research.meta.title": "Recherche et enseignement · Jaime Pesca",
@@ -184,7 +184,7 @@ I18N.register("fr", {
   "home.meta.title": "Jaime Pesca · Optimisation, science des données, growth et formation en entreprise",
   "foot.location": "Colombie · À distance",
   "home.fact.location": "Colombie · À distance",
-  "cta.write": "Écrivez-moi",
+  "cta.write": "Écrivez-moi sur WhatsApp",
   "faq.title": "Questions fréquentes",
   "growth.faq.1.q": "Combien cela coûte-t-il ?",
   "growth.faq.1.a": "Cela dépend du périmètre. Après un premier échange sans frais, je vous envoie une proposition à prix fixe.",
@@ -262,5 +262,11 @@ I18N.register("fr", {
   "training.ai.3.text": "Biais, protection des données et vérification : utiliser l’IA avec éthique et discernement.",
   "data.cta.button": "Demander un accompagnement",
   "training.stat.externado": "enseignant en analytique d’affaires et optimisation",
-  "training.stat.sabana": "enseignement de la logistique et de la supply chain"
+  "training.stat.sabana": "enseignement de la logistique et de la supply chain",
+  "wa.msg.home": "Bonjour Jaime, j’ai visité votre site et j’aimerais parler d’un projet.",
+  "wa.msg.research": "Bonjour Jaime, j’ai visité votre site et j’aimerais parler d’une collaboration de recherche.",
+  "wa.msg.growth": "Bonjour Jaime, j’ai visité votre site et un plan de croissance pour mon activité m’intéresse.",
+  "wa.msg.data": "Bonjour Jaime, j’ai visité votre site et j’aimerais un accompagnement pour un projet de données.",
+  "wa.msg.training": "Bonjour Jaime, j’ai visité votre site et un programme de formation pour mon équipe m’intéresse.",
+  "cta.or_email": "ou par e-mail :"
 });

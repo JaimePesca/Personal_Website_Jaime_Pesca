@@ -101,7 +101,7 @@ I18N.register("es", {
   "home.edu.lang.title": "Idiomas",
   "home.edu.lang.text": "Español (nativo) · Inglés (C1, IELTS 7.0).",
   "home.cta.title": "Contacto",
-  "home.cta.text": "Para colaboraciones de investigación, campañas, proyectos de datos o formación de equipos, escríbeme por correo.",
+  "home.cta.text": "Para colaboraciones de investigación, campañas, proyectos de datos o formación de equipos, escríbeme por WhatsApp o por correo.",
   "home.meta.desc": "Investigación de operaciones, ciencia de datos, growth y formación empresarial. Desde Colombia, en remoto. Escríbeme y conversemos.",
   "home.profiles": "Perfiles",
   "research.meta.title": "Investigación y Docencia · Jaime Pesca",
@@ -184,7 +184,7 @@ I18N.register("es", {
   "home.meta.title": "Jaime Pesca · Optimización, Ciencia de Datos, Growth y Formación Empresarial",
   "foot.location": "Colombia · Remoto",
   "home.fact.location": "Colombia · Remoto",
-  "cta.write": "Escríbeme",
+  "cta.write": "Escríbeme por WhatsApp",
   "faq.title": "Preguntas frecuentes",
   "growth.faq.1.q": "¿Cuánto cuesta?",
   "growth.faq.1.a": "Depende del alcance. Después de una primera conversación sin costo, te envío una propuesta con precio cerrado.",
@@ -262,5 +262,11 @@ I18N.register("es", {
   "training.ai.3.text": "Sesgos, protección de datos y verificación: usar la IA con ética y criterio.",
   "data.cta.button": "Solicita una asesoría",
   "training.stat.externado": "profesor de analítica de negocios y optimización",
-  "training.stat.sabana": "docencia en logística y cadena de suministro"
+  "training.stat.sabana": "docencia en logística y cadena de suministro",
+  "wa.msg.home": "Hola Jaime, vi tu página web y me gustaría hablar sobre un proyecto.",
+  "wa.msg.research": "Hola Jaime, vi tu página web y me gustaría hablar sobre una colaboración de investigación.",
+  "wa.msg.growth": "Hola Jaime, vi tu página web y me interesa un plan de crecimiento para mi negocio.",
+  "wa.msg.data": "Hola Jaime, vi tu página web y me gustaría una asesoría sobre un proyecto de datos.",
+  "wa.msg.training": "Hola Jaime, vi tu página web y me interesa un programa de formación para mi equipo.",
+  "cta.or_email": "o por correo:"
 });

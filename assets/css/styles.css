@@ -84,6 +84,11 @@
   --d-data: #0d3a30;
   --d-teach: #2d1f55;
 
+  /* WhatsApp: verde de marca, oscurecido para cumplir contraste (3:1 con el
+     ícono blanco y con el fondo, en claro y en oscuro) */
+  --c-whatsapp: #16934a;
+  --on-whatsapp: #ffffff;
+
   /* Texto sobre los fondos profundos */
   --on-deep: #ffffff;
   --on-deep-muted: rgba(255, 255, 255, 0.82);
@@ -1690,4 +1695,94 @@ svg .anim-orbit {
   .highlight-list li:is(:hover, :focus-within),
   .stat-row.tiles li:is(:hover, :focus-within),
   :is(.service, .profile-card, .stat-row li):is(:hover, :focus-within) .icon-badge { transform: none; }
+}
+
+
+/* ---------- WhatsApp (contacto) ---------- */
+/* Botones que abren WhatsApp: ícono antes del texto */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+}
+
+.btn-wa .wa-ico {
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+}
+
+/* Correo como alternativa junto al botón de WhatsApp */
+.cta-alt {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.45rem;
+}
+
+.cta-or {
+  font-size: 0.92rem;
+  color: var(--on-deep-muted);
+}
+
+/* Botón flotante en todas las páginas */
+.wa-float {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 60;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--c-whatsapp);
+  color: var(--on-whatsapp);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--ink) 28%, transparent);
+  transition: transform 0.2s ease;
+}
+
+.wa-float svg {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+/* Onda suave que invita a escribir */
+.wa-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--c-whatsapp);
+  opacity: 0;
+  animation: wa-ping 4.5s ease-out infinite;
+}
+
+@keyframes wa-ping {
+  0% { transform: scale(1); opacity: 0.55; }
+  45%, 100% { transform: scale(1.55); opacity: 0; }
+}
+
+.wa-float:hover { transform: translateY(-3px); }
+
+.wa-float:focus-visible {
+  outline: 3px solid var(--c-whatsapp);
+  outline-offset: 4px;
+}
+
+/* En celular el botón no tapa la última línea del pie */
+@media (max-width: 640px) {
+  .wa-float { width: 54px; height: 54px; }
+  .site-foot { padding-bottom: 6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { transition: none; }
+  .wa-float::before { animation: none; }
+  .wa-float:hover { transform: none; }
+}
+
+@media print {
+  .wa-float { display: none; }
 }

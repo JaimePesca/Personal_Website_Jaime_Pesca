@@ -101,7 +101,7 @@ I18N.register("pt", {
   "home.edu.lang.title": "Idiomas",
   "home.edu.lang.text": "Espanhol (nativo) · Inglês (C1, IELTS 7.0).",
   "home.cta.title": "Entre em contato",
-  "home.cta.text": "Para colaborações de pesquisa, campanhas, projetos de dados ou treinamento de equipes, escreva para mim por e-mail.",
+  "home.cta.text": "Para colaborações de pesquisa, campanhas, projetos de dados ou treinamento de equipes, fale comigo no WhatsApp ou por e-mail.",
   "home.meta.desc": "Pesquisa operacional, ciência de dados, growth e treinamento corporativo. Da Colômbia, em trabalho remoto. Escreva para mim e vamos conversar.",
   "home.profiles": "Perfis",
   "research.meta.title": "Pesquisa e Docência · Jaime Pesca",
@@ -184,7 +184,7 @@ I18N.register("pt", {
   "home.meta.title": "Jaime Pesca · Otimização, Ciência de Dados, Growth e Treinamento Corporativo",
   "foot.location": "Colômbia · Remoto",
   "home.fact.location": "Colômbia · Remoto",
-  "cta.write": "Escreva para mim",
+  "cta.write": "Fale comigo no WhatsApp",
   "faq.title": "Perguntas frequentes",
   "growth.faq.1.q": "Quanto custa?",
   "growth.faq.1.a": "Depende do escopo. Depois de uma primeira conversa sem custo, envio uma proposta com preço fechado.",
@@ -262,5 +262,11 @@ I18N.register("pt", {
   "training.ai.3.text": "Vieses, proteção de dados e verificação: usar a IA com ética e critério.",
   "data.cta.button": "Solicite uma consultoria",
   "training.stat.externado": "docente de analítica de negócios e otimização",
-  "training.stat.sabana": "docência em logística e cadeia de suprimentos"
+  "training.stat.sabana": "docência em logística e cadeia de suprimentos",
+  "wa.msg.home": "Olá Jaime, vi seu site e gostaria de conversar sobre um projeto.",
+  "wa.msg.research": "Olá Jaime, vi seu site e gostaria de conversar sobre uma colaboração de pesquisa.",
+  "wa.msg.growth": "Olá Jaime, vi seu site e tenho interesse em um plano de crescimento para o meu negócio.",
+  "wa.msg.data": "Olá Jaime, vi seu site e gostaria de uma consultoria sobre um projeto de dados.",
+  "wa.msg.training": "Olá Jaime, vi seu site e tenho interesse em um programa de treinamento para minha equipe.",
+  "cta.or_email": "ou por e-mail:"
 });

@@ -18,6 +18,20 @@ document.querySelectorAll("[data-mail]").forEach((a) => {
   if (a.hasAttribute("data-mail-text")) a.textContent = MAIL;
 });
 
+// WhatsApp: igual que el correo, el número se arma aquí y no aparece en el HTML.
+// Los enlaces con data-wa abren el chat con el mensaje de data-wa-text, que
+// i18n.js traduce; el enlace se actualiza solo cada vez que cambia el idioma.
+const WA = ["57", "300", "657", "2416"].join("");
+function setWhatsApp(a) {
+  const text = a.dataset.waText;
+  a.setAttribute("href", "https://wa.me/" + WA + (text ? "?text=" + encodeURIComponent(text) : ""));
+}
+const waWatcher = new MutationObserver((changes) => changes.forEach((c) => setWhatsApp(c.target)));
+document.querySelectorAll("[data-wa]").forEach((a) => {
+  setWhatsApp(a);
+  waWatcher.observe(a, { attributes: true, attributeFilter: ["data-wa-text"] });
+});
+
 // Analítica (GA4): cada enlace o botón a medir declara su evento en el HTML
 // con data-ga-event="nombre" (y data-ga-label opcional). Aquí se envía con
 // gtag y se agregan la sección donde ocurrió el clic y el idioma de la página.
@@ -27,6 +41,7 @@ function track(name, params) {
 }
 
 function sectionOf(el) {
+  if (el.closest(".wa-float")) return "floating";
   if (el.closest(".hero")) return "hero";
   if (el.closest(".promo")) return "promo";
   if (el.closest(".cta")) return "contact";
@@ -39,6 +54,9 @@ document.addEventListener("click", (e) => {
   if (!el) return;
   const params = { link_location: sectionOf(el) };
   if (el.dataset.gaLabel) params.link_label = el.dataset.gaLabel;
+  // Canal de contacto: así se distingue, por ejemplo, un request_growth_plan por WhatsApp
+  if (el.hasAttribute("data-wa")) params.contact_method = "whatsapp";
+  else if (el.hasAttribute("data-mail")) params.contact_method = "email";
   track(el.dataset.gaEvent, params);
 });
 

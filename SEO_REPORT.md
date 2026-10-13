@@ -212,31 +212,28 @@ Cada idioma es la misma URL con `?lang=` (por ejemplo, `https://jaimepesca.com/g
 
 ## 6. Eventos de GA4 (R17)
 
-Los elementos medibles llevan `data-ga-event` en el HTML y `assets/js/main.js` envía el evento con `gtag`. Todos los eventos incluyen `page_language` (en, es, pt, fr) y `link_location`, que indica dónde fue el clic: `hero`, `promo`, `contact`, `footer` o `body`.
+Los elementos medibles llevan `data-ga-event` en el HTML y `assets/js/main.js` envía el evento con `gtag`. Todos los eventos incluyen `page_language` (en, es, pt, fr) y `link_location`, que indica dónde fue el clic: `hero`, `promo`, `contact`, `footer`, `floating` (botón flotante) o `body` (por ejemplo, el botón debajo de las cifras). Los enlaces de contacto agregan `contact_method` (`whatsapp` o `email`).
+
+Desde octubre de 2026, WhatsApp es el contacto principal: los botones de venta abren WhatsApp con un mensaje prellenado según la página y el idioma, y el correo queda como alternativa en cada bloque de contacto.
 
 | Evento | Se dispara al hacer clic en | Páginas | Parámetros extra |
 |---|---|---|---|
-| `request_growth_plan` | "Request a growth plan" (arriba y en contacto) | `growth.html` | |
-| `request_training_program` | "Design a program" (arriba y en contacto) | `training.html` | |
-| `request_data_consultation` | "Request a consultation" (arriba y en contacto) | `data.html` | |
-| `whatsapp_click` | Botón flotante de WhatsApp, WhatsApp del pie y "Escríbeme por WhatsApp" | todas | `link_location`: `floating`, `footer` o `contact` |
-| `email_click` | "Write to me", la dirección de correo y "Email" del pie | todas | |
+| `whatsapp_click` | **Cualquier** enlace a WhatsApp: botones de venta, "Escríbeme por WhatsApp", botón flotante y WhatsApp del pie. Es el evento de conversión. | todas | `cta`: botón de origen (por ejemplo `request_growth_plan`), `service`: página (`growth`, `data`, `teach`, `research`, `home`) |
+| `request_growth_plan` | "Request a growth plan" (encabezado, cifras y contacto); abre WhatsApp | `growth.html` | |
+| `request_training_program` | "Design a program" (encabezado, cifras y contacto); abre WhatsApp | `training.html` | |
+| `request_data_consultation` | "Request a consultation" (encabezado y contacto); abre WhatsApp | `data.html` | |
+| `email_click` | La dirección de correo del bloque de contacto ("or by email:") y "Email" del pie | todas | |
 | `social_click` | LinkedIn o GitHub en el pie | todas | `link_label`: `linkedin` o `github` |
 | `learn_optimization_click` | Botón de Optimización en Acción y enlace del pie | todas | |
 | `language_change` | Cambio en el selector de idioma | todas | `language`: idioma elegido |
 | `faq_open` | Abrir una pregunta frecuente | `growth.html`, `training.html` | `faq_question`: clave de la pregunta, igual en todos los idiomas (por ejemplo `growth.faq.1.q`) |
 
-El botón "Request a growth plan" de arriba lleva a la sección de contacto y el de contacto abre el correo, así que `link_location` distingue la intención (`hero`) del contacto real (`contact`). Lo mismo aplica a "Design a program".
+Un clic en un botón de venta envía dos eventos: `whatsapp_click` (para contar el contacto) y el `request_*` del botón (para saber cuál botón funciona). Por eso solo `whatsapp_click` y `email_click` deben ser eventos clave; si `request_*` también lo fuera, cada contacto contaría doble.
 
-### Lo que tienes que hacer en GA4
-1. **Comprobar que llegan:** en **Administrar → DebugView** (o **Informes → Tiempo real**), abre el sitio y haz clic en los botones. Los eventos aparecen en uno o dos minutos. Los informes estándar tardan hasta 24 a 48 horas.
-2. **Marcar conversiones:** en **Administrar → Eventos**, activa **Marcar como evento clave** en `request_growth_plan`, `request_training_program`, `request_data_consultation` y `email_click`. Un evento aparece en esa lista después de dispararse por primera vez.
-3. **Ver los parámetros en informes:** en **Administrar → Definiciones personalizadas → Crear dimensión personalizada** (ámbito: Evento), crea `link_location`, `link_label`, `page_language`, `language` y `faq_question`.
+### Lo que tienes que hacer en GA4 y Google Ads
+1. **Comprobar que llegan:** en **Administrar → DebugView** (o **Informes → Tiempo real**), abre el sitio y haz clic en los botones. Los eventos aparecen en uno o dos minutos; los informes estándar tardan hasta 24 a 48 horas.
+2. **Eventos clave:** en **Administrar → Eventos**, marca como evento clave `whatsapp_click` y `email_click`. Si antes marcaste `request_growth_plan`, `request_training_program` o `request_data_consultation`, **desmárcalos** para no contar doble. Un evento aparece en esa lista después de dispararse por primera vez.
+3. **Google Ads:** en **Objetivos → Conversiones → Nueva acción de conversión → Importar → Google Analytics 4**, importa `whatsapp_click` como conversión principal con recuento **Una** (un contacto por clic de anuncio) y `email_click` como secundaria.
+4. **Ver los parámetros en informes:** en **Administrar → Definiciones personalizadas → Crear dimensión personalizada** (ámbito: Evento), crea `link_location`, `contact_method`, `cta`, `service`, `link_label`, `page_language`, `language` y `faq_question`.
 
 GA4 también registra por su cuenta un evento `click` en los enlaces que salen del sitio (medición mejorada). Los eventos de esta tabla son más específicos y no lo reemplazan.
-
-### Contacto por WhatsApp (octubre de 2026)
-
-Los botones `request_growth_plan`, `request_training_program` y `request_data_consultation` ahora abren WhatsApp con un mensaje prellenado según la página y el idioma; el correo quedó como alternativa en cada bloque de contacto. Todos los eventos incluyen `contact_method` (`whatsapp` o `email`).
-
-Para Google Ads: marca como eventos clave `request_growth_plan`, `request_training_program`, `request_data_consultation`, `whatsapp_click` y `email_click`, y luego impórtalos en Google Ads (**Objetivos → Conversiones → Nueva acción de conversión → Importar → Google Analytics 4**). Crea la dimensión personalizada `contact_method` para separar WhatsApp de correo en los informes.

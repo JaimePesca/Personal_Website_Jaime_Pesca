@@ -263,10 +263,10 @@ I18N.register("es", {
   "data.cta.button": "Solicita una asesoría",
   "training.stat.externado": "profesor de analítica de negocios y optimización",
   "training.stat.sabana": "docencia en logística y cadena de suministro",
-  "wa.msg.home": "Hola Jaime, vi tu página web y me gustaría hablar sobre un proyecto.",
-  "wa.msg.research": "Hola Jaime, vi tu página web y me gustaría hablar sobre una colaboración de investigación.",
-  "wa.msg.growth": "Hola Jaime, vi tu página web y me interesa un plan de crecimiento para mi negocio.",
-  "wa.msg.data": "Hola Jaime, vi tu página web y me gustaría una asesoría sobre un proyecto de datos.",
-  "wa.msg.training": "Hola Jaime, vi tu página web y me interesa un programa de formación para mi equipo.",
+  "wa.msg.home": "Hola, Jaime. Vi tu página web y me gustaría hablar sobre un proyecto.",
+  "wa.msg.research": "Hola, Jaime. Vi tu página web y me gustaría hablar sobre una colaboración de investigación.",
+  "wa.msg.growth": "Hola, Jaime. Vi tu página web y me interesa un plan de crecimiento para mi negocio.",
+  "wa.msg.data": "Hola, Jaime. Vi tu página web y me gustaría una asesoría sobre un proyecto de datos.",
+  "wa.msg.training": "Hola, Jaime. Vi tu página web y me interesa un programa de formación para mi equipo.",
   "cta.or_email": "o por correo:"
 });

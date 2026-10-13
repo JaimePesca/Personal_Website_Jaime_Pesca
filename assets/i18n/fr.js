@@ -265,8 +265,8 @@ I18N.register("fr", {
   "training.stat.sabana": "enseignement de la logistique et de la supply chain",
   "wa.msg.home": "Bonjour Jaime, j’ai visité votre site et j’aimerais parler d’un projet.",
   "wa.msg.research": "Bonjour Jaime, j’ai visité votre site et j’aimerais parler d’une collaboration de recherche.",
-  "wa.msg.growth": "Bonjour Jaime, j’ai visité votre site et un plan de croissance pour mon activité m’intéresse.",
+  "wa.msg.growth": "Bonjour Jaime, j’ai visité votre site et j’aimerais parler d’un plan de croissance pour mon activité.",
   "wa.msg.data": "Bonjour Jaime, j’ai visité votre site et j’aimerais un accompagnement pour un projet de données.",
-  "wa.msg.training": "Bonjour Jaime, j’ai visité votre site et un programme de formation pour mon équipe m’intéresse.",
+  "wa.msg.training": "Bonjour Jaime, j’ai visité votre site et j’aimerais parler d’un programme de formation pour mon équipe.",
   "cta.or_email": "ou par e-mail :"
 });

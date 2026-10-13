@@ -25,6 +25,9 @@ const WA = ["57", "300", "657", "2416"].join("");
 function setWhatsApp(a) {
   const text = a.dataset.waText;
   a.setAttribute("href", "https://wa.me/" + WA + (text ? "?text=" + encodeURIComponent(text) : ""));
+  // Nueva pestaña solo cuando el enlace ya es de WhatsApp (sin JS bajan al contacto)
+  a.target = "_blank";
+  a.rel = "noopener";
 }
 const waWatcher = new MutationObserver((changes) => changes.forEach((c) => setWhatsApp(c.target)));
 document.querySelectorAll("[data-wa]").forEach((a) => {
@@ -52,12 +55,21 @@ function sectionOf(el) {
 document.addEventListener("click", (e) => {
   const el = e.target.closest("[data-ga-event]");
   if (!el) return;
+  const name = el.dataset.gaEvent;
   const params = { link_location: sectionOf(el) };
   if (el.dataset.gaLabel) params.link_label = el.dataset.gaLabel;
   // Canal de contacto: así se distingue, por ejemplo, un request_growth_plan por WhatsApp
   if (el.hasAttribute("data-wa")) params.contact_method = "whatsapp";
   else if (el.hasAttribute("data-mail")) params.contact_method = "email";
-  track(el.dataset.gaEvent, params);
+  // Todo clic a WhatsApp envía también whatsapp_click (el evento de conversión
+  // único), con el botón de origen en cta y el servicio de la página.
+  if (el.hasAttribute("data-wa")) {
+    const service = (document.body.className.match(/\bp-(\w+)/) || [])[1];
+    const extra = name === "whatsapp_click" ? { service } : { cta: name, service };
+    track("whatsapp_click", Object.assign(extra, params));
+    if (name === "whatsapp_click") return;
+  }
+  track(name, params);
 });
 
 // Cambio de idioma en el selector
@@ -104,4 +116,17 @@ if (!reduceMotion && "IntersectionObserver" in window) {
   moving.forEach((el) => io.observe(el));
 } else {
   moving.forEach((el) => el.classList.add("is-visible"));
+}
+
+// El botón flotante se esconde mientras haya en pantalla un botón de WhatsApp
+// de la propia página (encabezado, cifras o contacto), para no taparlo.
+const waFloat = document.querySelector(".wa-float");
+const waButtons = document.querySelectorAll(".btn-wa");
+if (waFloat && waButtons.length && "IntersectionObserver" in window) {
+  const onScreen = new Set();
+  const watch = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => (entry.isIntersecting ? onScreen.add(entry.target) : onScreen.delete(entry.target)));
+    waFloat.classList.toggle("is-idle", onScreen.size > 0);
+  });
+  waButtons.forEach((b) => watch.observe(b));
 }
